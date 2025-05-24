@@ -1,5 +1,6 @@
 const { validationResult } = require("express-validator");
 const trainingDataService = require("../services/TrainingDataService");
+const actionLogService = require("../services/LogService");
 const ApiError = require("../errors/apiError");
 const TrainingDataDto = require("../dtos/training-data-dto");
 
@@ -8,6 +9,11 @@ class TrainingDataController {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
+        actionLogService.log({
+          userId: req.user?.id || "unknown",
+          description: "Create training data (validation error)",
+          success: false,
+        });
         return next(ApiError.BadRequest("Validation error", errors.array()));
       }
 
@@ -16,8 +22,19 @@ class TrainingDataController {
       );
       const trainingDataDto = new TrainingDataDto(trainingData);
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: "Create training data",
+        success: true,
+      });
+
       return res.status(200).json(trainingDataDto);
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: "Create training data",
+        success: false,
+      });
       next(e);
     }
   }
@@ -28,8 +45,19 @@ class TrainingDataController {
       const trainingData = await trainingDataService.getTrainingDataById(id);
       const trainingDataDto = new TrainingDataDto(trainingData);
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Get training data by id: ${id}`,
+        success: true,
+      });
+
       return res.status(200).json(trainingDataDto);
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Get training data by id: ${req.params.id}`,
+        success: false,
+      });
       next(e);
     }
   }
@@ -43,8 +71,19 @@ class TrainingDataController {
       );
       const trainingDataDto = new TrainingDataDto(trainingData);
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Update training data by id: ${id}`,
+        success: true,
+      });
+
       return res.status(200).json(trainingDataDto);
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Update training data by id: ${req.params.id}`,
+        success: false,
+      });
       next(e);
     }
   }
@@ -54,10 +93,21 @@ class TrainingDataController {
       const { id } = req.params;
       await trainingDataService.deleteTrainingDataById(id);
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Delete training data by id: ${id}`,
+        success: true,
+      });
+
       return res
         .status(200)
         .json({ message: "Training data successfully deleted" });
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Delete training data by id: ${req.params.id}`,
+        success: false,
+      });
       next(e);
     }
   }
@@ -69,8 +119,19 @@ class TrainingDataController {
         (data) => new TrainingDataDto(data)
       );
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: "Get all training data",
+        success: true,
+      });
+
       return res.status(200).json(trainingDataDto);
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: "Get all training data",
+        success: false,
+      });
       next(e);
     }
   }
@@ -84,8 +145,19 @@ class TrainingDataController {
         (data) => new TrainingDataDto(data)
       );
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Get training data by trainingId: ${trainingId}`,
+        success: true,
+      });
+
       return res.status(200).json(trainingDataDto);
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Get training data by trainingId: ${req.params.trainingId}`,
+        success: false,
+      });
       next(e);
     }
   }

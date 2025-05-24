@@ -1,5 +1,6 @@
 const { validationResult } = require("express-validator");
 const notificationService = require("../services/NotificationService");
+const actionLogService = require("../services/LogService");
 const ApiError = require("../errors/apiError");
 const NotificationDto = require("../dtos/notification-dto");
 
@@ -8,6 +9,11 @@ class NotificationController {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
+        actionLogService.log({
+          userId: req.user?.id || "unknown",
+          description: "Create notification (validation error)",
+          success: false,
+        });
         return next(ApiError.BadRequest("Validation error", errors.array()));
       }
 
@@ -16,8 +22,19 @@ class NotificationController {
       );
       const notificationDto = new NotificationDto(notification);
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: "Create notification",
+        success: true,
+      });
+
       return res.status(200).json(notificationDto);
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: "Create notification",
+        success: false,
+      });
       next(e);
     }
   }
@@ -28,8 +45,19 @@ class NotificationController {
       const notification = await notificationService.getNotificationById(id);
       const notificationDto = new NotificationDto(notification);
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Get notification by id: ${id}`,
+        success: true,
+      });
+
       return res.status(200).json(notificationDto);
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Get notification by id: ${req.params.id}`,
+        success: false,
+      });
       next(e);
     }
   }
@@ -43,8 +71,19 @@ class NotificationController {
       );
       const notificationDto = new NotificationDto(notification);
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Update notification by id: ${id}`,
+        success: true,
+      });
+
       return res.status(200).json(notificationDto);
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Update notification by id: ${req.params.id}`,
+        success: false,
+      });
       next(e);
     }
   }
@@ -54,10 +93,21 @@ class NotificationController {
       const { id } = req.params;
       await notificationService.deleteNotificationById(id);
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Delete notification by id: ${id}`,
+        success: true,
+      });
+
       return res
         .status(200)
         .json({ message: "Notification successfully deleted" });
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Delete notification by id: ${req.params.id}`,
+        success: false,
+      });
       next(e);
     }
   }
@@ -69,8 +119,19 @@ class NotificationController {
         (notification) => new NotificationDto(notification)
       );
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: "Get all notifications",
+        success: true,
+      });
+
       return res.status(200).json(notificationsDto);
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: "Get all notifications",
+        success: false,
+      });
       next(e);
     }
   }
@@ -85,8 +146,19 @@ class NotificationController {
         (notification) => new NotificationDto(notification)
       );
 
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Get notifications by user id: ${userId}`,
+        success: true,
+      });
+
       return res.status(200).json(notificationsDto);
     } catch (e) {
+      actionLogService.log({
+        userId: req.user?.id || "unknown",
+        description: `Get notifications by user id: ${req.params.userId}`,
+        success: false,
+      });
       next(e);
     }
   }
