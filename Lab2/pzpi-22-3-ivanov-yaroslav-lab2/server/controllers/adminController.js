@@ -1,4 +1,5 @@
 const adminService = require("../services/AdminService");
+const serverConfigService = require("../services/ServerConfigService");
 const actionLogService = require("../services/LogService");
 const path = require("path");
 
@@ -85,7 +86,7 @@ class AdminController {
 
   async getServerConfig(req, res, next) {
     try {
-      const config = adminService.getServerConfig();
+      const config = serverConfigService.getServerConfig();
       actionLogService.log({
         userId: req.user?.id || "system",
         description: "Get server config",
@@ -104,7 +105,7 @@ class AdminController {
 
   async setServerConfig(req, res, next) {
     try {
-      const config = adminService.setServerConfig(req.body);
+      const config = serverConfigService.setServerConfig(req.body);
       actionLogService.log({
         userId: req.user?.id || "system",
         description: "Set server config",
