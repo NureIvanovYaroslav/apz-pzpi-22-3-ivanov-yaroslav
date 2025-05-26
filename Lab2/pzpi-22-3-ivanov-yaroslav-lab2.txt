@@ -1,0 +1,871 @@
+﻿Харківський національний університет радіоелектроніки
+Факультет комп'ютерних наук
+Кафедра програмної інженерії
+     
+     
+     
+     
+ЗВІТ
+з лабораторної роботи №2
+з дисципліни  «Архітектура програмного забезпечення»
+на тему: «РОЗРОБКА СЕРВЕРНОЇ ЧАСТИНИ СИСТЕМИ»
+     
+     
+     
+     
+Виконав
+ст. гр. ПЗПІ-22-3
+Іванов Ярослав В’ячеславович
+     
+Перевірив
+ст. викладач кафедри ПІ
+Сокорчук Ігор Петрович
+     
+     
+     
+     
+Харків 2025
+
+1 ІСТОРІЯ ЗМІН
+     
+№	Дата	Версія звіту	Опис змін та виправлень
+1	22.05.2025	0.1	Створено розділ «Історія змін»
+2	22.05.2025	0.1	Створено розділ «Завдання», Опис виконаної роботи» та «Висновки»
+3	23.05.2025	0.1	Заповнено додаток Б з графічними матеріалами
+4	24.05.2025	0.1	Заповнено додаток В з програмним кодом
+5	26.05.2025	0.1	Наведено посилання на відеозапис. Заповнено додаток А.
+     
+2 ЗАВДАННЯ
+     
+     Метою даної лабораторної роботи є втілення функцій бізнес логіки та функцій адміністрування системи.
+     
+3 ОПИС ВИКОНАНОЇ РОБОТИ
+     
+     У ході виконання лабораторної роботи було реалізовано серверну частину програмної системи для ведення обліку користувача у фітнес студії, зосередившись на створенні бізнес-логіки та адміністрування. 
+     Було підготовлено відеозвіт, який демонструє результати реалізації. Посилання на відеозапис та хронологічний опис із таймкодами наведено у додатку А.
+     Було реалізовано математичну обробку даних з використанням двох підходів до розрахунку калорій: перший – через аналіз пульсу, другий – через кількість зроблених кроків. 
+     У випадку використання пульсових даних враховуються такі показники, як середній пульс під час тренування, тривалість заняття, вага, вік та стать користувача. Формула відрізняється для чоловіків і жінок і базується на стандартах фізіологічних розрахунків. 
+     У випадку підрахунку за кроками система враховує зріст користувача для визначення довжини кроку, а далі розраховує пройдену відстань, швидкість, коефіцієнт MET та підсумкову кількість спалених калорій. 
+     Крім того, аналітичний модуль містить функції для обчислення статистичних характеристик, таких як середнє значення, стандартне відхилення та коефіцієнт варіації. 
+     На основі цих метрик формуються рекомендації щодо фізичної активності, навантаження, а також аналізується пульсове навантаження відносно максимально допустимого значення, яке розраховується окремо для кожної статі та віку.
+     У додатку Б було представлено графічні матеріали.
+     Всі програмні реалізації, пов’язані з бізнес-логікою, математикою та адмініструванням, наведені у додатку В. 
+     У рамках реалізації адміністрування серверу було створено модуль для перегляду стану серверу. Крім того, реалізовано отримання та зміну конфігураційних параметрів системи, зокрема змінних середовища. Також адміністратор має доступ до журналів логів, які можна як переглядати, так і повністю або частково видаляти.
+     З боку адміністрування бази даних реалізовано можливість створення резервної копії даних, їх відновлення з наявної резервної копії, а також перевірка поточного стану з’єднання з базою.
+     Також було реалізовано модуль для адміністрування ролей користувачів у системі. Адміністратор має можливість створювати нові ролі, змінювати значення існуючих, видаляти непотрібні, а також отримувати список усіх наявних ролей або шукати конкретну роль за назвою.
+     
+ВИСНОВКИ
+
+     У результаті виконання лабораторної роботи було реалізовано ключову частину серверної логіки програмної системи для ведення обліку користувача у фітнес студії. 
+     Було впроваджено математичні розрахунки для оцінки фізичної активності користувачів. Окрему увагу приділено адмініструванню системи: створено функціонал для адміністратора серверу, бази даних та системи.
+     
+ДОДАТОК А
+Відеозапис
+     
+     Відеозапис презентації результатів лабораторної роботи на YouTube: 
+https://youtu.be/KMUmPV5QdFw 
+     
+     Хронологічний опис відеозапису:
+     00:00 – Привітання
+     00:28 – Функції бізнес логіки. Функції математичної обробки прикладних даних.
+     02:52 – Функції адміністратора баз даних. Функції перевірки стану сервера, створення та використання бекапів.
+     04:36 – Функції адміністратора серверу. Функції перегляду статусу серверу.
+     05:01 – Функції адміністратора серверу. Функції отримання та оновлення конфігурації серверу.
+     06:20 – Функції адміністратора серверу. Функції перегляду та видалення логів серверу.
+     07:16 – Функції адміністратора платформи. Функцій додавання, оновлення, видалення та призначення ролей.
+     08:31 – Висновки
+     
+ДОДАТОК Б
+Графічні матеріали
+     
+
+Рисунок Б.1 – ER діаграма даних
+     
+
+Рисунок Б.2 – Структура бази даних
+     
+
+Рисунок Б.3 – UML-діаграма прецедентів
+
+ДОДАТОК В
+Програмний код
+     	
+     В.1 Математична обробка прикладних даних.
+     
+     GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab2/pzpi-22-3-ivanov-yaroslav-lab2/server/services/AnalyticsService.js 
+     
+1. const TrainingModel = require("../models/Training");
+2. const DeviceModel = require("../models/Device");
+3. 
+4. class AnalyticsService {
+5.   /**
+6.    * Calculates the calories burned during a training session.
+7.    * @param {string} trainingId - The ID of the training session.
+8.    * @returns {Promise<Object|null>} - The calculated calories or null if training not found.
+9.    */
+10.   async calculateCalories(trainingId) {
+11.     const result = await this._getTrainingWithUser(trainingId);
+12.     if (!result) return null;
+13.     const { training, user } = result;
+14. 
+15.     let calories;
+16.     if (training.type === "walk" || training.type === "run") {
+17.       calories = this._calculateCaloriesBySteps(training, user);
+18.     } else {
+19.       calories = this._calculateCaloriesByHeartRate(training, user);
+20.     }
+21. 
+22.     await this._createRecommendations(user, training, calories);
+23.     return calories;
+24.   }
+25. 
+26.   /**
+27.    * Calculates calories burned based on heart rate data.
+28.    * @param {Object} training - The training session data.
+29.    * @param {Object} user - The user data.
+30.    * @returns {Object} - The calculated calories and related data.
+31.    */
+32.   _calculateCaloriesByHeartRate(training, user) {
+33.     const startTime = new Date(training.startTime).getTime();
+34.     const endTime = new Date(training.endTime).getTime();
+35.     const duration = Math.floor((endTime - startTime) / 60000);
+36. 
+37.     let totalHeartRate = 0;
+38.     for (const data of training.trainingDatas) {
+39.       totalHeartRate += data.heartRate;
+40.     }
+41.     const averageHeartRate = training.trainingDatas.length
+42.       ? totalHeartRate / training.trainingDatas.length
+43.       : 0;
+44. 
+45.     const { age, sex } = this._getUserAgeAndSex(user);
+46.     const weight = user.weight;
+47.     let formula = "";
+48.     let caloriesBurned = 0;
+49. 
+50.     if (sex === "male") {
+51.       formula = `CB = (T * (0.6309 * H + 0.1988 * W + 0.2017 * A - 55.0969)) / 4.184`;
+52.       caloriesBurned =
+53.         (duration *
+54.           (0.6309 * averageHeartRate +
+55.             0.1988 * weight +
+56.             0.2017 * age -
+57.             55.0969)) /
+58.         4.184;
+59.     } else if (sex === "female") {
+60.       formula = `CB = (T * (0.4472 * H - 0.1263 * W + 0.074 * A - 20.4022)) / 4.184`;
+61.       caloriesBurned =
+62.         (duration *
+63.           (0.4472 * averageHeartRate -
+64.             0.1263 * weight +
+65.             0.074 * age -
+66.             20.4022)) /
+67.         4.184;
+68.     }
+69. 
+70.     return {
+71.       CB: caloriesBurned,
+72.       T: duration,
+73.       H: averageHeartRate,
+74.       A: age,
+75.       W: weight,
+76.       sex,
+77.       formula,
+78.     };
+79.   }
+80. 
+81.   /**
+82.    * Calculates calories burned based on step data.
+83.    * @param {Object} training - The training session data.
+84.    * @param {Object} user - The user data.
+85.    * @returns {Object} - The calculated calories and related data.
+86.    */
+87.   _calculateCaloriesBySteps(training, user) {
+88.     let totalSteps = 0;
+89.     for (const data of training.trainingDatas) {
+90.       totalSteps += data.steps;
+91.     }
+92. 
+93.     const height = user.height / 100;
+94.     const stride = height * 0.414;
+95.     const distance = stride * totalSteps;
+96. 
+97.     let speed, MET;
+98.     if (training.type === "walk") {
+99.       speed = 0.9;
+100.       MET = 2.8;
+101.     } else if (training.type === "run") {
+102.       speed = 1.79;
+103.       MET = 5;
+104.     }
+105. 
+106.     const time = distance / speed;
+107.     const weight = user.weight;
+108.     const formula = `calories = (time * MET * 3.5 * weight) / (200 * 60)`;
+109.     const calories = (time * MET * 3.5 * weight) / (200 * 60);
+110. 
+111.     return {
+112.       calories,
+113.       totalSteps,
+114.       height,
+115.       time,
+116.       MET,
+117.       weight,
+118.       formula,
+119.     };
+120.   }
+121. 
+122.   /**
+123.    * Calculates step statistics for a user.
+124.    * @param {Object} user - The user data.
+125.    * @returns {Promise<Object|null>} - The calculated step statistics or null if no trainings found.
+126.    */
+127.   async _calculateStepStatistics(user) {
+128.     const trainings = await TrainingModel.find({
+129.       device: user.device,
+130.     }).populate("trainingDatas");
+131.     if (!trainings.length) return null;
+132. 
+133.     let totalSteps = 0;
+134.     const stepsArray = [];
+135.     for (const training of trainings) {
+136.       let trainingSteps = 0;
+137.       for (const data of training.trainingDatas) {
+138.         trainingSteps += data.steps;
+139.       }
+140.       totalSteps += trainingSteps;
+141.       stepsArray.push(trainingSteps);
+142.     }
+143.     const averageSteps = totalSteps / trainings.length;
+144.     const stepStandardDeviation = this._calculateStandardDeviation(
+145.       stepsArray,
+146.       averageSteps
+147.     );
+148.     const coefficientOfVariation = this._calculateCoefficientOfVariation(
+149.       stepStandardDeviation,
+150.       averageSteps
+151.     );
+152. 
+153.     return {
+154.       averageSteps,
+155.       stepStandardDeviation,
+156.       coefficientOfVariation,
+157.       totalSteps,
+158.       trainingsLength: trainings.length,
+159.     };
+160.   }
+161. 
+162.   /**
+163.    * Calculates calorie statistics for a user.
+164.    * @param {Object} user - The user data.
+165.    * @returns {Promise<Object|null>} - The calculated calorie statistics or null if no trainings found.
+166.    */
+167.   async _calculateCaloriesStatistics(user) {
+168.     const trainings = await TrainingModel.find({
+169.       device: user.device,
+170.     }).populate("trainingDatas");
+171.     if (!trainings.length) return null;
+172. 
+173.     let totalCalories = 0;
+174.     const caloriesArray = [];
+175.     for (const training of trainings) {
+176.       const calories = this._calculateCalories(training, user);
+177.       totalCalories += calories.CB || calories.calories;
+178.       caloriesArray.push(calories.CB || calories.calories);
+179.     }
+180. 
+181.     const averageCalories = totalCalories / trainings.length;
+182.     const calorieStandardDeviation = this._calculateStandardDeviation(
+183.       caloriesArray,
+184.       averageCalories
+185.     );
+186.     const coefficientOfVariation = this._calculateCoefficientOfVariation(
+187.       calorieStandardDeviation,
+188.       averageCalories
+189.     );
+190. 
+191.     return {
+192.       averageCalories,
+193.       calorieStandardDeviation,
+194.       coefficientOfVariation,
+195.       totalCalories,
+196.       trainingsAmount: trainings.length,
+197.     };
+198.   }
+199. 
+200.   /**
+201.    * Calculates calories burned during a training session.
+202.    * @param {Object} training - The training session data.
+203.    * @param {Object} user - The user data.
+204.    * @returns {Object} - The calculated calories and related data.
+205.    */
+206.   _calculateCalories(training, user) {
+207.     if (training.type === "walk" || training.type === "run") {
+208.       return this._calculateCaloriesBySteps(training, user);
+209.     }
+210.     return this._calculateCaloriesByHeartRate(training, user);
+211.   }
+212. 
+213.   /**
+214.    * Calculates the standard deviation of an array of values.
+215.    * @param {Array<number>} values - The array of values.
+216.    * @param {number} mean - The mean of the values.
+217.    * @returns {number} - The calculated standard deviation.
+218.    */
+219.   _calculateStandardDeviation(values, mean) {
+220.     let variance = 0;
+221.     for (const value of values) {
+222.       variance += Math.pow(value - mean, 2);
+223.     }
+224.     variance /= values.length;
+225.     return Math.sqrt(variance);
+226.   }
+227. 
+228.   /**
+229.    * Calculates the coefficient of variation.
+230.    * @param {number} standardDeviation - The standard deviation.
+231.    * @param {number} mean - The mean of the values.
+232.    * @returns {number} - The calculated coefficient of variation.
+233.    */
+234.   _calculateCoefficientOfVariation(standardDeviation, mean) {
+235.     return mean ? (standardDeviation / mean) * 100 : 0;
+236.   }
+237. 
+238.   /**
+239.    * Creates recommendations based on training and user data.
+240.    * @param {Object} user - The user data.
+241.    * @param {Object} training - The training session data.
+242.    * @param {Object} calories - The calculated calories data.
+243.    */
+244.   async _createRecommendations(user, training, calories) {
+245.     const stepStats = await this._calculateStepStatistics(user);
+246.     const calorieStats = await this._calculateCaloriesStatistics(user);
+247.     if (!stepStats || !calorieStats) return;
+248. 
+249.     let currentSteps = 0;
+250.     for (const data of training.trainingDatas) {
+251.       currentSteps += data.steps;
+252.     }
+253. 
+254.     let message = "";
+255.     if (currentSteps > stepStats.averageSteps) {
+256.       message = `Today you walked more than usual, good job`;
+257.     } else {
+258.       message = `Today you walked less than usual, don't lose your progression`;
+259.     }
+260. 
+261.     if (calories.CB || calories.calories > calorieStats.averageCalories) {
+262.       message += `\nYou burned more calories than usual in this workout, good job`;
+263.     } else {
+264.       message += `\nYou burned fewer calories than usual in this workout, try harder`;
+265.     }
+266. 
+267.     await this._checkLastTrainingDate(user);
+268.     await this._analyzeHeartRate(user, training);
+269.   }
+270. 
+271.   /**
+272.    * Checks the date of the last training session.
+273.    * @param {Object} user - The user data.
+274.    */
+275.   async _checkLastTrainingDate(user) {
+276.     const lastTraining = await TrainingModel.findOne({
+277.       device: user.device,
+278.     }).sort({ endTime: -1 });
+279.     if (!lastTraining) return;
+280. 
+281.     const lastTrainingDate = new Date(lastTraining.endTime).getTime();
+282.     const currentDate = new Date().getTime();
+283.     const diffTime = Math.abs(currentDate - lastTrainingDate);
+284.     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+285. 
+286.     if (diffDays > 7) {
+287.       const message = `You haven't done any sports for ${diffDays} days, come back - physical activity is very useful`;
+288.       console.log(message);
+289.     }
+290.   }
+291. 
+292.   /**
+293.    * Analyzes the heart rate data during a training session.
+294.    * @param {Object} user - The user data.
+295.    * @param {Object} training - The training session data.
+296.    */
+297.   async _analyzeHeartRate(user, training) {
+298.     const { age, sex } = this._getUserAgeAndSex(user);
+299.     let maxHeartRate;
+300.     let formula = "";
+301. 
+302.     if (sex === "male") {
+303.       maxHeartRate = 214 - 0.8 * age;
+304.       formula = `maxHeartRate = 214 - 0.8 * age`;
+305.     } else if (sex === "female") {
+306.       maxHeartRate = 209 - 0.9 * age;
+307.       formula = `maxHeartRate = 209 - 0.9 * age`;
+308.     }
+309. 
+310.     const heartRates = training.trainingDatas.map((data) => data.heartRate);
+311.     if (!heartRates.length) return;
+312. 
+313.     const maxHeartRateDuringTraining = Math.max(...heartRates);
+314.     const minHeartRateDuringTraining = Math.min(...heartRates);
+315. 
+316.     let message = "";
+317.     if (maxHeartRateDuringTraining > maxHeartRate) {
+318.       message = `During this training your heart rate was very high, you should take a break`;
+319.     } else if (maxHeartRateDuringTraining > 0.85 * maxHeartRate) {
+320.       message = `During this training your heart rate was high, try not to overexert yourself`;
+321.     } else if (minHeartRateDuringTraining < 0.5 * maxHeartRate) {
+322.       message = `During this training your heart rate was low, look out for your health`;
+323.     }  else {
+324.       message = `During this training your heart rate was normal, keep it up`;
+325.     }
+326. 
+327.     console.log(message);
+328.   }
+329. 
+330.   /**
+331.    * Provides step recommendations based on training data.
+332.    * @param {string} trainingId - The ID of the training session.
+333.    * @returns {Promise<Object>} - The step recommendations and related data.
+334.    */
+335.   async getStepRecommendations(trainingId) {
+336.     const result = await this._getTrainingWithUser(trainingId);
+337.     if (!result) return { message: "Training not found" };
+338.     const { training, user } = result;
+339. 
+340.     const stepStats = await this._calculateStepStatistics(user);
+341.     if (!stepStats)
+342.       return { message: "Not enough data to calculate statistics" };
+343. 
+344.     let currentSteps = 0;
+345.     for (const data of training.trainingDatas) {
+346.       currentSteps += data.steps;
+347.     }
+348. 
+349.     let message = "";
+350.     if (currentSteps > stepStats.averageSteps) {
+351.       message = `You walked more than in average, good job`;
+352.     } else {
+353.       message = `You walked less than in average, don't lose your progression`;
+354.     }
+355. 
+356.     return {
+357.       message,
+358.       indicators: {
+359.         currentSteps,
+360.         averageSteps: stepStats.averageSteps,
+361.       },
+362.     };
+363.   }
+364. 
+365.   /**
+366.    * Provides calorie recommendations based on training data.
+367.    * @param {string} trainingId - The ID of the training session.
+368.    * @returns {Promise<Object>} - The calorie recommendations and related data.
+369.    */
+370.   async getCaloriesRecommendations(trainingId) {
+371.     const result = await this._getTrainingWithUser(trainingId);
+372.     if (!result) return { message: "Training not found" };
+373.     const { training, user } = result;
+374. 
+375.     const calorieStats = await this._calculateCaloriesStatistics(user);
+376.     if (!calorieStats)
+377.       return { message: "Not enough data to calculate statistics" };
+378. 
+379.     const calories = await this.calculateCalories(trainingId);
+380.     if (!calories) return { message: "Unable to calculate calories" };
+381. 
+382.     let message = "";
+383.     if (calories.CB || calories.calories > calorieStats.averageCalories) {
+384.       message = `You burned more calories than usual in this workout, good job`;
+385.     } else {
+386.       message = `You burned fewer calories than usual in this workout, try harder`;
+387.     }
+388. 
+389.     return {
+390.       message,
+391.       indicators: {
+392.         calories: calories.CB || calories.calories,
+393.         averageCalories: calorieStats.averageCalories,
+394.       },
+395.       parameters: calories,
+396.     };
+397.   }
+398. 
+399.   /**
+400.    * Provides heart rate recommendations based on training data.
+401.    * @param {string} trainingId - The ID of the training session.
+402.    * @returns {Promise<Object>} - The heart rate recommendations and related data.
+403.    */
+404.   async getHeartRateRecommendations(trainingId) {
+405.     const result = await this._getTrainingWithUser(trainingId);
+406.     if (!result) return { message: "Training not found" };
+407.     const { training, user } = result;
+408. 
+409.     const { age, sex } = this._getUserAgeAndSex(user);
+410.     let maxHeartRate;
+411.     let formula = "";
+412. 
+413.     if (sex === "male") {
+414.       maxHeartRate = 214 - 0.8 * age;
+415.       formula = `maxHeartRate = 214 - 0.8 * age`;
+416.     } else if (sex === "female") {
+417.       maxHeartRate = 209 - 0.9 * age;
+418.       formula = `maxHeartRate = 209 - 0.9 * age`;
+419.     }
+420. 
+421.     const heartRates = training.trainingDatas.map((data) => data.heartRate);
+422.     if (!heartRates.length) return { message: "No heart rate data available" };
+423. 
+424.     const maxHeartRateDuringTraining = Math.max(...heartRates);
+425.     const minHeartRateDuringTraining = Math.min(...heartRates);
+426. 
+427.     let message = "";
+428.     if (maxHeartRateDuringTraining > maxHeartRate) {
+429.       message = `During this training your heart rate was very high, you should take a break`;
+430.     } else if (maxHeartRateDuringTraining > 0.85 * maxHeartRate) {
+431.       message = `During this training your heart rate was high, try not to overexert yourself`;
+432.     } else if (minHeartRateDuringTraining < 0.5 * maxHeartRate) {
+433.       message = `During this training your heart rate was low, look out for your health`;
+434.     }  else {
+435.       message = `During this training your heart rate was normal, keep it up`;
+436.     }
+437. 
+438.     return {
+439.       message,
+440.       formula,
+441.       indicators: {
+442.         age,
+443.         maxHeartRate,
+444.         maxHeartRateDuringTraining,
+445.         minHeartRateDuringTraining,
+446.         acceptableRange: {
+447.           lower: 0.5 * maxHeartRate,
+448.           upper: 0.85 * maxHeartRate,
+449.         },
+450.       },
+451.     };
+452.   }
+453. 
+454.   /**
+455.    * Retrieves training data along with user data.
+456.    * @param {string} trainingId - The ID of the training session.
+457.    * @returns {Promise<Object|null>} - The training and user data or null if not found.
+458.    */
+459.   async _getTrainingWithUser(trainingId) {
+460.     const training = await TrainingModel.findById(trainingId).populate(
+461.       "trainingDatas"
+462.     );
+463.     if (!training) return null;
+464. 
+465.     const device = await DeviceModel.findById(training.device).populate("user");
+466.     if (!device) return null;
+467. 
+468.     return { training, user: device.user, device };
+469.   }
+470. 
+471.   /**
+472.    * Retrieves the age and sex of a user.
+473.    * @param {Object} user - The user data.
+474.    * @returns {Object} - The age and sex of the user.
+475.    */
+476.   _getUserAgeAndSex(user) {
+477.     const birthDate = new Date(user.birthDate).getTime();
+478.     const ageDifMs = Date.now() - birthDate;
+479.     const age = new Date(ageDifMs).getUTCFullYear() - 1970;
+480.     const sex = user.sex.toLowerCase();
+481.     return { age, sex };
+482.   }
+483. }
+484. 
+485. module.exports = new AnalyticsService();
+     
+     В.2  Адміністрування бізнес-логіки системи
+     
+     GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab2/pzpi-22-3-ivanov-yaroslav-lab2/server/services/ServerConfigService.js 
+      
+      1. const fs = require("fs");
+      2. const path = require("path");
+      3. 
+      4. const configPath = path.join(__dirname, "../server-config.json");
+      5. 
+      6. class ServerConfigService {
+      7.   /**
+      8.    * Returns the current server configuration, including secrets and token refresh interval.
+      9.    * @returns {Object} - The server configuration object.
+      10.    */
+      11.   getServerConfig() {
+      12.     let config = {};
+      13.     if (fs.existsSync(configPath)) {
+      14.       config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+      15.     }
+      16.     config.JWT_ACCESS_SECRET =
+      17.       config.JWT_ACCESS_SECRET || process.env.JWT_ACCESS_SECRET;
+      18.     config.JWT_REFRESH_SECRET =
+      19.       config.JWT_REFRESH_SECRET || process.env.JWT_REFRESH_SECRET;
+      20.     config.TOKEN_REFRESH_INTERVAL =
+      21.       config.TOKEN_REFRESH_INTERVAL ||
+      22.       process.env.TOKEN_REFRESH_INTERVAL ||
+      23.       3600;
+      24.     return config;
+      25.   }
+      26. 
+      27.   /**
+      28.    * Updates the server configuration and environment variables.
+      29.    * @param {Object} newConfig - The new configuration object.
+      30.    * @returns {Object} - The updated server configuration.
+      31.    */
+      32.   setServerConfig(newConfig) {
+      33.     if (newConfig.JWT_ACCESS_SECRET)
+      34.       process.env.JWT_ACCESS_SECRET = newConfig.JWT_ACCESS_SECRET;
+      35.     if (newConfig.JWT_REFRESH_SECRET)
+      36.       process.env.JWT_REFRESH_SECRET = newConfig.JWT_REFRESH_SECRET;
+      37.     if (newConfig.TOKEN_REFRESH_INTERVAL)
+      38.       process.env.TOKEN_REFRESH_INTERVAL = newConfig.TOKEN_REFRESH_INTERVAL;
+      39. 
+      40.     const configToSave = { ...newConfig };
+      41.     fs.writeFileSync(configPath, JSON.stringify(configToSave, null, 2));
+      42.     return this.getServerConfig();
+      43.   }
+      44. }
+      45. 
+      46. module.exports = new ServerConfigService();
+      47.
+     
+     В.3 Резервне копіювання користувацьких даних
+     
+     GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab2/pzpi-22-3-ivanov-yaroslav-lab2/server/services/AdminService.js 
+     
+1. const { exec } = require("child_process");
+2. const path = require("path");
+3. const fs = require("fs");
+4. const configPath = path.join(__dirname, "../server-config.json");
+5. const logsDir = path.join(__dirname, "../logs");
+6. const logService = require("./LogService");
+7. const mongoose = require("mongoose");
+8. 
+9. class AdminService {
+10.   constructor() {
+11.     this.rootDir = path.resolve(__dirname, "../../");
+12.     this.backupDir = path.join(this.rootDir, "backups");
+13.     this.mongoUri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@arkpz.scpri.mongodb.net/?retryWrites=true&w=majority&appName=arkpz`;
+14.   }
+15. 
+16.   /**
+17.    * Creates a backup of the MongoDB database.
+18.    * @returns {Promise<Object>} - A promise that resolves to an object indicating success or failure.
+19.    */
+20.   async backupDatabase() {
+21.     if (!fs.existsSync(this.backupDir)) {
+22.       fs.mkdirSync(this.backupDir, { recursive: true });
+23.     }
+24. 
+25.     const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+26.     const backupPath = path.join(this.backupDir, `backup-${timestamp}`);
+27. 
+28.     return new Promise((resolve) => {
+29.       const command = `mongodump --uri "${this.mongoUri}" --out ${backupPath}`;
+30.       exec(command, (error, stdout, stderr) => {
+31.         if (error) {
+32.           resolve({ success: false, message: stderr });
+33.         } else {
+34.           resolve({
+35.             success: true,
+36.             message: `Backup created at ${backupPath}`,
+37.           });
+38.         }
+39.       });
+40.     });
+41.   }
+42. 
+43.   /**
+44.    * Restores the MongoDB database from a backup.
+45.    * @param {string} filePath - The path to the backup directory.
+46.    * @returns {Promise<Object>} - A promise that resolves to an object indicating success or failure.
+47.    */
+48.   async restoreDatabase(filePath) {
+49.     if (!filePath || !fs.existsSync(filePath)) {
+50.       return {
+51.         success: false,
+52.         message: `Invalid or missing filePath: ${filePath}`,
+53.       };
+54.     }
+55. 
+56.     return new Promise((resolve) => {
+57.       const command = `mongorestore --uri "${this.mongoUri}" --dir ${filePath} --drop`;
+58.       exec(command, (error, stdout, stderr) => {
+59.         if (error) {
+60.           resolve({ success: false, message: stderr });
+61.         } else {
+62.           resolve({ success: true, message: "Database restored successfully" });
+63.         }
+64.       });
+65.     });
+66.   }
+67. 
+68.   /**
+69.    * Returns the current status of the server process.
+70.    * @returns {Object} - An object containing status, uptime, memory usage, and timestamp.
+71.    */
+72.   getServerStatus() {
+73.     return {
+74.       status: "OK",
+75.       uptime: process.uptime(),
+76.       memoryUsage: process.memoryUsage(),
+77.       timestamp: new Date().toISOString(),
+78.     };
+79.   }
+80. 
+81.   /**
+82.    * Returns the current status of the MongoDB connection.
+83.    * @returns {Object} - An object containing status, state, host, and database name.
+84.    */
+85.   async getDatabaseStatus() {
+86.     try {
+87.       const state = mongoose.connection.readyState;
+88.       return {
+89.         status: state === 1 ? "CONNECTED" : "DISCONNECTED",
+90.         state,
+91.         host: mongoose.connection.host,
+92.         name: mongoose.connection.name,
+93.       };
+94.     } catch (e) {
+95.       return { status: "ERROR", error: e.message };
+96.     }
+97.   }
+98. 
+99.   /**
+100.    * Returns all logs as array of objects.
+101.    * @returns {Array}
+102.    */
+103.   getLogs() {
+104.     return logService.getAllLogs();
+105.   }
+106. 
+107.   /**
+108.    * Deletes all logs (clears the log file).
+109.    * @returns {Object}
+110.    */
+111.   deleteAllLogs() {
+112.     return logService.deleteAllLogs();
+113.   }
+114. 
+115.   /**
+116.    * Deletes logs for a specific date (YYYY-MM-DD).
+117.    * @param {string} date
+118.    * @returns {Object}
+119.    */
+120.   deleteLogsByDate(date) {
+121.     return logService.deleteLogsByDate(date);
+122.   }
+123. }
+124. 
+125. module.exports = new AdminService();
+     
+     В.4 Функції платформенного адміністратора. Зміна ролей користувачів.
+     
+     GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab2/pzpi-22-3-ivanov-yaroslav-lab2/server/services/RoleService.js 
+     
+1. const RoleModel = require("../models/Role");
+2. const UserModel = require("../models/User");
+3. const ApiError = require("../errors/apiError");
+4. 
+5. class RoleService {
+6.   /**
+7.    * Creates a new role.
+8.    * @param {string} value - The role value.
+9.    * @returns {Promise<Object>} - The created role.
+10.    */
+11.   async createRole(value) {
+12.     if (!value) {
+13.       throw ApiError.BadRequest("Role value cannot be empty");
+14.     }
+15. 
+16.     const existingRole = await RoleModel.findOne({ value });
+17. 
+18.     if (existingRole) {
+19.       throw ApiError.BadRequest("Role with this value already exists");
+20.     }
+21. 
+22.     const role = new RoleModel({ value });
+23. 
+24.     await role.save();
+25. 
+26.     return role;
+27.   }
+28. 
+29.   /**
+30.    * Retrieves a role by its value.
+31.    * @param {string} value - The role value.
+32.    * @returns {Promise<Object>} - The role data.
+33.    */
+34.   async getRoleByValue(value) {
+35.     const role = await RoleModel.findOne({ value });
+36. 
+37.     if (!role) {
+38.       throw ApiError.NotFound("Role not found");
+39.     }
+40. 
+41.     return role;
+42.   }
+43. 
+44.   /**
+45.    * Updates a role by its ID.
+46.    * @param {string} id - The role ID.
+47.    * @param {string} newValue - The new role value.
+48.    * @returns {Promise<Object>} - The updated role.
+49.    */
+50.   async updateRoleById(id, newValue) {
+51.     if (!newValue) {
+52.       throw ApiError.BadRequest("Role value cannot be empty");
+53.     }
+54. 
+55.     const role = await RoleModel.findByIdAndUpdate(
+56.       id,
+57.       { value: newValue },
+58.       { new: true }
+59.     );
+60. 
+61.     if (!role) {
+62.       throw ApiError.NotFound("Role not found");
+63.     }
+64. 
+65.     return role;
+66.   }
+67. 
+68.   /**
+69.    * Deletes a role by its ID.
+70.    * @param {string} id - The role ID.
+71.    * @returns {Promise<Object>} - The deleted role.
+72.    */
+73.   async deleteRoleById(id) {
+74.     const role = await RoleModel.findByIdAndDelete(id);
+75. 
+76.     if (!role) {
+77.       throw ApiError.NotFound("Role not found");
+78.     }
+79. 
+80.     await UserModel.updateMany(
+81.       { roles: role.value },
+82.       { $pull: { roles: role.value } }
+83.     );
+84. 
+85.     return role;
+86.   }
+87. 
+88.   /**
+89.    * Retrieves all roles.
+90.    * @returns {Promise<Array>} - The list of roles.
+91.    */
+92.   async getAllRoles() {
+93.     const roles = await RoleModel.find();
+94. 
+95.     if (roles.length === 0) {
+96.       throw ApiError.NotFound("No roles found");
+97.     }
+98. 
+99.     return roles;
+100.   }
+101. }
+102. 
+103. module.exports = new RoleService();
