@@ -1,0 +1,1446 @@
+﻿Харківський національний університет радіоелектроніки
+Факультет комп'ютерних наук
+Кафедра програмної інженерії
+     
+     
+     
+     
+ЗВІТ
+з лабораторної роботи №3
+з дисципліни  «Архітектура програмного забезпечення»
+на тему: «РОЗРОБКА ВЕБКЛІЄНТА СИСТЕМИ»
+     
+     
+     
+     
+Виконав
+ст. гр. ПЗПІ-22-3
+Іванов Ярослав В’ячеславович
+     
+Перевірив
+ст. викладач кафедри ПІ
+Сокорчук Ігор Петрович
+     
+     
+     
+     
+Харків 2025
+1 ІСТОРІЯ ЗМІН
+     
+№	Дата	Версія звіту	Опис змін та виправлень
+1	26.05.2025	0.1	Створено розділ «Історія змін»
+2	26.05.2025	0.1	Створено розділ «Завдання», Опис виконаної роботи» та «Висновки»
+3	26.05.2025	0.1	Заповнено додаток Б з графічними матеріалами
+4	27.05.2025	0.1	Заповнено додаток В з програмним кодом
+5	27.05.2025	0.1	Наведено посилання на відеозапис. Заповнено додаток А.
+     
+2 ЗАВДАННЯ
+     
+     Метою даної лабораторної роботи є розробка клієнтської частини програмної системи.
+     
+3 ОПИС ВИКОНАНОЇ РОБОТИ
+     
+     У ході виконання лабораторної роботи було реалізовано клієнтську (фронтенд) частину програмної системи для ведення обліку користувачів у фітнес-студії. Основна увага була зосереджена на створенні зручного та функціонального інтерфейсу користувача для взаємодії з серверною частиною, яка забезпечує бізнес-логіку та обробку даних.
+     Фронтенд-проєкт було реалізовано за допомогою фреймворку React із використанням Vite для збирання. Структура проєкту містить компоненти для авторизації, перегляду аналітики, керування профілем користувача, а також модулі для адміністративних функцій.
+     Було підготовлено відеозвіт, який демонструє результати реалізації. Посилання на відеозапис та хронологічний опис із таймкодами наведено у додатку А.
+     У процесі реалізації клієнтської частини програмної системи особливу увагу було приділено розробці двох ключових модулів: математичної обробки даних та адміністрування системи. Відповідні сторінки інтерфейсу реалізовані як окремі React-компоненти з використанням сучасних підходів до маршрутизації, обробки стану та API-запитів.
+     Модуль математичної обробки прикладних даних відповідає за відображення детальної інформації про проведене тренування. Після отримання основних та супутніх метрик тренування (кроки, пульс, витрата калорій, швидкість, відстань тощо) дані обробляються, сортуються та виводяться у вигляді таблиці. 
+     Крім базових показників, користувач має можливість запитати рекомендації за трьома напрямками: кроки, калорії, пульсове навантаження. Для кожного типу обчислюються релевантні індикатори (наприклад, середній пульс, допустимі межі, рекомендовані навантаження) та параметри (вага, тривалість, вік, стать), які використовуються у формулі розрахунку. Відповідна формула також виводиться на екран у зрозумілому вигляді, що робить систему прозорою для користувача.
+     Модуль адміністрування серверної частини реалізує інтерфейс для контролю над технічними аспектами роботи сервера. Адміністратор може отримати поточний стан системи, включно з тривалістю безперервної роботи, використанням оперативної пам’яті та іншими ключовими метриками. Також передбачено можливість перегляду, очищення або видалення логів – як повністю, так і за конкретну дату. Інтерфейс дозволяє адміністратору завантажити поточні конфігурації сервера, внести необхідні зміни та зберегти їх напряму через UI. Це забезпечує гнучке адміністрування без необхідності прямого доступу до серверного середовища.
+     Окремий розділ адміністрування бази даних відповідає за резервне копіювання та відновлення даних. Інтерфейс дозволяє адміністратору створити резервну копію бази, а також ввести шлях до архіву для його відновлення. Крім того, користувач може перевірити поточний статус підключення до бази даних. Це підвищує надійність системи та дозволяє швидко реагувати у разі збоїв.
+     Модуль адміністрування плафторми забезпечує керування ролями користувачів. Користувачі з правами адміністратора мають змогу переглядати список усіх зареєстрованих користувачів, призначати їм нові ролі, а також видаляти непотрібні. Процес виконується безпосередньо через інтерфейс, що суттєво спрощує адміністрування платформи та контроль доступу до критичних функцій системи.
+     Таким чином, клієнтська частина не лише відображає результати обчислень і візуалізує фізичну активність користувача, а й надає потужний набір засобів для адміністрування системи, резервного копіювання та гнучкого керування ролями, що робить її повноцінною складовою багатофункціональної програмної платформи.
+     У додатку Б було представлено графічні матеріали.
+     Всі програмні реалізації, пов’язані з бізнес-логікою, математикою та адмініструванням, наведені у додатку В. 
+     ВИСНОВКИ
+
+     У результаті виконання лабораторної роботи було реалізовано клієнтську частину програмної системи для обліку користувача у фітнес-студії. Забезпечено взаємодію з сервером, візуалізацію аналітичних показників тренувань та формування персоналізованих рекомендацій.
+     Реалізовано модулі для адміністрування сервера, бази даних і системи загалом: перегляд стану, керування конфігурацією, логами, резервним копіюванням і ролями користувачів.
+     Таким чином, фронтенд доповнює серверну логіку, надаючи зручний інтерфейс і розширені можливості керування системою.
+
+ДОДАТОК А
+Відеозапис
+     
+     Відеозапис презентації результатів лабораторної роботи на YouTube:  https://youtu.be/WC0hPBqX62I 
+     
+     Хронологічний опис відеозапису:
+     00:00 – Привітання
+     00:28 – Функції бізнес логіки. Функції математичної обробки прикладних даних.
+     03:59 – Функції адміністратора платформи. Функцій пов’язані з фітнес студіями.
+     05:42 – Функції адміністратора платформи. Функції призначення ролей.
+     06:45 – Функції адміністратора серверу. Функції перегляду статусу серверу, отримання та оновлення конфігурації серверу, перегляду та видалення логів серверу.
+     08:08 – Функції адміністратора баз даних. Функції перевірки стану сервера, створення та використання бекапів.
+     09:09 – Локалізація та інтернаціоналізація клієнту.
+     10:01 – Висновки
+     
+ДОДАТОК Б
+Графічні матеріали
+     
+
+Рисунок Б.1 – ER діаграма даних
+     
+
+Рисунок Б.2 – Структура бази даних
+     
+
+Рисунок Б.3 – UML-діаграма прецедентів
+
+ДОДАТОК В
+Програмний код
+     	
+     В.1 Математична обробка прикладних даних.
+     
+     GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab3/pzpi-22-3-ivanov-yaroslav-lab3/client/apz/src/pages/TrainingDetails.jsx
+     
+1. import React, { useEffect, useState } from "react";
+2. import { useParams, useNavigate } from "react-router-dom";
+3. import { formatDate } from "../utils/formatDate";
+4. import { getTrainingTypeLabel } from "../utils/getTrainingTypeLabel";
+5. import { translateRecommendationMessage } from "../utils/translations";
+6. import { useTranslation } from "react-i18next";
+7. import { convertWeight, convertHeight } from "../utils/unitConversion";
+8. import "../App.css";
+9. 
+10. const TrainingDetails = () => {
+11.   const { id } = useParams();
+12.   const [training, setTraining] = useState(null);
+13.   const [trainingDatas, setTrainingDatas] = useState([]);
+14.   const [loading, setLoading] = useState(true);
+15.   const [error, setError] = useState("");
+16.   const [sortField, setSortField] = useState(null);
+17.   const [sortAsc, setSortAsc] = useState(true);
+18. 
+19.   const [recommendation, setRecommendation] = useState(null);
+20.   const [recLoading, setRecLoading] = useState(false);
+21.   const [recError, setRecError] = useState("");
+22.   const [activeRec, setActiveRec] = useState(null);
+23. 
+24.   const navigate = useNavigate();
+25.   const { t, i18n } = useTranslation();
+26. 
+27.   const recommendationTypes = [
+28.     { key: "steps", label: t("training_details.recommend_steps") },
+29.     { key: "calories", label: t("training_details.recommend_calories") },
+30.     { key: "heart-rate", label: t("training_details.recommend_heart") },
+31.   ];
+32. 
+33.   const columnLabels = {
+34.     sendingTime: t("training_details.sending_time"),
+35.     steps: t("training_details.steps"),
+36.     calories: t("training_details.calories"),
+37.     heartRate: t("training_details.heart_rate"),
+38.     distance: t("training_details.distance"),
+39.     speed: t("training_details.speed"),
+40.     duration: t("training_details.duration"),
+41.     type: t("training_details.type"),
+42.   };
+43. 
+44.   useEffect(() => {
+45.     const fetchTraining = async () => {
+46.       setLoading(true);
+47.       setError("");
+48.       try {
+49.         const token = localStorage.getItem("token");
+50.         const res = await fetch(`/api/trainings/${id}`, {
+51.           headers: token ? { Authorization: `Bearer ${token}` } : {},
+52.         });
+53.         const data = await res.json();
+54.         if (res.ok) {
+55.           setTraining(data);
+56.           if (Array.isArray(data.trainingDatas) && data.trainingDatas.length) {
+57.             const detailsRes = await fetch(`/api/training-datas`, {
+58.               headers: token ? { Authorization: `Bearer ${token}` } : {},
+59.             });
+60.             const details = await detailsRes.json();
+61.             const ids = data.trainingDatas.map(String);
+62.             const filtered = Array.isArray(details)
+63.               ? details.filter((d) =>
+64.                   ids.includes(String(d.id || d._id || (d._id && d._id.$oid)))
+65.                 )
+66.               : [];
+67.             setTrainingDatas(filtered);
+68.           } else {
+69.             setTrainingDatas([]);
+70.           }
+71.         } else {
+72.           setError(data.message || t("training_details.error_training"));
+73.         }
+74.       } catch {
+75.         setError(t("training_details.error_connection"));
+76.       }
+77.       setLoading(false);
+78.     };
+79.     fetchTraining();
+80.     // eslint-disable-next-line
+81.   }, [id, t]);
+82. 
+83.   const handleSort = (field) => {
+84.     if (sortField === field) setSortAsc((asc) => !asc);
+85.     else {
+86.       setSortField(field);
+87.       setSortAsc(true);
+88.     }
+89.   };
+90. 
+91.   const getSortedData = () => {
+92.     if (!sortField) return trainingDatas;
+93.     return [...trainingDatas].sort((a, b) => {
+94.       const aVal = a[sortField];
+95.       const bVal = b[sortField];
+96.       if (aVal === undefined || aVal === null) return sortAsc ? 1 : -1;
+97.       if (bVal === undefined || bVal === null) return sortAsc ? -1 : 1;
+98.       if (typeof aVal === "number" && typeof bVal === "number")
+99.         return sortAsc ? aVal - bVal : bVal - aVal;
+100.       if (
+101.         (typeof aVal === "string" && !isNaN(Date.parse(aVal))) ||
+102.         (typeof bVal === "string" && !isNaN(Date.parse(bVal)))
+103.       ) {
+104.         return sortAsc
+105.           ? new Date(aVal) - new Date(bVal)
+106.           : new Date(bVal) - new Date(aVal);
+107.       }
+108.       return sortAsc
+109.         ? String(aVal).localeCompare(String(bVal))
+110.         : String(bVal).localeCompare(String(aVal));
+111.     });
+112.   };
+113. 
+114.   const fetchRecommendation = async (type) => {
+115.     setRecLoading(true);
+116.     setRecError("");
+117.     setRecommendation(null);
+118.     setActiveRec(type);
+119.     try {
+120.       const token = localStorage.getItem("token");
+121.       const res = await fetch(`/api/analytics/recommendations/${type}/${id}`, {
+122.         headers: token ? { Authorization: `Bearer ${token}` } : {},
+123.       });
+124.       const data = await res.json();
+125.       if (res.ok) {
+126.         setRecommendation(data);
+127.       } else {
+128.         setRecError(data.message || t("training_details.error_recommendation"));
+129.       }
+130.     } catch {
+131.       setRecError(t("training_details.error_connection"));
+132.     }
+133.     setRecLoading(false);
+134.   };
+135. 
+136.   if (loading) return <div className="training-details-loading"></div>;
+137.   if (error)
+138.     return (
+139.       <div className="training-details-error">
+140.         {error}
+141.         <br />
+142.         <button
+143.           className="header-btn training-details-back-btn"
+144.           onClick={() => navigate(-1)}
+145.         >
+146.           {t("training_details.back")}
+147.         </button>
+148.       </div>
+149.     );
+150.   if (!training)
+151.     return (
+152.       <div className="training-details-error">
+153.         {t("training_details.not_found")}
+154.         <br />
+155.         <button
+156.           className="header-btn training-details-back-btn"
+157.           onClick={() => navigate(-1)}
+158.         >
+159.           {t("training_details.back")}
+160.         </button>
+161.       </div>
+162.     );
+163. 
+164.   return (
+165.     <div className="training-details-container">
+166.       <button
+167.         className="header-btn training-details-back-btn"
+168.         onClick={() => navigate(-1)}
+169.       >
+170.         {t("training_details.back")}
+171.       </button>
+172.       <h2 className="training-details-title">{t("training_details.title")}</h2>
+173.       <div className="training-details-row">
+174.         <strong>{t("training_details.type")}:</strong>{" "}
+175.         {getTrainingTypeLabel(training.type, t)}
+176.       </div>
+177.       <div className="training-details-row">
+178.         <strong>{t("training_details.start")}:</strong>{" "}
+179.         {formatDate(training.startTime)}
+180.       </div>
+181.       <div className="training-details-row">
+182.         <strong>{t("training_details.end")}:</strong>{" "}
+183.         {formatDate(training.endTime)}
+184.       </div>
+185.       <div className="training-details-recommendations training-details-recommendations--row">
+186.         {recommendationTypes.map((rec) => (
+187.           <button
+188.             key={rec.key}
+189.             className={`header-btn${
+190.               activeRec === rec.key ? " header-btn--primary" : ""
+191.             }`}
+192.             onClick={() => fetchRecommendation(rec.key)}
+193.             disabled={recLoading && activeRec === rec.key}
+194.           >
+195.             {rec.label}
+196.           </button>
+197.         ))}
+198.       </div>
+199.       {recLoading && <div className="training-details-loading"></div>}
+200.       {recError && <div className="training-details-error">{recError}</div>}
+201.       {recommendation && (
+202.         <div className="training-details-recommendation-card">
+203.           <div className="training-details-recommendation-header">
+204.             <span
+205.               className={`training-details-recommendation-icon${
+206.                 recommendation.message?.toLowerCase().includes("good job") ||
+207.                 recommendation.message?.toLowerCase().includes("нормально")
+208.                   ? " training-details-recommendation-icon--ok"
+209.                   : " training-details-recommendation-icon--warn"
+210.               }`}
+211.             >
+212.               {recommendation.message?.toLowerCase().includes("good job") ||
+213.               recommendation.message?.toLowerCase().includes("нормально")
+214.                 ? "✅"
+215.                 : "⚠️"}
+216.             </span>
+217.             <span className="training-details-recommendation-message">
+218.               {translateRecommendationMessage(recommendation.message, t)}
+219.             </span>
+220.           </div>
+221.           {recommendation.indicators && (
+222.             <div className="training-details-recommendation-section">
+223.               <strong>{t("training_details.indicators")}:</strong>
+224.               <ul>
+225.                 {Object.entries(recommendation.indicators).map(([key, val]) => (
+226.                   <li key={key}>
+227.                     <span className="training-details-recommendation-label">
+228.                       {t(`training_details.indicator_labels.${key}`, key)}:
+229.                     </span>{" "}
+230.                     {typeof val === "object" && val !== null
+231.                       ? Array.isArray(val)
+232.                         ? val.join(", ")
+233.                         : Object.entries(val)
+234.                             .map(
+235.                               ([k, v]) =>
+236.                                 `${t(
+237.                                   `training_details.indicator_labels.${k}`,
+238.                                   k === "lower"
+239.                                     ? t("training_details.lower")
+240.                                     : k === "upper"
+241.                                     ? t("training_details.upper")
+242.                                     : k
+243.                                 )}: ${Math.round(Number(v) * 100) / 100}`
+244.                             )
+245.                             .join(", ")
+246.                       : typeof val === "number"
+247.                       ? Math.round(val * 100) / 100
+248.                       : String(val)}
+249.                   </li>
+250.                 ))}
+251.               </ul>
+252.             </div>
+253.           )}
+254.           {recommendation.parameters && (
+255.             <div className="training-details-recommendation-section">
+256.               <strong>{t("training_details.calc_details")}:</strong>
+257.               <ul>
+258.                 {Object.entries(recommendation.parameters).map(
+259.                   ([key, val]) =>
+260.                     key !== "formula" && (
+261.                       <li key={key}>
+262.                         <span className="training-details-recommendation-label">
+263.                           {t(`training_details.parameter_labels.${key}`, key)}:
+264.                         </span>{" "}
+265.                         {key === "weight"
+266.                           ? convertWeight(val, i18n.language)
+267.                           : key === "height"
+268.                           ? convertHeight(val, i18n.language)
+269.                           : typeof val === "number"
+270.                           ? Math.round(val * 100) / 100
+271.                           : String(val)}
+272.                       </li>
+273.                     )
+274.                 )}
+275.               </ul>
+276.             </div>
+277.           )}
+278.           {(recommendation.formula ||
+279.             (recommendation.parameters &&
+280.               recommendation.parameters.formula)) && (
+281.             <div className="training-details-recommendation-formula">
+282.               <strong>{t("training_details.formula")}:</strong>
+283.               <div className="training-details-recommendation-formula-value">
+284.                 {recommendation.formula ||
+285.                   (recommendation.parameters &&
+286.                     recommendation.parameters.formula)}
+287.               </div>
+288.             </div>
+289.           )}
+290.         </div>
+291.       )}
+292.       <h3 className="training-details-table-title">
+293.         {t("training_details.data_title")}
+294.       </h3>
+295.       {trainingDatas.length === 0 ? (
+296.         <div className="training-details-empty">
+297.           {t("training_details.no_data")}
+298.         </div>
+299.       ) : (
+300.         <div className="training-details-table-wrap">
+301.           <table className="training-details-table">
+302.             <thead>
+303.               <tr>
+304.                 {Object.keys(trainingDatas[0])
+305.                   .filter(
+306.                     (key) => key !== "training" && key !== "id" && key !== "_id"
+307.                   )
+308.                   .map((key) => (
+309.                     <th
+310.                       key={key}
+311.                       className="training-details-th"
+312.                       onClick={() => handleSort(key)}
+313.                     >
+314.                       {columnLabels[key] || key}
+315.                       {sortField === key ? (sortAsc ? " ▲" : " ▼") : ""}
+316.                     </th>
+317.                   ))}
+318.               </tr>
+319.             </thead>
+320.             <tbody>
+321.               {getSortedData().map((row, idx) => (
+322.                 <tr key={row.id || row._id || idx}>
+323.                   {Object.entries(row)
+324.                     .filter(
+325.                       ([key]) =>
+326.                         key !== "training" && key !== "id" && key !== "_id"
+327.                     )
+328.                     .map(([key, val], i) => (
+329.                       <td key={i} className="training-details-td">
+330.                         {typeof val === "object" &&
+331.                         val !== null &&
+332.                         val.$numberDecimal
+333.                           ? val.$numberDecimal
+334.                           : typeof val === "object" && val !== null && val.$oid
+335.                           ? val.$oid
+336.                           : typeof val === "string" && !isNaN(Date.parse(val))
+337.                           ? formatDate(val)
+338.                           : String(val)}
+339.                       </td>
+340.                     ))}
+341.                 </tr>
+342.               ))}
+343.             </tbody>
+344.           </table>
+345.         </div>
+346.       )}
+347.     </div>
+348.   );
+349. };
+350. 
+351. export default TrainingDetails;
+     
+     В.2  Адміністрування бізнес-логіки системи
+     
+     GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab3/pzpi-22-3-ivanov-yaroslav-lab3/client/apz/src/pages/ServerAdminDashboard.jsx 
+      
+1. import React, { useState } from "react";
+2. import { getUserFromToken } from "../utils/getUserFromToken";
+3. import { formatDate } from "../utils/formatDate";
+4. import { formatBytes } from "../utils/formatBytes";
+5. import { useTranslation } from "react-i18next";
+6. import "../App.css";
+7. 
+8. const LOGS_PER_PAGE = 10;
+9. 
+10. const ServerAdminDashboard = () => {
+11.   const user = getUserFromToken();
+12.   const [serverStatus, setServerStatus] = useState(null);
+13.   const [config, setConfig] = useState(null);
+14.   const [configEdit, setConfigEdit] = useState("");
+15.   const [logs, setLogs] = useState([]);
+16.   const [notification, setNotification] = useState("");
+17.   const [loading, setLoading] = useState(false);
+18.   const [logsPage, setLogsPage] = useState(1);
+19.   const [deleteDate, setDeleteDate] = useState(() => {
+20.     const today = new Date();
+21.     return today.toISOString().slice(0, 10);
+22.   });
+23. 
+24.   const [activeBlock, setActiveBlock] = useState(null);
+25.   const { t } = useTranslation();
+26. 
+27.   if (!user?.roles?.includes("SERVER_ADMIN")) {
+28.     return (
+29.       <div className="server-admin-access-denied">
+30.         {t("server_admin.access_denied")}
+31.       </div>
+32.     );
+33.   }
+34. 
+35.   const handleCheckServerStatus = async () => {
+36.     setLoading(true);
+37.     setNotification("");
+38.     setActiveBlock("status");
+39.     try {
+40.       const token = localStorage.getItem("token");
+41.       const res = await fetch("/api/admin/server-status", {
+42.         headers: token ? { Authorization: `Bearer ${token}` } : {},
+43.       });
+44.       const data = await res.json();
+45.       if (res.ok) {
+46.         setServerStatus(data);
+47.         setNotification("");
+48.       } else {
+49.         setNotification(data.message || t("server_admin.errors.status"));
+50.       }
+51.     } catch {
+52.       setNotification(t("server_admin.errors.connection"));
+53.     }
+54.     setLoading(false);
+55.   };
+56. 
+57.   const handleGetConfig = async () => {
+58.     setLoading(true);
+59.     setNotification("");
+60.     setActiveBlock("config");
+61.     try {
+62.       const token = localStorage.getItem("token");
+63.       const res = await fetch("/api/admin/server-config", {
+64.         headers: token ? { Authorization: `Bearer ${token}` } : {},
+65.       });
+66.       const data = await res.json();
+67.       if (res.ok) {
+68.         setConfig(data);
+69.         setConfigEdit(JSON.stringify(data, null, 2));
+70.         setNotification("");
+71.       } else {
+72.         setNotification(data.message || t("server_admin.errors.config"));
+73.       }
+74.     } catch {
+75.       setNotification(t("server_admin.errors.connection"));
+76.     }
+77.     setLoading(false);
+78.   };
+79. 
+80.   const handleUpdateConfig = async () => {
+81.     setLoading(true);
+82.     setNotification("");
+83.     try {
+84.       const token = localStorage.getItem("token");
+85.       const res = await fetch("/api/admin/server-config", {
+86.         method: "POST",
+87.         headers: {
+88.           "Content-Type": "application/json",
+89.           ...(token ? { Authorization: `Bearer ${token}` } : {}),
+90.         },
+91.         body: configEdit,
+92.       });
+93.       const data = await res.json();
+94.       if (res.ok) {
+95.         setNotification(t("server_admin.success.config_updated"));
+96.         setConfig(data);
+97.       } else {
+98.         setNotification(data.message || t("server_admin.errors.config_update"));
+99.       }
+100.     } catch {
+101.       setNotification(t("server_admin.errors.connection"));
+102.     }
+103.     setLoading(false);
+104.   };
+105. 
+106.   const handleGetLogs = async () => {
+107.     setLoading(true);
+108.     setNotification("");
+109.     setActiveBlock("logs");
+110.     try {
+111.       const token = localStorage.getItem("token");
+112.       const res = await fetch("/api/admin/logs", {
+113.         headers: token ? { Authorization: `Bearer ${token}` } : {},
+114.       });
+115.       const data = await res.json();
+116.       if (res.ok) {
+117.         setLogs(Array.isArray(data) ? data : []);
+118.         setLogsPage(1);
+119.         setNotification("");
+120.       } else {
+121.         setNotification(data.message || t("server_admin.errors.logs"));
+122.       }
+123.     } catch {
+124.       setNotification(t("server_admin.errors.connection"));
+125.     }
+126.     setLoading(false);
+127.   };
+128. 
+129.   const handleDeleteLogs = async () => {
+130.     if (!window.confirm(t("server_admin.confirm.delete_all_logs"))) return;
+131.     setLoading(true);
+132.     setNotification("");
+133.     try {
+134.       const token = localStorage.getItem("token");
+135.       const res = await fetch("/api/admin/logs", {
+136.         method: "DELETE",
+137.         headers: token ? { Authorization: `Bearer ${token}` } : {},
+138.       });
+139.       const data = await res.json();
+140.       if (res.ok) {
+141.         setLogs([]);
+142.         setNotification(t("server_admin.success.logs_deleted"));
+143.       } else {
+144.         setNotification(data.message || t("server_admin.errors.logs_delete"));
+145.       }
+146.     } catch {
+147.       setNotification(t("server_admin.errors.connection"));
+148.     }
+149.     setLoading(false);
+150.   };
+151. 
+152.   const handleDeleteLogsByDate = async () => {
+153.     if (
+154.       !window.confirm(
+155.         t("server_admin.confirm.delete_logs_by_date", { date: deleteDate })
+156.       )
+157.     )
+158.       return;
+159.     setLoading(true);
+160.     setNotification("");
+161.     try {
+162.       const token = localStorage.getItem("token");
+163.       const res = await fetch(`/api/admin/logs/by-date?date=${deleteDate}`, {
+164.         method: "DELETE",
+165.         headers: token ? { Authorization: `Bearer ${token}` } : {},
+166.       });
+167.       const data = await res.json();
+168.       if (res.ok) {
+169.         setNotification(
+170.           t("server_admin.success.logs_deleted_by_date", { date: deleteDate })
+171.         );
+172.         handleGetLogs();
+173.       } else {
+174.         setNotification(
+175.           data.message || t("server_admin.errors.logs_delete_by_date")
+176.         );
+177.       }
+178.     } catch {
+179.       setNotification(t("server_admin.errors.connection"));
+180.     }
+181.     setLoading(false);
+182.   };
+183. 
+184.   const totalPages = Math.max(1, Math.ceil(logs.length / LOGS_PER_PAGE));
+185.   const paginatedLogs = logs.slice(
+186.     (logsPage - 1) * LOGS_PER_PAGE,
+187.     (logsPage - 1) * LOGS_PER_PAGE + LOGS_PER_PAGE
+188.   );
+189. 
+190.   const serverStatusLabels = {
+191.     status: t("server_admin.status"),
+192.     uptime: t("server_admin.uptime"),
+193.     memoryUsage: t("server_admin.memory_usage"),
+194.     timestamp: t("server_admin.timestamp"),
+195.     rss: t("server_admin.rss"),
+196.     heapTotal: t("server_admin.heap_total"),
+197.     heapUsed: t("server_admin.heap_used"),
+198.     external: t("server_admin.external"),
+199.     arrayBuffers: t("server_admin.array_buffers"),
+200.   };
+201. 
+202.   return (
+203.     <div className="server-admin-container">
+204.       <h2 className="server-admin-title">{t("server_admin.title")}</h2>
+205. 
+206.       {notification && (
+207.         <div
+208.           className={
+209.             notification.startsWith("✅")
+210.               ? "server-admin-notification server-admin-notification--success"
+211.               : "server-admin-notification server-admin-notification--warn"
+212.           }
+213.         >
+214.           {notification}
+215.         </div>
+216.       )}
+217. 
+218.       <div className="server-admin-btns-col">
+219.         <button
+220.           className={`header-btn server-admin-main-btn${
+221.             activeBlock === "status" ? " server-admin-main-btn--active" : ""
+222.           }`}
+223.           onClick={handleCheckServerStatus}
+224.           disabled={loading}
+225.         >
+226.           {loading && activeBlock === "status"
+227.             ? t("server_admin.loading.status")
+228.             : t("server_admin.check_status")}
+229.         </button>
+230.         {activeBlock === "status" && serverStatus && (
+231.           <div className="server-admin-status-wrap">
+232.             <div className="server-admin-status-card">
+233.               <h4 className="server-admin-status-title">
+234.                 {t("server_admin.status_title")}
+235.               </h4>
+236.               <ul className="server-admin-status-list">
+237.                 <li>
+238.                   <span className="server-admin-status-label">
+239.                     {serverStatusLabels.status}:
+240.                   </span>{" "}
+241.                   {serverStatus.status === "OK" ? "🟢 OK" : serverStatus.status}
+242.                 </li>
+243.                 <li>
+244.                   <span className="server-admin-status-label">
+245.                     {serverStatusLabels.uptime}:
+246.                   </span>{" "}
+247.                   {serverStatus.uptime
+248.                     ? serverStatus.uptime.toFixed(1) +
+249.                       " " +
+250.                       t("server_admin.sec")
+251.                     : "—"}
+252.                 </li>
+253.                 <li>
+254.                   <span className="server-admin-status-label">
+255.                     {serverStatusLabels.timestamp}:
+256.                   </span>{" "}
+257.                   {serverStatus.timestamp
+258.                     ? formatDate(serverStatus.timestamp)
+259.                     : "—"}
+260.                 </li>
+261.                 {serverStatus.memoryUsage && (
+262.                   <li className="server-admin-status-list-nested">
+263.                     <span className="server-admin-status-label">
+264.                       {serverStatusLabels.memoryUsage}:
+265.                     </span>
+266.                     <ul className="server-admin-status-list-inner">
+267.                       <li>
+268.                         <span className="server-admin-status-label">
+269.                           {serverStatusLabels.rss}:
+270.                         </span>{" "}
+271.                         {formatBytes(serverStatus.memoryUsage.rss)}
+272.                       </li>
+273.                       <li>
+274.                         <span className="server-admin-status-label">
+275.                           {serverStatusLabels.heapTotal}:
+276.                         </span>{" "}
+277.                         {formatBytes(serverStatus.memoryUsage.heapTotal)}
+278.                       </li>
+279.                       <li>
+280.                         <span className="server-admin-status-label">
+281.                           {serverStatusLabels.heapUsed}:
+282.                         </span>{" "}
+283.                         {formatBytes(serverStatus.memoryUsage.heapUsed)}
+284.                       </li>
+285.                       <li>
+286.                         <span className="server-admin-status-label">
+287.                           {serverStatusLabels.external}:
+288.                         </span>{" "}
+289.                         {formatBytes(serverStatus.memoryUsage.external)}
+290.                       </li>
+291.                       <li>
+292.                         <span className="server-admin-status-label">
+293.                           {serverStatusLabels.arrayBuffers}:
+294.                         </span>{" "}
+295.                         {formatBytes(serverStatus.memoryUsage.arrayBuffers)}
+296.                       </li>
+297.                     </ul>
+298.                   </li>
+299.                 )}
+300.               </ul>
+301.             </div>
+302.           </div>
+303.         )}
+304. 
+305.         <button
+306.           className={`header-btn server-admin-main-btn${
+307.             activeBlock === "config" ? " server-admin-main-btn--active" : ""
+308.           }`}
+309.           onClick={handleGetConfig}
+310.           disabled={loading}
+311.         >
+312.           {loading && activeBlock === "config"
+313.             ? t("server_admin.loading.config")
+314.             : t("server_admin.get_config")}
+315.         </button>
+316.         {activeBlock === "config" && config && (
+317.           <div className="server-admin-config-wrap">
+318.             <textarea
+319.               value={configEdit}
+320.               onChange={(e) => setConfigEdit(e.target.value)}
+321.               rows={10}
+322.               className="server-admin-config-textarea"
+323.             />
+324.             <button
+325.               className="header-btn header-btn--primary server-admin-config-btn"
+326.               onClick={handleUpdateConfig}
+327.               disabled={loading}
+328.             >
+329.               {t("server_admin.update_config")}
+330.             </button>
+331.           </div>
+332.         )}
+333. 
+334.         <button
+335.           className={`header-btn server-admin-main-btn${
+336.             activeBlock === "logs" ? " server-admin-main-btn--active" : ""
+337.           }`}
+338.           onClick={handleGetLogs}
+339.           disabled={loading}
+340.         >
+341.           {loading && activeBlock === "logs"
+342.             ? t("server_admin.loading.logs")
+343.             : t("server_admin.view_logs")}
+344.         </button>
+345.         {activeBlock === "logs" && logs.length > 0 && (
+346.           <div className="server-admin-logs-wrap">
+347.             <table className="server-admin-logs-table">
+348.               <thead>
+349.                 <tr>
+350.                   <th>{t("server_admin.log_date")}</th>
+351.                   <th>{t("server_admin.log_user")}</th>
+352.                   <th>{t("server_admin.log_description")}</th>
+353.                   <th>{t("server_admin.log_status")}</th>
+354.                 </tr>
+355.               </thead>
+356.               <tbody>
+357.                 {paginatedLogs.map((log) => (
+358.                   <tr key={log.id}>
+359.                     <td>{formatDate(log.date)}</td>
+360.                     <td>{log.userId}</td>
+361.                     <td>{log.description}</td>
+362.                     <td>
+363.                       {log.success ? (
+364.                         <span className="server-admin-log-success">
+365.                           {t("server_admin.log_success")}
+366.                         </span>
+367.                       ) : (
+368.                         <span className="server-admin-log-error">
+369.                           {t("server_admin.log_error")}
+370.                         </span>
+371.                       )}
+372.                     </td>
+373.                   </tr>
+374.                 ))}
+375.               </tbody>
+376.             </table>
+377.             <div className="server-admin-logs-pagination">
+378.               <button
+379.                 className="header-btn"
+380.                 onClick={() => setLogsPage((p) => Math.max(1, p - 1))}
+381.                 disabled={logsPage === 1}
+382.               >
+383.                 {"<"}
+384.               </button>
+385.               <span>
+386.                 {t("server_admin.page")} {logsPage} {t("server_admin.of")}{" "}
+387.                 {totalPages}
+388.               </span>
+389.               <button
+390.                 className="header-btn"
+391.                 onClick={() => setLogsPage((p) => Math.min(totalPages, p + 1))}
+392.                 disabled={logsPage === totalPages}
+393.               >
+394.                 {">"}
+395.               </button>
+396.             </div>
+397.             <div className="server-admin-logs-actions">
+398.               <button
+399.                 className="header-btn server-admin-logs-delete-btn"
+400.                 onClick={handleDeleteLogs}
+401.                 disabled={loading}
+402.               >
+403.                 {t("server_admin.delete_all_logs")}
+404.               </button>
+405.               <form
+406.                 className="server-admin-logs-delete-form"
+407.                 onSubmit={(e) => {
+408.                   e.preventDefault();
+409.                   handleDeleteLogsByDate();
+410.                 }}
+411.               >
+412.                 <label
+413.                   htmlFor="delete-log-date"
+414.                   className="server-admin-logs-delete-label"
+415.                 >
+416.                   {t("server_admin.delete_logs_by_date")}
+417.                 </label>
+418.                 <div className="server-admin-logs-delete-date-row">
+419.                   <svg
+420.                     xmlns="http://www.w3.org/2000/svg"
+421.                     width="22"
+422.                     height="22"
+423.                     fill="none"
+424.                     viewBox="0 0 24 24"
+425.                     className="server-admin-logs-delete-date-icon"
+426.                   >
+427.                     <rect
+428.                       width="18"
+429.                       height="18"
+430.                       x="3"
+431.                       y="4"
+432.                       fill="#b00"
+433.                       fillOpacity="0.12"
+434.                       rx="3"
+435.                     />
+436.                     <rect
+437.                       width="18"
+438.                       height="18"
+439.                       x="3"
+440.                       y="4"
+441.                       stroke="#b00"
+442.                       strokeWidth="2"
+443.                       rx="3"
+444.                     />
+445.                     <path stroke="#b00" strokeWidth="2" d="M8 2v4M16 2v4" />
+446.                     <rect
+447.                       width="14"
+448.                       height="8"
+449.                       x="5"
+450.                       y="9"
+451.                       fill="#fff"
+452.                       rx="1"
+453.                     />
+454.                   </svg>
+455.                   <input
+456.                     id="delete-log-date"
+457.                     type="date"
+458.                     value={deleteDate}
+459.                     onChange={(e) => setDeleteDate(e.target.value)}
+460.                     className="server-admin-logs-delete-date-input"
+461.                     max={new Date().toISOString().slice(0, 10)}
+462.                   />
+463.                 </div>
+464.                 <button
+465.                   type="submit"
+466.                   className="header-btn server-admin-logs-delete-btn"
+467.                   disabled={loading}
+468.                 >
+469.                   {t("server_admin.delete_by_date_btn")}
+470.                 </button>
+471.               </form>
+472.             </div>
+473.           </div>
+474.         )}
+475.       </div>
+476.     </div>
+477.   );
+478. };
+479. 
+480. export default ServerAdminDashboard;
+     
+     В.3 Резервне копіювання користувацьких даних
+     
+     GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab3/pzpi-22-3-ivanov-yaroslav-lab3/client/apz/src/pages/DBAdminDashboard.jsx 
+     
+1. import React, { useState } from "react";
+2. import { getUserFromToken } from "../utils/getUserFromToken";
+3. import { useTranslation } from "react-i18next";
+4. import "../App.css";
+5. 
+6. const fieldLabels = (t) => ({
+7.   db: t("db_admin.db"),
+8.   collections: t("db_admin.collections"),
+9.   objects: t("db_admin.objects"),
+10.   size: t("db_admin.size"),
+11.   storageSize: t("db_admin.storageSize"),
+12.   indexes: t("db_admin.indexes"),
+13.   indexSize: t("db_admin.indexSize"),
+14.   status: t("db_admin.status"),
+15.   state: t("db_admin.state"),
+16.   host: t("db_admin.host"),
+17.   name: t("db_admin.name"),
+18. });
+19. 
+20. const stateDescriptions = (t) => ({
+21.   0: t("db_admin.state_disconnected"),
+22.   1: t("db_admin.state_connected"),
+23.   2: t("db_admin.state_connecting"),
+24.   3: t("db_admin.state_disconnecting"),
+25.   99: t("db_admin.state_unknown"),
+26. });
+27. 
+28. const DBAdminDashboard = () => {
+29.   const [backupPath, setBackupPath] = useState("");
+30.   const [lastBackupPath, setLastBackupPath] = useState("");
+31.   const [lastBackupName, setLastBackupName] = useState("");
+32.   const [status, setStatus] = useState(null);
+33.   const [statusLoading, setStatusLoading] = useState(false);
+34.   const [backupLoading, setBackupLoading] = useState(false);
+35.   const [restoreLoading, setRestoreLoading] = useState(false);
+36.   const [notification, setNotification] = useState("");
+37. 
+38.   const { t } = useTranslation();
+39.   const user = getUserFromToken();
+40.   if (!user?.roles?.includes("DB_ADMIN")) {
+41.     return (
+42.       <div className="db-admin-access-denied">
+43.         {t("db_admin.access_denied")}
+44.       </div>
+45.     );
+46.   }
+47. 
+48.   const handleBackup = async () => {
+49.     setBackupLoading(true);
+50.     setNotification("");
+51.     try {
+52.       const token = localStorage.getItem("token");
+53.       const res = await fetch("/api/admin/backup", {
+54.         method: "POST",
+55.         headers: token ? { Authorization: `Bearer ${token}` } : {},
+56.       });
+57.       const data = await res.json();
+58.       let backupFullPath = data.backupPath || data.path || "";
+59.       let name = "";
+60. 
+61.       if (!backupFullPath && data.message) {
+62.         const match = data.message.match(/Backup created at (.+)$/);
+63.         if (match) {
+64.           backupFullPath = match[1];
+65.         }
+66.       }
+67.       if (backupFullPath) {
+68.         name = backupFullPath.split(/[\\/]/).filter(Boolean).pop() || "";
+69.       }
+70. 
+71.       setLastBackupPath(backupFullPath);
+72.       setLastBackupName(name);
+73. 
+74.       setNotification(t("db_admin.success_backup", { name }));
+75.     } catch {
+76.       setNotification(t("db_admin.errors.connection"));
+77.     }
+78.     setBackupLoading(false);
+79.   };
+80. 
+81.   const handleRestore = async () => {
+82.     if (!backupPath) {
+83.       setNotification(t("db_admin.errors.no_backup_name"));
+84.       return;
+85.     }
+86.     setRestoreLoading(true);
+87.     setNotification("");
+88.     try {
+89.       const token = localStorage.getItem("token");
+90.       const res = await fetch("/api/admin/restore", {
+91.         method: "POST",
+92.         headers: {
+93.           "Content-Type": "application/json",
+94.           ...(token ? { Authorization: `Bearer ${token}` } : {}),
+95.         },
+96.         body: JSON.stringify({ backupName: backupPath }),
+97.       });
+98.       const data = await res.json();
+99.       if (res.ok) {
+100.         setNotification(t("db_admin.success_restore"));
+101.       } else {
+102.         setNotification(data.message || t("db_admin.errors.restore_failed"));
+103.       }
+104.     } catch {
+105.       setNotification(t("db_admin.errors.connection"));
+106.     }
+107.     setRestoreLoading(false);
+108.   };
+109. 
+110.   const handleCheckStatus = async () => {
+111.     setStatusLoading(true);
+112.     setStatus(null);
+113.     setNotification("");
+114.     try {
+115.       const token = localStorage.getItem("token");
+116.       const res = await fetch("/api/admin/database-status", {
+117.         headers: token ? { Authorization: `Bearer ${token}` } : {},
+118.       });
+119.       const data = await res.json();
+120.       if (res.ok) {
+121.         setStatus(data);
+122.       } else {
+123.         setNotification(data.message || t("db_admin.errors.status_failed"));
+124.       }
+125.     } catch {
+126.       setNotification(t("db_admin.errors.connection"));
+127.     }
+128.     setStatusLoading(false);
+129.   };
+130. 
+131.   const labels = fieldLabels(t);
+132.   const states = stateDescriptions(t);
+133. 
+134.   return (
+135.     <div className="db-admin-container">
+136.       <h2 className="db-admin-title">{t("db_admin.title")}</h2>
+137. 
+138.       {notification && (
+139.         <div
+140.           className={
+141.             notification.startsWith("✅")
+142.               ? "db-admin-notification db-admin-notification--success"
+143.               : "db-admin-notification db-admin-notification--warn"
+144.           }
+145.         >
+146.           {notification}
+147.         </div>
+148.       )}
+149. 
+150.       <div className="db-admin-section">
+151.         <button
+152.           className="header-btn db-admin-main-btn header-btn--primary"
+153.           onClick={handleBackup}
+154.           disabled={backupLoading}
+155.         >
+156.           {backupLoading
+157.             ? t("db_admin.loading.backup")
+158.             : t("db_admin.create_backup")}
+159.         </button>
+160.         {lastBackupName && (
+161.           <div className="db-admin-last-backup">
+162.             <strong>{t("db_admin.last_backup_name")}:</strong> {lastBackupName}
+163.           </div>
+164.         )}
+165.       </div>
+166. 
+167.       <div className="db-admin-section">
+168.         <label htmlFor="restore-path" className="db-admin-label">
+169.           {t("db_admin.restore_label")}
+170.         </label>
+171.         <input
+172.           id="restore-path"
+173.           type="text"
+174.           placeholder={t("db_admin.restore_placeholder")}
+175.           value={backupPath}
+176.           onChange={(e) => setBackupPath(e.target.value)}
+177.           className="db-admin-input"
+178.         />
+179.         <button
+180.           className="header-btn db-admin-main-btn"
+181.           onClick={handleRestore}
+182.           disabled={restoreLoading}
+183.         >
+184.           {restoreLoading
+185.             ? t("db_admin.loading.restore")
+186.             : t("db_admin.restore_btn")}
+187.         </button>
+188.       </div>
+189. 
+190.       <div className="db-admin-section">
+191.         <button
+192.           className="header-btn db-admin-main-btn"
+193.           onClick={handleCheckStatus}
+194.           disabled={statusLoading}
+195.         >
+196.           {statusLoading
+197.             ? t("db_admin.loading.status")
+198.             : t("db_admin.check_status")}
+199.         </button>
+200.       </div>
+201. 
+202.       {status && (
+203.         <div className="db-admin-status-card">
+204.           <h4 className="db-admin-status-title">
+205.             {t("db_admin.status_title")}
+206.           </h4>
+207.           <ul className="db-admin-status-list">
+208.             {Object.entries(status).map(([key, val]) => (
+209.               <li key={key} className="db-admin-status-list-item">
+210.                 <span className="db-admin-status-label">
+211.                   {labels[key] || key}:
+212.                 </span>{" "}
+213.                 {key === "state"
+214.                   ? states[val] || `${val} (${t("db_admin.state_unknown")})`
+215.                   : key === "status"
+216.                   ? t(
+217.                       `db_admin.connection_statuses.${String(
+218.                         val
+219.                       ).toLowerCase()}`,
+220.                       String(val)
+221.                     )
+222.                   : typeof val === "number"
+223.                   ? val.toLocaleString(t("profile.locale") || "uk-UA")
+224.                   : String(val)}
+225.               </li>
+226.             ))}
+227.           </ul>
+228.         </div>
+229.       )}
+230.     </div>
+231.   );
+232. };
+233. 
+234. export default DBAdminDashboard;
+     
+     В.4 Функції платформенного адміністратора. Зміна ролей користувачів.
+     
+     GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab3/pzpi-22-3-ivanov-yaroslav-lab3/client/apz/src/pages/AdminDashboard.jsx 
+     
+1. import React, { useState, useEffect } from "react";
+2. import { getUserFromToken } from "../utils/getUserFromToken";
+3. import { useTranslation } from "react-i18next";
+4. import "../App.css";
+5. 
+6. const ROLE_LABELS = {
+7.   USER: "role_labels.user",
+8.   DB_ADMIN: "role_labels.db_admin",
+9.   SERVER_ADMIN: "role_labels.server_admin",
+10.   ADMIN: "role_labels.admin",
+11. };
+12. 
+13. const ROLE_OPTIONS = [
+14.   { value: "DB_ADMIN", label: "role_labels.db_admin" },
+15.   { value: "SERVER_ADMIN", label: "role_labels.server_admin" },
+16.   { value: "ADMIN", label: "role_labels.admin" },
+17. ];
+18. 
+19. const AdminDashboard = () => {
+20.   const user = getUserFromToken();
+21.   const [users, setUsers] = useState([]);
+22.   const [selectedRole, setSelectedRole] = useState({});
+23.   const [notification, setNotification] = useState("");
+24.   const [loading, setLoading] = useState(false);
+25.   const [sortField, setSortField] = useState("email");
+26.   const [sortAsc, setSortAsc] = useState(true);
+27.   const { t } = useTranslation();
+28. 
+29.   if (!user?.roles?.includes("ADMIN")) {
+30.     return (
+31.       <div className="admin-dashboard-access-denied">
+32.         {t("admin_dashboard.access_denied")}
+33.       </div>
+34.     );
+35.   }
+36. 
+37.   useEffect(() => {
+38.     fetchUsers();
+39.     // eslint-disable-next-line
+40.   }, []);
+41. 
+42.   const fetchUsers = async () => {
+43.     setLoading(true);
+44.     setNotification("");
+45.     try {
+46.       const token = localStorage.getItem("token");
+47.       const res = await fetch("/api/users", {
+48.         headers: token ? { Authorization: `Bearer ${token}` } : {},
+49.       });
+50.       const data = await res.json();
+51.       if (res.ok) setUsers(data);
+52.       else
+53.         setNotification(data.message || t("admin_dashboard.errors.load_users"));
+54.     } catch {
+55.       setNotification(t("admin_dashboard.errors.connection"));
+56.     }
+57.     setLoading(false);
+58.   };
+59. 
+60.   const handleAssignRole = async (userId, roleValue) => {
+61.     if (!roleValue) return;
+62.     setLoading(true);
+63.     setNotification("");
+64.     try {
+65.       const token = localStorage.getItem("token");
+66.       const res = await fetch(`/api/users/${userId}/role`, {
+67.         method: "POST",
+68.         headers: {
+69.           "Content-Type": "application/json",
+70.           ...(token ? { Authorization: `Bearer ${token}` } : {}),
+71.         },
+72.         body: JSON.stringify({ role: roleValue }),
+73.       });
+74.       const data = await res.json();
+75.       if (res.ok) {
+76.         setNotification(t("admin_dashboard.success.assign_role"));
+77.         fetchUsers();
+78.       } else
+79.         setNotification(
+80.           data.message || t("admin_dashboard.errors.assign_role")
+81.         );
+82.     } catch {
+83.       setNotification(t("admin_dashboard.errors.connection"));
+84.     }
+85.     setLoading(false);
+86.   };
+87. 
+88.   const handleRemoveRole = async (userId, roleValue) => {
+89.     if (!roleValue) return;
+90.     setLoading(true);
+91.     setNotification("");
+92.     try {
+93.       const token = localStorage.getItem("token");
+94.       const res = await fetch(`/api/users/${userId}/role`, {
+95.         method: "DELETE",
+96.         headers: {
+97.           "Content-Type": "application/json",
+98.           ...(token ? { Authorization: `Bearer ${token}` } : {}),
+99.         },
+100.         body: JSON.stringify({ role: roleValue }),
+101.       });
+102.       const data = await res.json();
+103.       if (res.ok) {
+104.         setNotification(t("admin_dashboard.success.remove_role"));
+105.         fetchUsers();
+106.       } else
+107.         setNotification(
+108.           data.message || t("admin_dashboard.errors.remove_role")
+109.         );
+110.     } catch {
+111.       setNotification(t("admin_dashboard.errors.connection"));
+112.     }
+113.     setLoading(false);
+114.   };
+115. 
+116.   const sortedUsers = [...users].sort((a, b) => {
+117.     let aField = (sortField === "name" ? a.name : a.email) || "";
+118.     let bField = (sortField === "name" ? b.name : b.email) || "";
+119.     aField = aField.toLowerCase();
+120.     bField = bField.toLowerCase();
+121.     if (aField < bField) return sortAsc ? -1 : 1;
+122.     if (aField > bField) return sortAsc ? 1 : -1;
+123.     return 0;
+124.   });
+125. 
+126.   function RoleSelect({ value, onChange }) {
+127.     return (
+128.       <div className="admin-role-select-wrap">
+129.         <select value={value} onChange={onChange} className="admin-role-select">
+130.           <option value="" disabled>
+131.             {t("admin_dashboard.select_role")}
+132.           </option>
+133.           {ROLE_OPTIONS.map((role) => (
+134.             <option key={role.value} value={role.value}>
+135.               {t(role.label)}
+136.             </option>
+137.           ))}
+138.         </select>
+139.         <span className="admin-role-select-arrow">▼</span>
+140.       </div>
+141.     );
+142.   }
+143. 
+144.   return (
+145.     <div className="admin-dashboard-container">
+146.       <h2 className="admin-dashboard-title">{t("admin_dashboard.title")}</h2>
+147. 
+148.       {notification && (
+149.         <div
+150.           className={
+151.             notification.startsWith("✅")
+152.               ? "admin-dashboard-notification admin-dashboard-notification--success"
+153.               : "admin-dashboard-notification admin-dashboard-notification--warn"
+154.           }
+155.         >
+156.           {notification}
+157.         </div>
+158.       )}
+159. 
+160.       <div className="admin-dashboard-users-block">
+161.         <h3 className="admin-dashboard-users-title">
+162.           {t("admin_dashboard.users_title")}
+163.         </h3>
+164.         <button
+165.           className="header-btn admin-dashboard-refresh-btn"
+166.           onClick={fetchUsers}
+167.         >
+168.           {t("admin_dashboard.refresh_btn")}
+169.         </button>
+170.         <table className="admin-dashboard-table">
+171.           <thead>
+172.             <tr>
+173.               <th
+174.                 className="admin-dashboard-th"
+175.                 onClick={() => {
+176.                   if (sortField === "email") setSortAsc((asc) => !asc);
+177.                   setSortField("email");
+178.                 }}
+179.               >
+180.                 {t("admin_dashboard.email")}
+181.                 {sortField === "email" ? (sortAsc ? "▲" : "▼") : ""}
+182.               </th>
+183.               <th
+184.                 className="admin-dashboard-th"
+185.                 onClick={() => {
+186.                   if (sortField === "name") setSortAsc((asc) => !asc);
+187.                   setSortField("name");
+188.                 }}
+189.               >
+190.                 {t("admin_dashboard.name")}
+191.                 {sortField === "name" ? (sortAsc ? "▲" : "▼") : ""}
+192.               </th>
+193.               <th className="admin-dashboard-th">
+194.                 {t("admin_dashboard.roles")}
+195.               </th>
+196.               <th className="admin-dashboard-th">
+197.                 {t("admin_dashboard.actions")}
+198.               </th>
+199.             </tr>
+200.           </thead>
+201.           <tbody>
+202.             {sortedUsers.map((u, idx) => (
+203.               <tr
+204.                 key={u._id || u.id}
+205.                 className={
+206.                   idx % 2 === 0
+207.                     ? "admin-dashboard-tr admin-dashboard-tr--even"
+208.                     : "admin-dashboard-tr"
+209.                 }
+210.               >
+211.                 <td className="admin-dashboard-td">{u.email}</td>
+212.                 <td className="admin-dashboard-td">{u.name || "-"}</td>
+213.                 <td className="admin-dashboard-td">
+214.                   {(u.roles || []).length === 0 ? (
+215.                     <span className="admin-dashboard-role-empty">—</span>
+216.                   ) : (
+217.                     (u.roles || []).map((role) => (
+218.                       <span key={role} className="admin-dashboard-role-label">
+219.                         {t(ROLE_LABELS[role] || role)}
+220.                       </span>
+221.                     ))
+222.                   )}
+223.                 </td>
+224.                 <td className="admin-dashboard-td">
+225.                   <div className="admin-dashboard-role-actions-block">
+226.                     <RoleSelect
+227.                       value={selectedRole[u._id || u.id] || ""}
+228.                       onChange={(e) =>
+229.                         setSelectedRole((prev) => ({
+230.                           ...prev,
+231.                           [u._id || u.id]: e.target.value,
+232.                         }))
+233.                       }
+234.                     />
+235.                     <div className="admin-dashboard-actions-row">
+236.                       <button
+237.                         className="header-btn"
+238.                         onClick={() =>
+239.                           handleAssignRole(
+240.                             u._id || u.id,
+241.                             selectedRole[u._id || u.id]
+242.                           )
+243.                         }
+244.                         disabled={loading || !selectedRole[u._id || u.id]}
+245.                       >
+246.                         {t("admin_dashboard.add_btn")}
+247.                       </button>
+248.                       <button
+249.                         className="header-btn admin-dashboard-btn-delete"
+250.                         onClick={() =>
+251.                           handleRemoveRole(
+252.                             u._id || u.id,
+253.                             selectedRole[u._id || u.id]
+254.                           )
+255.                         }
+256.                         disabled={loading || !selectedRole[u._id || u.id]}
+257.                       >
+258.                         {t("admin_dashboard.remove_btn")}
+259.                       </button>
+260.                     </div>
+261.                   </div>
+262.                 </td>
+263.               </tr>
+264.             ))}
+265.           </tbody>
+266.         </table>
+267.       </div>
+268.     </div>
+269.   );
+270. };
+271. 
+272. export default AdminDashboard;
