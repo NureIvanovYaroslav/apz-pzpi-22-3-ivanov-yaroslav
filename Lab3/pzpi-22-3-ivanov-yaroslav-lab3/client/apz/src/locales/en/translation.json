@@ -1,0 +1,371 @@
+{
+  "header": {
+    "studios": "Fitness Studios",
+    "admin": "Platform Admin Panel",
+    "serverAdmin": "Server Admin Panel",
+    "dbAdmin": "Database Admin Panel",
+    "login": "Login",
+    "register": "Register",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "registration": {
+    "title": "Registration",
+    "email": "Email",
+    "password": "Password",
+    "repeat_password": "Repeat password",
+    "submit": "Register",
+    "errors": {
+      "email_required": "Enter your email.",
+      "password_length": "Password must be at least 7 characters.",
+      "passwords_not_match": "Passwords do not match.",
+      "registration_failed": "Registration error.",
+      "connection": "Connection error."
+    }
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Login",
+    "errors": {
+      "email_required": "Enter your email.",
+      "password_required": "Enter your password.",
+      "invalid": "Invalid email or password.",
+      "connection": "Connection error."
+    }
+  },
+  "home": {
+    "welcome": "Welcome to the fitness studio user management system!",
+    "please_auth": "To use the system, please",
+    "login": "login",
+    "or": "or",
+    "register": "register",
+    "my_trainings": "My Trainings",
+    "no_trainings": "You have no trainings yet",
+    "add_device": "Add device",
+    "track_trainings": "To track trainings, add a device for health data.",
+    "track_trainings_title": "Training Tracking",
+    "start_training_hint": "Start a training with your device and the list will appear here.",
+    "all_trainings_hint": "All your trainings will be displayed on this page.",
+    "start": "Start",
+    "end": "End",
+    "error_user": "Failed to get user.",
+    "error_trainings": "Failed to get trainings.",
+    "error_connection": "Connection error."
+  },
+  "add_device": {
+    "title": "Add device",
+    "no_device": "No device?",
+    "create_btn": "Create device",
+    "new_id": "New device ID",
+    "status": "Status",
+    "status_enabled": "enabled",
+    "status_disabled": "disabled",
+    "frequency": "Send frequency",
+    "seconds": "sec",
+    "copy_hint": "Copy the ID, paste it below and add the device to your profile.",
+    "device_id": "Device ID",
+    "frequency_label": "Send data frequency (seconds)",
+    "add_btn": "Add",
+    "errors": {
+      "device_id_required": "Enter device ID",
+      "create_failed": "Failed to create device",
+      "add_failed": "Failed to add device",
+      "connection": "Connection error"
+    }
+  },
+  "training_type": {
+    "run": "Running",
+    "walk": "Walking",
+    "strength": "Strength",
+    "cycle": "Cycling"
+  },
+  "training_details": {
+    "back": "Back to trainings list",
+    "not_found": "Training not found.",
+    "title": "Training details",
+    "type": "Type",
+    "start": "Start",
+    "end": "End",
+    "recommend_steps": "Steps recommendations",
+    "recommend_calories": "Calories recommendations",
+    "recommend_heart": "Heart rate recommendations",
+    "indicators": "Indicators",
+    "calc_details": "Calculation details",
+    "formula": "Used formula",
+    "data_title": "Training data",
+    "no_data": "No data.",
+    "sending_time": "Data sent at",
+    "steps": "Steps",
+    "calories": "Calories",
+    "heart_rate": "Heart rate",
+    "distance": "Distance (m)",
+    "speed": "Speed (m/s)",
+    "duration": "Duration (sec)",
+    "error_training": "Failed to get training.",
+    "error_connection": "Connection error.",
+    "error_recommendation": "Failed to get recommendations.",
+    "indicators_title": "Indicators",
+    "parameter_labels": {
+      "calories": "Calories",
+      "totalSteps": "Steps",
+      "height": "Height (m)",
+      "time": "Time (sec)",
+      "MET": "MET",
+      "weight": "Weight (lb)"
+    },
+    "indicator_labels": {
+      "calories": "Calories",
+      "averageCalories": "Average calories",
+      "currentSteps": "Steps in this session",
+      "averageSteps": "Average steps",
+      "maxHeartRate": "Max heart rate",
+      "maxHeartRateDuringTraining": "Max heart rate during training",
+      "minHeartRateDuringTraining": "Min heart rate during training",
+      "age": "Age",
+      "acceptableRange": "Recommended heart rate range",
+      "lower": "lower bound",
+      "upper": "upper bound"
+    },
+    "lower": "lower bound",
+    "upper": "upper bound"
+  },
+  "recommendation_messages": {
+    "walk_more_average": "You walked more than in average, good job",
+    "walk_less_average": "You walked less than in average, don't lose your progression",
+    "walk_more_usual": "You walked more than usual, good job",
+    "walk_less_usual": "You walked less than usual, don't lose your progression",
+    "burned_more_calories": "You burned more calories than usual in this workout, good job",
+    "burned_fewer_calories": "You burned fewer calories than usual in this workout, try harder",
+    "heart_very_high": "During this training your heart rate was very high, you should take a break",
+    "heart_high": "During this training your heart rate was high, try not to overexert yourself",
+    "heart_low": "During this training your heart rate was low, look out for your health",
+    "heart_normal": "During this training your heart rate was normal, keep it up",
+    "not_enough_data": "Not enough data to calculate statistics",
+    "no_heart_data": "No heart rate data available",
+    "unable_calculate_calories": "Unable to calculate calories",
+    "training_not_found": "Training not found"
+  },
+  "profile": {
+    "title": "Profile",
+    "email": "Email",
+    "name": "User name",
+    "birthDate": "Birth date",
+    "weight": "Weight",
+    "height": "Height",
+    "country": "Country",
+    "sex": "Sex",
+    "female": "Female",
+    "male": "Male",
+    "kg": "lb",
+    "cm": "cm",
+    "locale": "en-US",
+    "edit_title": "Edit profile",
+    "edit_btn": "Edit",
+    "save_btn": "Save",
+    "cancel_btn": "Cancel",
+    "back_btn": "Back to profile",
+    "edit_error": "Update error.",
+    "edit_connection_error": "Connection error."
+  },
+  "fitness_studios": {
+    "title": "Fitness Studios",
+    "add_btn": "Add fitness studio",
+    "email": "Email",
+    "address": "Address",
+    "members_count": "Members count",
+    "empty": "No fitness studios.",
+    "error_connection": "Connection error."
+  },
+  "add_fitness_studio": {
+    "title": "Add fitness studio",
+    "studio_name": "Studio name",
+    "email": "Email",
+    "address": "Address",
+    "submit": "Add",
+    "back_btn": "Back to fitness studios list",
+    "errors": {
+      "required": "All fields are required!",
+      "add_failed": "Failed to add studio.",
+      "connection": "Connection error."
+    }
+  },
+  "fitness_studio_details": {
+    "back_btn": "Back to fitness studios list",
+    "edit_btn": "Edit studio data",
+    "delete_btn": "Delete studio",
+    "edit_members_btn": "Edit studio members",
+    "confirm_delete": "Are you sure you want to delete this studio?",
+    "error_loading": "Failed to load studio.",
+    "error_delete": "Failed to delete studio.",
+    "error_connection": "Connection error.",
+    "loading": "Loading...",
+    "email": "Email",
+    "address": "Address",
+    "members_title": "Studio members",
+    "no_members": "There are no members in this studio yet.",
+    "user_name": "User name",
+    "user_email": "Email"
+  },
+  "edit_fitness_studio": {
+    "title": "Edit fitness studio",
+    "studio_name": "Studio name",
+    "email": "Email",
+    "address": "Address",
+    "submit": "Save changes",
+    "back_btn": "Back to studio {{studio}}",
+    "errors": {
+      "required": "All fields are required!",
+      "edit_failed": "Failed to update studio.",
+      "load_failed": "Failed to load studio.",
+      "connection": "Connection error."
+    }
+  },
+  "add_user_to_fitness_studio": {
+    "title": "Add or remove user in fitness studio",
+    "back_btn": "Back to studio {{studio}}",
+    "email": "Email",
+    "name": "Name",
+    "add_btn": "Add",
+    "remove_btn": "Remove",
+    "no_users": "No users to add.",
+    "success_add": "User added!",
+    "success_remove": "User removed!",
+    "errors": {
+      "load_users": "Failed to load users.",
+      "add_failed": "Failed to add user.",
+      "remove_failed": "Failed to remove user.",
+      "connection": "Connection error."
+    }
+  },
+  "admin_dashboard": {
+    "title": "Platform Admin Panel",
+    "access_denied": "Access denied. You do not have ADMIN rights.",
+    "users_title": "Users",
+    "refresh_btn": "Refresh user list",
+    "email": "Email",
+    "name": "User name",
+    "roles": "Roles",
+    "actions": "Actions",
+    "select_role": "Select role",
+    "add_btn": "Add",
+    "remove_btn": "Remove",
+    "success": {
+      "assign_role": "✅ Role assigned to user!",
+      "remove_role": "✅ Role removed from user!"
+    },
+    "errors": {
+      "load_users": "Failed to load users.",
+      "assign_role": "Failed to assign role.",
+      "remove_role": "Failed to remove role from user.",
+      "connection": "Connection error."
+    }
+  },
+  "role_labels": {
+    "user": "User",
+    "db_admin": "Database admin",
+    "server_admin": "Server admin",
+    "admin": "Platform admin"
+  },
+  "server_admin": {
+    "title": "Server Admin Panel",
+    "access_denied": "Access denied. You do not have SERVER_ADMIN rights.",
+    "check_status": "Check server status",
+    "status_title": "Server status",
+    "status": "Status",
+    "uptime": "Uptime (sec)",
+    "memory_usage": "Memory usage",
+    "timestamp": "Status time",
+    "rss": "RSS",
+    "heap_total": "Heap Total",
+    "heap_used": "Heap Used",
+    "external": "External",
+    "array_buffers": "Array Buffers",
+    "sec": "sec",
+    "get_config": "Get server config",
+    "update_config": "Update config",
+    "view_logs": "View server logs",
+    "log_date": "Date",
+    "log_user": "User",
+    "log_description": "Description",
+    "log_status": "Status",
+    "log_success": "Success",
+    "log_error": "Error",
+    "page": "Page",
+    "of": "of",
+    "delete_all_logs": "Delete all logs",
+    "delete_logs_by_date": "Delete logs by date:",
+    "delete_by_date_btn": "Delete by date",
+    "loading": {
+      "status": "Checking...",
+      "config": "Loading...",
+      "logs": "Loading..."
+    },
+    "success": {
+      "config_updated": "✅ Server config updated!",
+      "logs_deleted": "✅ All logs deleted.",
+      "logs_deleted_by_date": "✅ Logs for {{date}} deleted."
+    },
+    "errors": {
+      "status": "Failed to get server status",
+      "config": "Failed to get config",
+      "config_update": "Failed to update config",
+      "logs": "Failed to get logs",
+      "logs_delete": "Failed to delete logs",
+      "logs_delete_by_date": "Failed to delete logs by date",
+      "connection": "Connection error."
+    },
+    "confirm": {
+      "delete_all_logs": "Are you sure you want to delete all logs?",
+      "delete_logs_by_date": "Are you sure you want to delete logs for {{date}}?"
+    }
+  },
+  "db_admin": {
+    "title": "Database Admin Panel",
+    "access_denied": "Access denied. You do not have DB_ADMIN rights.",
+    "create_backup": "Create backup",
+    "loading": {
+      "backup": "Creating backup...",
+      "restore": "Restoring...",
+      "status": "Checking..."
+    },
+    "connection_statuses": {
+      "connected": "Connected",
+      "disconnected": "Disconnected",
+      "connecting": "Connecting",
+      "disconnecting": "Disconnecting",
+      "unknown": "Unknown"
+    },
+    "last_backup_name": "Last backup name",
+    "restore_label": "Restore from backup:",
+    "restore_placeholder": "Enter backup name",
+    "restore_btn": "Restore from backup",
+    "check_status": "Check database status",
+    "status_title": "Database status",
+    "db": "Database",
+    "collections": "Collections count",
+    "objects": "Documents count",
+    "size": "Database size",
+    "storageSize": "Storage size",
+    "indexes": "Indexes count",
+    "indexSize": "Indexes size",
+    "status": "Connection status",
+    "state": "State",
+    "host": "Host",
+    "name": "Database name",
+    "state_disconnected": "0 (Disconnected)",
+    "state_connected": "1 (Connected)",
+    "state_connecting": "2 (Connecting)",
+    "state_disconnecting": "3 (Disconnecting)",
+    "state_unknown": "99 (Unknown state)",
+    "success_backup": "✅ Backup created successfully!\nBackup name: {{name}}",
+    "success_restore": "✅ Restore from backup completed successfully!",
+    "errors": {
+      "connection": "Connection error.",
+      "no_backup_name": "Enter backup name to restore.",
+      "restore_failed": "Restore from backup failed.",
+      "status_failed": "Failed to get database status"
+    }
+  }
+}
