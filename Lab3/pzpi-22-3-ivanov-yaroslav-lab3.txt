@@ -444,9 +444,9 @@
 350. 
 351. export default TrainingDetails;
      
-     В.2  Адміністрування бізнес-логіки системи
-     
-     GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab3/pzpi-22-3-ivanov-yaroslav-lab3/client/apz/src/pages/ServerAdminDashboard.jsx 
+В.2 Адміністрування бізнес-логіки системи.
+
+GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab3/pzpi-22-3-ivanov-yaroslav-lab3/client/apz/src/pages/ServerAdminDashboard.jsx 
       
 1. import React, { useState } from "react";
 2. import { getUserFromToken } from "../utils/getUserFromToken";

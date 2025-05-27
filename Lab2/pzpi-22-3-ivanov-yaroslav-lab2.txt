@@ -579,9 +579,9 @@
 484. 
 485. module.exports = new AnalyticsService();
      
-     В.2  Адміністрування бізнес-логіки системи
-     
-     GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab2/pzpi-22-3-ivanov-yaroslav-lab2/server/services/ServerConfigService.js 
+В.2 Адміністрування бізнес-логіки системи.
+
+GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab2/pzpi-22-3-ivanov-yaroslav-lab2/server/services/ServerConfigService.js 
       
       1. const fs = require("fs");
       2. const path = require("path");
