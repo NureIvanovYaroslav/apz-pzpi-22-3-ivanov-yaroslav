@@ -128,9 +128,7 @@ class TrainingService {
   async getTrainingsByDeviceId(deviceId) {
     await TrainingValidators.validateDeviceExists(deviceId);
 
-    const device = await DeviceModel.findById(deviceId).populate("trainings");
-
-    const trainings = device.trainings;
+    const trainings = await TrainingModel.find({ device: deviceId });
 
     TrainingValidators.validateTrainingsNotEmpty(trainings);
 

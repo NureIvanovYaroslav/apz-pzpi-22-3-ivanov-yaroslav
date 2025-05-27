@@ -2,6 +2,7 @@ const Router = require("express");
 const router = new Router();
 const roleController = require("../controllers/roleController");
 const authMiddleware = require("../middlewares/authMiddleware");
+const roleMiddleware = require("../middlewares/roleMiddleware");
 
 /**
  * @swagger
@@ -50,7 +51,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
  *               $ref: '#/components/schemas/Role'
  */
 
-router.post("/", authMiddleware, roleController.createRole);
+router.post("/", authMiddleware, roleMiddleware(["ADMIN"]), roleController.createRole);
 
 /**
  * @swagger
@@ -74,7 +75,7 @@ router.post("/", authMiddleware, roleController.createRole);
  *               $ref: '#/components/schemas/Role'
  */
 
-router.get("/:value", authMiddleware, roleController.getRoleByValue);
+router.get("/:value", authMiddleware, roleMiddleware(["ADMIN"]), roleController.getRoleByValue);
 
 /**
  * @swagger
@@ -107,7 +108,7 @@ router.get("/:value", authMiddleware, roleController.getRoleByValue);
  *               $ref: '#/components/schemas/Role'
  */
 
-router.put("/:id", authMiddleware, roleController.updateRoleById);
+router.put("/:id", authMiddleware, roleMiddleware(["ADMIN"]), roleController.updateRoleById);
 
 /**
  * @swagger
@@ -134,8 +135,7 @@ router.put("/:id", authMiddleware, roleController.updateRoleById);
  *                   type: string
  */
 
-router.delete("/:id", authMiddleware, roleController.deleteRoleById);
-
+router.delete("/:id", authMiddleware, roleMiddleware(["ADMIN"]), roleController.deleteRoleById);
 /**
  * @swagger
  * /api/roles:
@@ -153,6 +153,6 @@ router.delete("/:id", authMiddleware, roleController.deleteRoleById);
  *                 $ref: '#/components/schemas/Role'
  */
 
-router.get("/", authMiddleware, roleController.getAllRoles);
+router.get("/", authMiddleware, roleMiddleware(["ADMIN"]), roleController.getAllRoles);
 
 module.exports = router;

@@ -66,7 +66,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
  *               $ref: '#/components/schemas/TrainingData'
  */
 
-router.post("/", trainingDataController.createTrainingData);
+router.post("/", authMiddleware, trainingDataController.createTrainingData);
 
 /**
  * @swagger
@@ -90,7 +90,7 @@ router.post("/", trainingDataController.createTrainingData);
  *               $ref: '#/components/schemas/TrainingData'
  */
 
-router.get("/:id", trainingDataController.getTrainingDataById);
+router.get("/:id", authMiddleware, trainingDataController.getTrainingDataById);
 
 /**
  * @swagger
@@ -212,6 +212,7 @@ router.get("/", authMiddleware, trainingDataController.getAllTrainingData);
 
 router.get(
   "/training/:trainingId",
+  authMiddleware,
   trainingDataController.getTrainingDataByTrainingId
 );
 

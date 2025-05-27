@@ -33,7 +33,7 @@ const roleMiddleware = require("../middlewares/roleMiddleware");
 router.post(
   "/backup",
   authMiddleware,
-  roleMiddleware(["ADMIN"]),
+  roleMiddleware(["DB_ADMIN"]),
   adminController.backupDatabase
 );
 
@@ -69,7 +69,7 @@ router.post(
 router.post(
   "/restore",
   authMiddleware,
-  roleMiddleware(["ADMIN"]),
+  roleMiddleware(["DB_ADMIN"]),
   adminController.restoreDatabase
 );
 
@@ -102,7 +102,7 @@ router.post(
 router.get(
   "/database-status",
   authMiddleware,
-  roleMiddleware(["ADMIN"]),
+  roleMiddleware(["DB_ADMIN"]),
   adminController.getDatabaseStatus
 );
 
@@ -135,7 +135,7 @@ router.get(
 router.get(
   "/server-status",
   authMiddleware,
-  roleMiddleware(["ADMIN"]),
+  roleMiddleware(["SERVER_ADMIN"]),
   adminController.getServerStatus
 );
 
@@ -170,7 +170,7 @@ router.get(
 router.get(
   "/server-config",
   authMiddleware,
-  roleMiddleware(["ADMIN"]),
+  roleMiddleware(["SERVER_ADMIN"]),
   adminController.getServerConfig
 );
 
@@ -216,7 +216,7 @@ router.get(
 router.post(
   "/server-config",
   authMiddleware,
-  roleMiddleware(["ADMIN"]),
+  roleMiddleware(["SERVER_ADMIN"]),
   adminController.setServerConfig
 );
 
@@ -253,7 +253,7 @@ router.post(
 router.get(
   "/logs",
   authMiddleware,
-  roleMiddleware(["ADMIN"]),
+  roleMiddleware(["SERVER_ADMIN"]),
   adminController.getLogs
 );
 
@@ -280,7 +280,7 @@ router.get(
 router.delete(
   "/logs",
   authMiddleware,
-  roleMiddleware(["ADMIN"]),
+  roleMiddleware(["SERVER_ADMIN"]),
   adminController.deleteAllLogs
 );
 
@@ -314,7 +314,7 @@ router.delete(
 router.delete(
   "/logs/by-date",
   authMiddleware,
-  roleMiddleware(["ADMIN"]),
+  roleMiddleware(["SERVER_ADMIN"]),
   adminController.deleteLogsByDate
 );
 

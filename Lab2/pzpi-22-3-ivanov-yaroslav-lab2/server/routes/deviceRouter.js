@@ -87,7 +87,7 @@ router.post("/", authMiddleware, deviceController.createDevice);
  *               $ref: '#/components/schemas/Device'
  */
 
-router.get("/:id", deviceController.getDeviceById);
+router.get("/:id", authMiddleware, deviceController.getDeviceById);
 
 /**
  * @swagger
@@ -122,7 +122,7 @@ router.get("/:id", deviceController.getDeviceById);
  *               $ref: '#/components/schemas/Device'
  */
 
-router.put("/:id", deviceController.updateDeviceById);
+router.put("/:id", authMiddleware, deviceController.updateDeviceById);
 
 /**
  * @swagger

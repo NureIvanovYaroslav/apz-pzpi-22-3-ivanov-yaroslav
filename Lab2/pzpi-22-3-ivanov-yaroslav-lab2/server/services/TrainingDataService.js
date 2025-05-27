@@ -96,15 +96,14 @@ class TrainingDataService {
    * @returns {Promise<Array>} - The list of training data for the training.
    */
   async getTrainingDatasByTrainingId(trainingId) {
-    await TrainingDataValidators.validateTrainingExists(trainingId);
+    const training = await TrainingModel.findById(trainingId);
+    if (!training) {
+      throw new Error("Training not found");
+    }
 
-    const training = await TrainingModel.findById(trainingId).populate(
-      "trainingDatas"
-    );
-
-    const trainingDatas = training.trainingDatas;
-
-    TrainingDataValidators.validateTrainingDataNotEmpty(trainingDatas);
+    const trainingDatas = await TrainingDataModel.find({
+      training: trainingId,
+    });
 
     return trainingDatas;
   }

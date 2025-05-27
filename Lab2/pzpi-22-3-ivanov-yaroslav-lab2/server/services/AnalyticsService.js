@@ -90,8 +90,8 @@ class AnalyticsService {
       totalSteps += data.steps;
     }
 
-    const height = user.height / 100;
-    const stride = height * 0.414;
+    const heightMeters = user.height / 100;
+    const stride = heightMeters * 0.414;
     const distance = stride * totalSteps;
 
     let speed, MET;
@@ -111,7 +111,7 @@ class AnalyticsService {
     return {
       calories,
       totalSteps,
-      height,
+      height: user.height,
       time,
       MET,
       weight,
@@ -285,7 +285,6 @@ class AnalyticsService {
 
     if (diffDays > 7) {
       const message = `You haven't done any sports for ${diffDays} days, come back - physical activity is very useful`;
-      console.log(message);
     }
   }
 
@@ -320,11 +319,9 @@ class AnalyticsService {
       message = `During this training your heart rate was high, try not to overexert yourself`;
     } else if (minHeartRateDuringTraining < 0.5 * maxHeartRate) {
       message = `During this training your heart rate was low, look out for your health`;
-    }  else {
+    } else {
       message = `During this training your heart rate was normal, keep it up`;
     }
-
-    console.log(message);
   }
 
   /**
@@ -431,7 +428,7 @@ class AnalyticsService {
       message = `During this training your heart rate was high, try not to overexert yourself`;
     } else if (minHeartRateDuringTraining < 0.5 * maxHeartRate) {
       message = `During this training your heart rate was low, look out for your health`;
-    }  else {
+    } else {
       message = `During this training your heart rate was normal, keep it up`;
     }
 

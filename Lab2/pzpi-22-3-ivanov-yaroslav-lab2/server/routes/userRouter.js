@@ -2,6 +2,7 @@ const Router = require("express");
 const router = new Router();
 const userController = require("../controllers/userController");
 const authMiddleware = require("../middlewares/authMiddleware");
+const roleMiddleware = require("../middlewares/roleMiddleware");
 
 /**
  * @swagger
@@ -87,7 +88,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
  *               $ref: '#/components/schemas/User'
  */
 
-router.get("/:id", userController.getUserById);
+router.get("/:id", authMiddleware, userController.getUserById);
 
 /**
  * @swagger
@@ -210,7 +211,7 @@ router.get("/", authMiddleware, userController.getUsers);
  *               $ref: '#/components/schemas/User'
  */
 
-router.post("/:id/role", authMiddleware, userController.addUserRole);
+router.post("/:id/role", authMiddleware, roleMiddleware(["ADMIN"]), userController.addUserRole);
 
 /**
  * @swagger
@@ -243,6 +244,5 @@ router.post("/:id/role", authMiddleware, userController.addUserRole);
  *               $ref: '#/components/schemas/User'
  */
 
-router.delete("/:id/role", authMiddleware, userController.deleteUserRole);
-
+router.delete("/:id/role", authMiddleware, roleMiddleware(["ADMIN"]), userController.deleteUserRole);
 module.exports = router;

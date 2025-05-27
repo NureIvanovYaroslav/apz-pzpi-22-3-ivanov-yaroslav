@@ -6,14 +6,11 @@ const logsDir = path.join(__dirname, "../logs");
 if (!fs.existsSync(logsDir)) {
   fs.mkdirSync(logsDir, { recursive: true });
 }
-function getLogFileName() {
-  const date = new Date().toISOString().slice(0, 10);
-  return path.join(logsDir, `server-${date}.log`);
-}
+const logFile = path.join(logsDir, "actions.log");
 
 module.exports = function (err, req, res, next) {
   const logLine = `[${new Date().toISOString()}] ERROR: ${err.message}\n`;
-  fs.appendFile(getLogFileName(), logLine, () => {});
+  fs.appendFile(logFile, logLine, () => {});
   if (err instanceof ApiError) {
     return res
       .status(err.status)

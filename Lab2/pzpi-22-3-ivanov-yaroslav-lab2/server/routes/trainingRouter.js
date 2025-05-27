@@ -101,7 +101,7 @@ router.post("/", authMiddleware, trainingController.createTraining);
  *               $ref: '#/components/schemas/Training'
  */
 
-router.get("/:id", trainingController.getTrainingById);
+router.get("/:id", authMiddleware, trainingController.getTrainingById);
 
 /**
  * @swagger

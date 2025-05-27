@@ -6,10 +6,7 @@ if (!fs.existsSync(logsDir)) {
   fs.mkdirSync(logsDir, { recursive: true });
 }
 
-function getLogFileName() {
-  const date = new Date().toISOString().slice(0, 10);
-  return path.join(logsDir, `server-${date}.log`);
-}
+const logFilePath = path.join(logsDir, "actions.log");
 
 function logger(req, res, next) {
   const start = Date.now();
@@ -18,7 +15,7 @@ function logger(req, res, next) {
     const logLine = `[${new Date().toISOString()}] ${req.method} ${
       req.originalUrl
     } ${res.statusCode} ${duration}ms\n`;
-    fs.appendFile(getLogFileName(), logLine, (err) => {
+    fs.appendFile(logFilePath, logLine, (err) => {
       if (err) console.error("Failed to write log:", err);
     });
   });
