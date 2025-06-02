@@ -1,0 +1,1004 @@
+﻿Харківський національний університет радіоелектроніки
+Факультет комп'ютерних наук
+Кафедра програмної інженерії
+     
+     
+     
+     
+ЗВІТ
+з лабораторної роботи №4
+з дисципліни  «Архітектура програмного забезпечення»
+на тему: «РОЗРОБКА МОБІЛЬНОГО КЛІЄНТА СИСТЕМИ»
+     
+     
+     
+     
+Виконав
+ст. гр. ПЗПІ-22-3
+Іванов Ярослав В’ячеславович
+     
+Перевірив
+ст. викладач кафедри ПІ
+Сокорчук Ігор Петрович
+     
+     
+     
+     
+Харків 2025
+
+1 ІСТОРІЯ ЗМІН
+     
+№	Дата	Версія звіту	Опис змін та виправлень
+1	01.06.2025	0.1	Створено розділ «Історія змін»
+2	01.06.2025	0.1	Створено розділ «Завдання», Опис виконаної роботи» та «Висновки»
+3	01.06.2025	0.1	Заповнено додаток Б з графічними матеріалами
+4	02.06.2025	0.1	Заповнено додаток В з програмним кодом
+5	02.06.2025	0.1	Наведено посилання на відеозапис. Заповнено додаток А.
+     
+2 ЗАВДАННЯ
+     
+     Метою даної лабораторної роботи є розробка мобільної частини програмної системи.
+     
+3 ОПИС ВИКОНАНОЇ РОБОТИ
+     
+     У ході виконання лабораторної роботи було реалізовано мобільний клієнт програмної системи для ведення обліку користувачів у фітнес-студії. Основну увагу було зосереджено на створенні зручного, інтуїтивного та функціонального інтерфейсу користувача для взаємодії з серверною частиною, яка забезпечує бізнес-логіку та обробку даних.
+     Мобільний додаток було розроблено мовою Kotlin з використанням сучасних підходів Android-розробки. Архітектура застосунку побудована за принципами MVVM із використанням бібліотек Jetpack (LiveData, ViewModel, Navigation), що забезпечує зручну маршрутизацію, стабільне управління станом та ефективну обробку API-запитів.
+     Функціонал мобільного клієнта охоплює модулі авторизації, перегляду аналітики, керування профілем користувача, а також засоби для адміністративного керування системою. Усі екрани реалізовані у вигляді окремих фрагментів або активностей з використанням Material Design, що забезпечує єдину візуальну стилістику.
+     Окрему увагу під час реалізації мобільної клієнтської частини було приділено двом ключовим модулям: математичній обробці даних тренувань та адмініструванню системи.
+     Модуль математичної обробки даних відповідає за відображення детальної інформації щодо тренувань користувача. Після отримання метрик (кількість кроків, пульс, витрата калорій, тощо) дані обробляються та виводяться у зручному вигляді. Крім основних показників, користувач може отримати рекомендації за трьома напрямками: кількість кроків, калорії, пульсове навантаження. Для кожного напрямку застосовуються відповідні формули, що враховують індивідуальні параметри (вік, вага, стать, тривалість тренування). Формули відображаються у зручному вигляді, що робить обчислення прозорими для користувача.
+     Модуль адміністрування реалізує набір функцій для контролю над технічними аспектами роботи серверної частини. Адміністратор може переглядати статус системи (тривалість безперервної роботи, використання оперативної пам’яті тощо), переглядати або очищувати логи, а також працювати з конфігураціями сервера безпосередньо через інтерфейс мобільного додатку.
+     Окремий функціонал присвячено адмініструванню бази даних: створення резервних копій, відновлення з архіву, перевірка стану підключення. Це дозволяє швидко реагувати на збої та підвищує надійність роботи всієї системи.
+     Модуль керування ролями надає адміністраторам можливість переглядати список зареєстрованих користувачів, змінювати їм ролі або видаляти облікові записи. Усі дії виконуються через мобільний інтерфейс, що значно спрощує адміністрування платформи.
+     Таким чином, мобільний клієнт виконує не лише роль зручного інструменту для взаємодії з користувачем, але й забезпечує повноцінний функціонал адміністрування, обробки даних і управління системою, що робить його важливою складовою сучасної багатофункціональної програмної платформи.
+     У додатку Б було представлено графічні матеріали.
+     Всі програмні реалізації, пов’язані з бізнес-логікою, математикою та адмініструванням, наведені у додатку В. 
+     
+ВИСНОВКИ
+
+     У результаті виконання лабораторної роботи було реалізовано мобільну частину програмної системи для обліку користувача у фітнес-студії. Забезпечено взаємодію з сервером, візуалізацію аналітичних показників тренувань та формування персоналізованих рекомендацій.
+     Реалізовано модулі для адміністрування сервера, бази даних і системи загалом: перегляд стану, керування конфігурацією, логами, резервним копіюванням і ролями користувачів.
+     Таким чином, мобільний клієнт доповнює серверну логіку, надаючи зручний інтерфейс і розширені можливості керування системою.
+     
+ДОДАТОК А  
+Відеозапис
+     
+     Відеозапис презентації результатів лабораторної роботи: https://youtu.be/vdFvI-z3y0E 
+     
+     Хронологічний опис відеозапису:
+     00:00 – Привітання
+     00:31 – Функції бізнес логіки. Функції математичної обробки прикладних даних.
+     02:35 - Функції перегляду та оновлення профілю.
+     03:13 – Функції адміністратора платформи. Функції призначення ролей.
+     04:04 – Функції адміністратора серверу. Функції перегляду статусу серверу, отримання та оновлення конфігурації серверу, перегляду та видалення логів серверу.
+     05:24 – Функції адміністратора баз даних. Функції перевірки стану сервера, створення та використання бекапів.
+     06:40 – Локалізація та інтернаціоналізація клієнту.
+     07:40 – Висновки
+     
+ДОДАТОК Б 
+Графічні матеріали
+     
+
+Рисунок Б.1 – ER-діаграма даних
+
+Рисунок Б.2 – Структура бази даних
+
+Рисунок Б.3 – UML-діаграма прецедентів
+     
+ДОДАТОК В 
+Програмний код
+     	
+В.1 Математична обробка прикладних даних.
+          
+GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab4/pzpi-22-3-ivanov-yaroslav-lab4/mobile/app/src/main/java/com/devhub/apz/ui/home/TrainingDetailsViewModel.kt 
+
+1. package com.devhub.apz.ui.home
+2. 
+3. import android.app.Application
+4. import androidx.lifecycle.AndroidViewModel
+5. import androidx.lifecycle.MutableLiveData
+6. import androidx.lifecycle.viewModelScope
+7. import com.devhub.apz.R
+8. import kotlinx.coroutines.Dispatchers
+9. import kotlinx.coroutines.launch
+10. import kotlinx.coroutines.withContext
+11. import org.json.JSONArray
+12. import org.json.JSONObject
+13. import java.net.HttpURLConnection
+14. import java.net.URL
+15. 
+16. class TrainingDetailsViewModel(application: Application) : AndroidViewModel(application) {
+17.     val training = MutableLiveData<JSONObject?>()
+18.     val trainingDatas = MutableLiveData<List<JSONObject>>()
+19.     val error = MutableLiveData<String?>()
+20.     val loading = MutableLiveData<Boolean>()
+21. 
+22.     val recommendation = MutableLiveData<String?>()
+23.     val recLoading = MutableLiveData<Boolean>()
+24.     val recError = MutableLiveData<String?>()
+25. 
+26.     fun loadTrainingDetails(trainingId: String, token: String) {
+27.         loading.value = true
+28.         error.value = null
+29.         viewModelScope.launch(Dispatchers.IO) {
+30.             try {
+31.                 val urlTraining = URL("http://10.0.2.2:5000/api/trainings/$trainingId")
+32.                 val connTraining = urlTraining.openConnection() as HttpURLConnection
+33.                 connTraining.requestMethod = "GET"
+34.                 connTraining.setRequestProperty("Authorization", "Bearer $token")
+35.                 val codeTraining = connTraining.responseCode
+36.                 val bodyTraining = connTraining.inputStream.bufferedReader().readText()
+37.                 connTraining.disconnect()
+38.                 if (codeTraining != HttpURLConnection.HTTP_OK)
+39.                     throw Exception(getApplication<Application>().getString(R.string.error_loading_training))
+40.                 val trainingJson = JSONObject(bodyTraining)
+41. 
+42.                 val urlData = URL("http://10.0.2.2:5000/api/training-datas/training/$trainingId")
+43.                 val connData = urlData.openConnection() as HttpURLConnection
+44.                 connData.requestMethod = "GET"
+45.                 connData.setRequestProperty("Authorization", "Bearer $token")
+46.                 val codeData = connData.responseCode
+47.                 val bodyData = connData.inputStream.bufferedReader().readText()
+48.                 connData.disconnect()
+49. 
+50.                 val datasList = mutableListOf<JSONObject>()
+51.                 if (codeData == HttpURLConnection.HTTP_OK) {
+52.                     val jsonArray = JSONArray(bodyData)
+53.                     for (i in 0 until jsonArray.length()) {
+54.                         datasList.add(jsonArray.getJSONObject(i))
+55.                     }
+56.                 }
+57. 
+58.                 withContext(Dispatchers.Main) {
+59.                     training.value = trainingJson
+60.                     trainingDatas.value = datasList
+61.                     loading.value = false
+62.                 }
+63.             } catch (e: Exception) {
+64.                 withContext(Dispatchers.Main) {
+65.                     error.value = getApplication<Application>().getString(
+66.                         R.string.error_loading_details,
+67.                         e.message ?: ""
+68.                     )
+69.                     loading.value = false
+70.                 }
+71.             }
+72.         }
+73.     }
+74. 
+75.     fun fetchRecommendation(trainingId: String, token: String, type: String) {
+76.         recLoading.value = true
+77.         recError.value = null
+78.         viewModelScope.launch(Dispatchers.IO) {
+79.             try {
+80.                 val endpoint = when (type) {
+81.                     "steps" -> "http://10.0.2.2:5000/api/analytics/recommendations/steps/$trainingId"
+82.                     "calories" -> "http://10.0.2.2:5000/api/analytics/recommendations/calories/$trainingId"
+83.                     "heart-rate" -> "http://10.0.2.2:5000/api/analytics/recommendations/heart-rate/$trainingId"
+84.                     else -> throw Exception(getApplication<Application>().getString(R.string.unknown))
+85.                 }
+86.                 val url = URL(endpoint)
+87.                 val conn = url.openConnection() as HttpURLConnection
+88.                 conn.requestMethod = "GET"
+89.                 conn.setRequestProperty("Authorization", "Bearer $token")
+90.                 val responseCode = conn.responseCode
+91.                 if (responseCode != HttpURLConnection.HTTP_OK) {
+92.                     throw Exception(
+93.                         getApplication<Application>().getString(
+94.                             R.string.error_code,
+95.                             responseCode
+96.                         )
+97.                     )
+98.                 }
+99.                 val response = conn.inputStream.bufferedReader().readText()
+100.                 conn.disconnect()
+101. 
+102.                 val jsonObj = JSONObject(response)
+103.                 val recMessage = jsonObj.optString(
+104.                     "message",
+105.                     getApplication<Application>().getString(R.string.no_data)
+106.                 )
+107.                 val recFormula = jsonObj.optString("formula", "")
+108.                 val recIndicators = jsonObj.optJSONObject("indicators")
+109.                 val recParameters = jsonObj.optJSONObject("parameters")
+110. 
+111.                 val recommendationText = buildString {
+112.                     append(recMessage).append("\n")
+113.                     if (recIndicators != null && recIndicators.length() > 0) {
+114.                         append(getApplication<Application>().getString(R.string.indicators)).append(
+115.                             "\n"
+116.                         )
+117.                         when (type) {
+118.                             "steps" -> {
+119.                                 val steps = recIndicators.optInt("currentSteps", -1)
+120.                                 val avgSteps = recIndicators.optDouble("averageSteps", Double.NaN)
+121.                                 if (steps != -1) append(
+122.                                     getApplication<Application>().getString(
+123.                                         R.string.steps_in_session,
+124.                                         steps
+125.                                     )
+126.                                 ).append("\n")
+127.                                 if (!avgSteps.isNaN()) append(
+128.                                     getApplication<Application>().getString(
+129.                                         R.string.average_steps,
+130.                                         avgSteps
+131.                                     )
+132.                                 ).append("\n")
+133.                             }
+134. 
+135.                             "calories" -> {
+136.                                 val calories = recIndicators.optDouble("calories", Double.NaN)
+137.                                 val avgCalories =
+138.                                     recIndicators.optDouble("averageCalories", Double.NaN)
+139.                                 if (!calories.isNaN()) append(
+140.                                     getApplication<Application>().getString(
+141.                                         R.string.calories_value,
+142.                                         calories
+143.                                     )
+144.                                 ).append("\n")
+145.                                 if (!avgCalories.isNaN()) append(
+146.                                     getApplication<Application>().getString(
+147.                                         R.string.average_calories,
+148.                                         avgCalories
+149.                                     )
+150.                                 ).append("\n")
+151.                             }
+152. 
+153.                             "heart-rate" -> {
+154.                                 val age = recIndicators.optInt("age", -1)
+155.                                 val maxHR = recIndicators.optDouble("maxHeartRate", Double.NaN)
+156.                                 val maxHRTraining = recIndicators.optDouble(
+157.                                     "maxHeartRateDuringTraining",
+158.                                     Double.NaN
+159.                                 )
+160.                                 val minHRTraining = recIndicators.optDouble(
+161.                                     "minHeartRateDuringTraining",
+162.                                     Double.NaN
+163.                                 )
+164.                                 val range = recIndicators.optJSONObject("acceptableRange")
+165.                                 if (age != -1) append(
+166.                                     getApplication<Application>().getString(
+167.                                         R.string.age_value,
+168.                                         age
+169.                                     )
+170.                                 ).append("\n")
+171.                                 if (!maxHR.isNaN()) append(
+172.                                     getApplication<Application>().getString(
+173.                                         R.string.max_heart_rate,
+174.                                         maxHR
+175.                                     )
+176.                                 ).append("\n")
+177.                                 if (!maxHRTraining.isNaN()) append(
+178.                                     getApplication<Application>().getString(
+179.                                         R.string.max_heart_rate_training,
+180.                                         maxHRTraining
+181.                                     )
+182.                                 ).append("\n")
+183.                                 if (!minHRTraining.isNaN()) append(
+184.                                     getApplication<Application>().getString(
+185.                                         R.string.min_heart_rate_training,
+186.                                         minHRTraining
+187.                                     )
+188.                                 ).append("\n")
+189.                                 if (range != null) {
+190.                                     val lower = range.optDouble("lower", Double.NaN)
+191.                                     val upper = range.optDouble("upper", Double.NaN)
+192.                                     if (!lower.isNaN() && !upper.isNaN()) {
+193.                                         append(
+194.                                             getApplication<Application>().getString(
+195.                                                 R.string.recommended_heart_rate_range,
+196.                                                 lower,
+197.                                                 upper
+198.                                             )
+199.                                         ).append("\n")
+200.                                     }
+201.                                 }
+202.                             }
+203.                         }
+204.                     }
+205.                     if (type == "calories" && recParameters != null && recParameters.length() > 0) {
+206.                         append(getApplication<Application>().getString(R.string.calculation_details)).append(
+207.                             "\n"
+208.                         )
+209.                         val calories = recParameters.optDouble("calories", Double.NaN)
+210.                         if (!calories.isNaN()) append(
+211.                             getApplication<Application>().getString(
+212.                                 R.string.calories_value,
+213.                                 calories
+214.                             )
+215.                         ).append("\n")
+216.                         val steps = recParameters.optInt("totalSteps", -1)
+217.                         if (steps != -1) append(
+218.                             getApplication<Application>().getString(
+219.                                 R.string.steps_value,
+220.                                 steps
+221.                             )
+222.                         ).append("\n")
+223.                         val heightCm = recParameters.optDouble("height", Double.NaN)
+224.                         if (!heightCm.isNaN()) {
+225.                             val totalInches = heightCm / 2.54
+226.                             val feet = (totalInches / 12).toInt()
+227.                             val inches = (totalInches % 12).toInt()
+228.                             append(
+229.                                 getApplication<Application>().getString(
+230.                                     R.string.height_value,
+231.                                     feet,
+232.                                     inches
+233.                                 )
+234.                             ).append("\n")
+235.                         }
+236.                         val time = recParameters.optDouble("time", Double.NaN)
+237.                         if (!time.isNaN()) append(
+238.                             getApplication<Application>().getString(
+239.                                 R.string.time_seconds,
+240.                                 time
+241.                             )
+242.                         ).append("\n")
+243.                         val MET = recParameters.optDouble("MET", Double.NaN)
+244.                         if (!MET.isNaN()) append(
+245.                             getApplication<Application>().getString(
+246.                                 R.string.met_value,
+247.                                 MET
+248.                             )
+249.                         ).append("\n")
+250.                         val weightKg = recParameters.optDouble("weight", Double.NaN)
+251.                         if (!weightKg.isNaN()) {
+252.                             val weightLb = weightKg * 2.20462
+253.                             append(
+254.                                 getApplication<Application>().getString(
+255.                                     R.string.weight_lb,
+256.                                     weightLb
+257.                                 )
+258.                             ).append("\n")
+259.                         }
+260.                     }
+261.                     if (type == "calories" && recParameters != null) {
+262.                         val formula = recParameters.optString("formula", "")
+263.                         if (formula.isNotEmpty()) {
+264.                             append(getApplication<Application>().getString(R.string.used_formula)).append(
+265.                                 "\n"
+266.                             )
+267.                             append(formula).append("\n")
+268.                         }
+269.                     } else if (recFormula.isNotEmpty()) {
+270.                         append(getApplication<Application>().getString(R.string.used_formula)).append(
+271.                             "\n"
+272.                         )
+273.                         append(recFormula).append("\n")
+274.                     }
+275.                 }
+276. 
+277.                 withContext(Dispatchers.Main) {
+278.                     recommendation.value = recommendationText.trim()
+279.                     recLoading.value = false
+280.                 }
+281.             } catch (e: Exception) {
+282.                 withContext(Dispatchers.Main) {
+283.                     recError.value = getApplication<Application>().getString(
+284.                         R.string.error_prefix,
+285.                         e.message ?: ""
+286.                     )
+287.                     recLoading.value = false
+288.                 }
+289.             }
+290.         }
+291.     }
+292. }
+     
+В.2 Адміністрування бізнес-логіки системи.
+     
+GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab4/pzpi-22-3-ivanov-yaroslav-lab4/mobile/app/src/main/java/com/devhub/apz/ui/admin/ServerAdminDashboardViewModel.kt 
+      
+1. package com.devhub.apz.ui.admin
+2. 
+3. import android.app.Application
+4. import androidx.lifecycle.AndroidViewModel
+5. import androidx.lifecycle.MutableLiveData
+6. import androidx.lifecycle.viewModelScope
+7. import com.devhub.apz.R
+8. import kotlinx.coroutines.Dispatchers
+9. import kotlinx.coroutines.launch
+10. import kotlinx.coroutines.withContext
+11. import org.json.JSONArray
+12. import org.json.JSONObject
+13. import java.net.HttpURLConnection
+14. import java.net.URL
+15. import kotlin.math.min
+16. 
+17. class ServerAdminDashboardViewModel(application: Application) : AndroidViewModel(application) {
+18.     val serverStatus = MutableLiveData<JSONObject?>()
+19.     val serverConfig = MutableLiveData<JSONObject?>()
+20.     val logs = MutableLiveData<List<JSONObject>>()
+21.     val error = MutableLiveData<String?>()
+22.     val loading = MutableLiveData<Boolean>()
+23. 
+24.     val currentLogsPage = MutableLiveData<Int>().apply { value = 1 }
+25.     val totalLogsPages = MutableLiveData<Int>()
+26.     private val logsPerPage = 10
+27. 
+28.     private var allLogs: List<JSONObject> = emptyList()
+29. 
+30.     fun fetchServerStatus(token: String) {
+31.         loading.value = true
+32.         error.value = null
+33.         viewModelScope.launch(Dispatchers.IO) {
+34.             try {
+35.                 val url = URL("http://10.0.2.2:5000/api/admin/server-status")
+36.                 val conn = url.openConnection() as HttpURLConnection
+37.                 conn.requestMethod = "GET"
+38.                 conn.setRequestProperty("Authorization", "Bearer $token")
+39.                 val code = conn.responseCode
+40.                 if (code == HttpURLConnection.HTTP_OK) {
+41.                     val response = conn.inputStream.bufferedReader().readText()
+42.                     conn.disconnect()
+43.                     val json = JSONObject(response)
+44.                     withContext(Dispatchers.Main) {
+45.                         serverStatus.value = json
+46.                         loading.value = false
+47.                     }
+48.                 } else {
+49.                     conn.disconnect()
+50.                     withContext(Dispatchers.Main) {
+51.                         error.value = getApplication<Application>().getString(
+52.                             R.string.error_fetching_status,
+53.                             code
+54.                         )
+55.                         loading.value = false
+56.                     }
+57.                 }
+58.             } catch (e: Exception) {
+59.                 withContext(Dispatchers.Main) {
+60.                     error.value = getApplication<Application>().getString(
+61.                         R.string.error_fetching_status,
+62.                         e.message ?: ""
+63.                     )
+64.                     loading.value = false
+65.                 }
+66.             }
+67.         }
+68.     }
+69. 
+70.     fun fetchServerConfig(token: String) {
+71.         loading.value = true
+72.         error.value = null
+73.         viewModelScope.launch(Dispatchers.IO) {
+74.             try {
+75.                 val url = URL("http://10.0.2.2:5000/api/admin/server-config")
+76.                 val conn = url.openConnection() as HttpURLConnection
+77.                 conn.requestMethod = "GET"
+78.                 conn.setRequestProperty("Authorization", "Bearer $token")
+79.                 val code = conn.responseCode
+80.                 if (code == HttpURLConnection.HTTP_OK) {
+81.                     val response = conn.inputStream.bufferedReader().readText()
+82.                     conn.disconnect()
+83.                     val json = JSONObject(response)
+84.                     withContext(Dispatchers.Main) {
+85.                         serverConfig.value = json
+86.                         loading.value = false
+87.                     }
+88.                 } else {
+89.                     conn.disconnect()
+90.                     withContext(Dispatchers.Main) {
+91.                         error.value = getApplication<Application>().getString(
+92.                             R.string.error_fetching_config,
+93.                             code
+94.                         )
+95.                         loading.value = false
+96.                     }
+97.                 }
+98.             } catch (e: Exception) {
+99.                 withContext(Dispatchers.Main) {
+100.                     error.value = getApplication<Application>().getString(
+101.                         R.string.error_fetching_config,
+102.                         e.message ?: ""
+103.                     )
+104.                     loading.value = false
+105.                 }
+106.             }
+107.         }
+108.     }
+109. 
+110.     fun updateServerConfig(token: String, newConfig: JSONObject) {
+111.         loading.value = true
+112.         error.value = null
+113.         viewModelScope.launch(Dispatchers.IO) {
+114.             try {
+115.                 val url = URL("http://10.0.2.2:5000/api/admin/server-config")
+116.                 val conn = url.openConnection() as HttpURLConnection
+117.                 conn.requestMethod = "POST"
+118.                 conn.doOutput = true
+119.                 conn.setRequestProperty("Content-Type", "application/json")
+120.                 conn.setRequestProperty("Authorization", "Bearer $token")
+121.                 val jsonBody = newConfig.toString()
+122.                 conn.outputStream.use { it.write(jsonBody.toByteArray()) }
+123.                 val code = conn.responseCode
+124.                 conn.disconnect()
+125.                 withContext(Dispatchers.Main) {
+126.                     if (code == HttpURLConnection.HTTP_OK) {
+127.                         fetchServerConfig(token)
+128.                     } else {
+129.                         error.value = getApplication<Application>().getString(
+130.                             R.string.error_updating_config,
+131.                             code
+132.                         )
+133.                         loading.value = false
+134.                     }
+135.                 }
+136.             } catch (e: Exception) {
+137.                 withContext(Dispatchers.Main) {
+138.                     error.value = getApplication<Application>().getString(
+139.                         R.string.error_updating_config,
+140.                         e.message ?: ""
+141.                     )
+142.                     loading.value = false
+143.                 }
+144.             }
+145.         }
+146.     }
+147. 
+148.     fun fetchLogs(token: String, page: Int = 1) {
+149.         loading.value = true
+150.         error.value = null
+151.         viewModelScope.launch(Dispatchers.IO) {
+152.             try {
+153.                 val url = URL("http://10.0.2.2:5000/api/admin/logs")
+154.                 val conn = url.openConnection() as HttpURLConnection
+155.                 conn.requestMethod = "GET"
+156.                 conn.setRequestProperty("Authorization", "Bearer $token")
+157.                 val responseCode = conn.responseCode
+158.                 val responseText = conn.inputStream.bufferedReader().readText()
+159.                 conn.disconnect()
+160.                 if (responseCode == HttpURLConnection.HTTP_OK) {
+161.                     val arr = JSONArray(responseText)
+162.                     val list = mutableListOf<JSONObject>()
+163.                     for (i in 0 until arr.length()) {
+164.                         list.add(arr.getJSONObject(i))
+165.                     }
+166.                     allLogs = list
+167.                     val totalLogs = list.size
+168.                     val totalPagesCalculated = if (totalLogs % logsPerPage == 0)
+169.                         totalLogs / logsPerPage else (totalLogs / logsPerPage) + 1
+170.                     withContext(Dispatchers.Main) {
+171.                         totalLogsPages.value = totalPagesCalculated
+172.                         paginateLogs(page)
+173.                         loading.value = false
+174.                     }
+175.                 } else {
+176.                     withContext(Dispatchers.Main) {
+177.                         error.value = getApplication<Application>().getString(
+178.                             R.string.error_fetching_logs,
+179.                             responseCode
+180.                         )
+181.                         loading.value = false
+182.                     }
+183.                 }
+184.             } catch (e: Exception) {
+185.                 withContext(Dispatchers.Main) {
+186.                     error.value = getApplication<Application>().getString(
+187.                         R.string.error_fetching_logs,
+188.                         e.message ?: ""
+189.                     )
+190.                     loading.value = false
+191.                 }
+192.             }
+193.         }
+194.     }
+195. 
+196.     fun paginateLogs(page: Int) {
+197.         val totalLogs = allLogs.size
+198.         val fromIndex = (page - 1) * logsPerPage
+199.         val toIndex = min(fromIndex + logsPerPage, totalLogs)
+200.         val pageLogs =
+201.             if (fromIndex in 0 until totalLogs) allLogs.subList(fromIndex, toIndex) else emptyList()
+202.         logs.value = pageLogs
+203.         currentLogsPage.value = page
+204.     }
+205. 
+206.     fun deleteAllLogs(token: String, onComplete: (Boolean, String?) -> Unit) {
+207.         loading.value = true
+208.         error.value = null
+209.         viewModelScope.launch(Dispatchers.IO) {
+210.             try {
+211.                 val url = URL("http://10.0.2.2:5000/api/admin/logs")
+212.                 val conn = url.openConnection() as HttpURLConnection
+213.                 conn.requestMethod = "DELETE"
+214.                 conn.setRequestProperty("Authorization", "Bearer $token")
+215.                 val code = conn.responseCode
+216.                 conn.disconnect()
+217.                 withContext(Dispatchers.Main) {
+218.                     loading.value = false
+219.                     if (code == HttpURLConnection.HTTP_OK) {
+220.                         onComplete(true, null)
+221.                     } else {
+222.                         onComplete(
+223.                             false,
+224.                             getApplication<Application>().getString(
+225.                                 R.string.error_deleting_logs,
+226.                                 code
+227.                             )
+228.                         )
+229.                     }
+230.                 }
+231.             } catch (e: Exception) {
+232.                 withContext(Dispatchers.Main) {
+233.                     loading.value = false
+234.                     onComplete(
+235.                         false,
+236.                         getApplication<Application>().getString(
+237.                             R.string.error_deleting_logs,
+238.                             e.message ?: ""
+239.                         )
+240.                     )
+241.                 }
+242.             }
+243.         }
+244.     }
+245. 
+246.     fun deleteLogsByDate(token: String, date: String, onComplete: (Boolean, String?) -> Unit) {
+247.         loading.value = true
+248.         error.value = null
+249.         viewModelScope.launch(Dispatchers.IO) {
+250.             try {
+251.                 val url = URL("http://10.0.2.2:5000/api/admin/logs/by-date?date=$date")
+252.                 val conn = url.openConnection() as HttpURLConnection
+253.                 conn.requestMethod = "DELETE"
+254.                 conn.setRequestProperty("Authorization", "Bearer $token")
+255.                 val code = conn.responseCode
+256.                 val response = conn.inputStream.bufferedReader().readText()
+257.                 conn.disconnect()
+258.                 withContext(Dispatchers.Main) {
+259.                     loading.value = false
+260.                     if (code == HttpURLConnection.HTTP_OK) {
+261.                         onComplete(
+262.                             true,
+263.                             getApplication<Application>().getString(
+264.                                 R.string.logs_deleted_by_date,
+265.                                 date
+266.                             )
+267.                         )
+268.                     } else {
+269.                         onComplete(
+270.                             false,
+271.                             getApplication<Application>().getString(
+272.                                 R.string.error_deleting_logs_by_date,
+273.                                 code
+274.                             )
+275.                         )
+276.                     }
+277.                 }
+278.             } catch (e: Exception) {
+279.                 withContext(Dispatchers.Main) {
+280.                     loading.value = false
+281.                     onComplete(
+282.                         false,
+283.                         getApplication<Application>().getString(
+284.                             R.string.error_deleting_logs_by_date,
+285.                             e.message ?: ""
+286.                         )
+287.                     )
+288.                 }
+289.             }
+290.         }
+291.     }
+292. }
+     
+В.3 Резервне копіювання користувацьких даних
+          
+GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab4/pzpi-22-3-ivanov-yaroslav-lab4/mobile/app/src/main/java/com/devhub/apz/ui/admin/DbAdminDashboardViewModel.kt 
+     
+      1. package com.devhub.apz.ui.admin
+      2. 
+      3. import android.app.Application
+      4. import androidx.lifecycle.AndroidViewModel
+      5. import androidx.lifecycle.MutableLiveData
+      6. import androidx.lifecycle.viewModelScope
+      7. import com.devhub.apz.R
+      8. import kotlinx.coroutines.Dispatchers
+      9. import kotlinx.coroutines.launch
+      10. import kotlinx.coroutines.withContext
+      11. import org.json.JSONObject
+      12. import java.net.HttpURLConnection
+      13. import java.net.URL
+      14. 
+      15. class DbAdminDashboardViewModel(application: Application) : AndroidViewModel(application) {
+      16.     val backupResult = MutableLiveData<Pair<Boolean, String?>>()
+      17.     val restoreResult = MutableLiveData<Pair<Boolean, String?>>()
+      18.     val dbStatus = MutableLiveData<JSONObject?>()
+      19.     val loading = MutableLiveData<Boolean>()
+      20.     val error = MutableLiveData<String?>()
+      21. 
+      22.     fun createBackup(token: String) {
+      23.         loading.value = true
+      24.         error.value = null
+      25.         viewModelScope.launch(Dispatchers.IO) {
+      26.             try {
+      27.                 val url = URL("http://10.0.2.2:5000/api/admin/backup")
+      28.                 val conn = url.openConnection() as HttpURLConnection
+      29.                 conn.requestMethod = "POST"
+      30.                 conn.doOutput = true
+      31.                 conn.setRequestProperty("Content-Type", "application/json")
+      32.                 conn.setRequestProperty("Authorization", "Bearer $token")
+      33.                 val responseCode = conn.responseCode
+      34.                 val responseText = conn.inputStream.bufferedReader().readText()
+      35.                 conn.disconnect()
+      36.                 withContext(Dispatchers.Main) {
+      37.                     if (responseCode == HttpURLConnection.HTTP_OK) {
+      38.                         backupResult.value = Pair(
+      39.                             true,
+      40.                             getApplication<Application>().getString(R.string.backup_created_success)
+      41.                         )
+      42.                     } else {
+      43.                         backupResult.value =
+      44.                             Pair(
+      45.                                 false,
+      46.                                 getApplication<Application>().getString(
+      47.                                     R.string.error_backup_db,
+      48.                                     responseCode
+      49.                                 )
+      50.                             )
+      51.                     }
+      52.                     loading.value = false
+      53.                 }
+      54.             } catch (e: Exception) {
+      55.                 withContext(Dispatchers.Main) {
+      56.                     backupResult.value = Pair(
+      57.                         false,
+      58.                         getApplication<Application>().getString(
+      59.                             R.string.error_backup_db,
+      60.                             e.message ?: ""
+      61.                         )
+      62.                     )
+      63.                     loading.value = false
+      64.                 }
+      65.             }
+      66.         }
+      67.     }
+      68. 
+      69.     fun restoreBackup(token: String, backupName: String) {
+      70.         loading.value = true
+      71.         error.value = null
+      72.         viewModelScope.launch(Dispatchers.IO) {
+      73.             try {
+      74.                 val url = URL("http://10.0.2.2:5000/api/admin/restore")
+      75.                 val conn = url.openConnection() as HttpURLConnection
+      76.                 conn.requestMethod = "POST"
+      77.                 conn.doOutput = true
+      78.                 conn.setRequestProperty("Content-Type", "application/json")
+      79.                 conn.setRequestProperty("Authorization", "Bearer $token")
+      80.                 val jsonBody = JSONObject().put("backupName", backupName).toString()
+      81.                 conn.outputStream.use { it.write(jsonBody.toByteArray()) }
+      82.                 val responseCode = conn.responseCode
+      83.                 val responseText = conn.inputStream.bufferedReader().readText()
+      84.                 conn.disconnect()
+      85.                 withContext(Dispatchers.Main) {
+      86.                     if (responseCode == HttpURLConnection.HTTP_OK) {
+      87.                         restoreResult.value = Pair(
+      88.                             true,
+      89.                             getApplication<Application>().getString(R.string.db_restored_success)
+      90.                         )
+      91.                     } else {
+      92.                         restoreResult.value = Pair(
+      93.                             false,
+      94.                             getApplication<Application>().getString(
+      95.                                 R.string.error_restore_db,
+      96.                                 responseCode
+      97.                             )
+      98.                         )
+      99.                     }
+      100.                     loading.value = false
+      101.                 }
+      102.             } catch (e: Exception) {
+      103.                 withContext(Dispatchers.Main) {
+      104.                     restoreResult.value = Pair(
+      105.                         false,
+      106.                         getApplication<Application>().getString(
+      107.                             R.string.error_restore_db,
+      108.                             e.message ?: ""
+      109.                         )
+      110.                     )
+      111.                     loading.value = false
+      112.                 }
+      113.             }
+      114.         }
+      115.     }
+      116. 
+      117.     fun checkDatabaseStatus(token: String) {
+      118.         loading.value = true
+      119.         error.value = null
+      120.         viewModelScope.launch(Dispatchers.IO) {
+      121.             try {
+      122.                 val url = URL("http://10.0.2.2:5000/api/admin/database-status")
+      123.                 val conn = url.openConnection() as HttpURLConnection
+      124.                 conn.requestMethod = "GET"
+      125.                 conn.setRequestProperty("Authorization", "Bearer $token")
+      126.                 val responseCode = conn.responseCode
+      127.                 val responseText = conn.inputStream.bufferedReader().readText()
+      128.                 conn.disconnect()
+      129.                 withContext(Dispatchers.Main) {
+      130.                     if (responseCode == HttpURLConnection.HTTP_OK) {
+      131.                         val json = JSONObject(responseText)
+      132.                         dbStatus.value = json
+      133.                     } else {
+      134.                         error.value = getApplication<Application>().getString(
+      135.                             R.string.error_status_db,
+      136.                             responseCode
+      137.                         )
+      138.                     }
+      139.                     loading.value = false
+      140.                 }
+      141.             } catch (e: Exception) {
+      142.                 withContext(Dispatchers.Main) {
+      143.                     error.value = getApplication<Application>().getString(
+      144.                         R.string.error_status_db,
+      145.                         e.message ?: ""
+      146.                     )
+      147.                     loading.value = false
+      148.                 }
+      149.             }
+      150.         }
+      151.     }
+      152. }
+         
+В.4 Функції платформенного адміністратора. Зміна ролей користувачів.
+          
+GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab4/pzpi-22-3-ivanov-yaroslav-lab4/mobile/app/src/main/java/com/devhub/apz/ui/admin/AdminDashboardViewModel.kt 
+      
+1. package com.devhub.apz.ui.admin
+2. 
+3. import android.app.Application
+4. import androidx.lifecycle.AndroidViewModel
+5. import androidx.lifecycle.MutableLiveData
+6. import androidx.lifecycle.viewModelScope
+7. import com.devhub.apz.R
+8. import com.devhub.apz.models.AdminUser
+9. import kotlinx.coroutines.Dispatchers
+10. import kotlinx.coroutines.launch
+11. import kotlinx.coroutines.withContext
+12. import org.json.JSONArray
+13. import org.json.JSONObject
+14. import java.net.HttpURLConnection
+15. import java.net.URL
+16. 
+17. class AdminDashboardViewModel(application: Application) : AndroidViewModel(application) {
+18.     val users = MutableLiveData<List<AdminUser>>()
+19.     val error = MutableLiveData<String?>()
+20.     val loading = MutableLiveData<Boolean>()
+21. 
+22.     val roleOptions: List<String> =
+23.         application.resources.getStringArray(R.array.role_options).toList()
+24. 
+25.     fun loadUsers(token: String) {
+26.         loading.value = true
+27.         error.value = null
+28.         viewModelScope.launch(Dispatchers.IO) {
+29.             try {
+30.                 val url = URL("http://10.0.2.2:5000/api/users")
+31.                 val conn = url.openConnection() as HttpURLConnection
+32.                 conn.requestMethod = "GET"
+33.                 conn.setRequestProperty("Authorization", "Bearer $token")
+34.                 val responseCode = conn.responseCode
+35.                 val response = conn.inputStream.bufferedReader().readText()
+36.                 conn.disconnect()
+37.                 if (responseCode != HttpURLConnection.HTTP_OK) {
+38.                     throw Exception(
+39.                         getApplication<Application>().getString(
+40.                             R.string.error_loading_user,
+41.                             responseCode
+42.                         )
+43.                     )
+44.                 }
+45.                 val arr = JSONArray(response)
+46.                 val list = mutableListOf<AdminUser>()
+47.                 for (i in 0 until arr.length()) {
+48.                     val obj = arr.getJSONObject(i)
+49.                     list.add(
+50.                         AdminUser(
+51.                             id = obj.optString("id"),
+52.                             email = obj.optString("email"),
+53.                             username = obj.optString("name"),
+54.                             roles = obj.optJSONArray("roles")?.let { jsonArr ->
+55.                                 List(jsonArr.length()) { index -> jsonArr.getString(index) }
+56.                             } ?: emptyList()
+57.                         )
+58.                     )
+59.                 }
+60.                 withContext(Dispatchers.Main) {
+61.                     users.value = list
+62.                     loading.value = false
+63.                 }
+64.             } catch (e: Exception) {
+65.                 withContext(Dispatchers.Main) {
+66.                     error.value = e.message
+67.                     loading.value = false
+68.                 }
+69.             }
+70.         }
+71.     }
+72. 
+73.     fun assignRole(
+74.         userId: String,
+75.         role: String,
+76.         token: String,
+77.         onComplete: (Boolean, String?) -> Unit
+78.     ) {
+79.         viewModelScope.launch(Dispatchers.IO) {
+80.             try {
+81.                 val url = URL("http://10.0.2.2:5000/api/users/$userId/role")
+82.                 val conn = url.openConnection() as HttpURLConnection
+83.                 conn.requestMethod = "POST"
+84.                 conn.doOutput = true
+85.                 conn.setRequestProperty("Content-Type", "application/json")
+86.                 conn.setRequestProperty("Authorization", "Bearer $token")
+87.                 val jsonBody = JSONObject().put("role", role).toString()
+88.                 conn.outputStream.use { it.write(jsonBody.toByteArray()) }
+89.                 val responseCode = conn.responseCode
+90.                 val responseText = conn.inputStream.bufferedReader().readText()
+91.                 conn.disconnect()
+92.                 if (responseCode == HttpURLConnection.HTTP_OK) {
+93.                     withContext(Dispatchers.Main) {
+94.                         onComplete(true, null)
+95.                     }
+96.                 } else {
+97.                     val message = try {
+98.                         JSONObject(responseText).optString(
+99.                             "message",
+100.                             getApplication<Application>().getString(R.string.error_assign_role)
+101.                         )
+102.                     } catch (e: Exception) {
+103.                         getApplication<Application>().getString(R.string.error_assign_role)
+104.                     }
+105.                     withContext(Dispatchers.Main) {
+106.                         onComplete(false, message)
+107.                     }
+108.                 }
+109.             } catch (e: Exception) {
+110.                 withContext(Dispatchers.Main) {
+111.                     onComplete(false, e.message)
+112.                 }
+113.             }
+114.         }
+115.     }
+116. 
+117.     fun removeRole(
+118.         userId: String,
+119.         role: String,
+120.         token: String,
+121.         onComplete: (Boolean, String?) -> Unit
+122.     ) {
+123.         viewModelScope.launch(Dispatchers.IO) {
+124.             try {
+125.                 val url = URL("http://10.0.2.2:5000/api/users/$userId/role")
+126.                 val conn = url.openConnection() as HttpURLConnection
+127.                 conn.requestMethod = "DELETE"
+128.                 conn.doOutput = true
+129.                 conn.setRequestProperty("Content-Type", "application/json")
+130.                 conn.setRequestProperty("Authorization", "Bearer $token")
+131.                 val jsonBody = JSONObject().put("role", role).toString()
+132.                 conn.outputStream.use { it.write(jsonBody.toByteArray()) }
+133.                 val responseCode = conn.responseCode
+134.                 val responseText = conn.inputStream.bufferedReader().readText()
+135.                 conn.disconnect()
+136.                 if (responseCode == HttpURLConnection.HTTP_OK) {
+137.                     withContext(Dispatchers.Main) {
+138.                         onComplete(true, null)
+139.                     }
+140.                 } else {
+141.                     val message = try {
+142.                         JSONObject(responseText).optString(
+143.                             "message",
+144.                             getApplication<Application>().getString(R.string.error_remove_role)
+145.                         )
+146.                     } catch (e: Exception) {
+147.                         getApplication<Application>().getString(R.string.error_remove_role)
+148.                     }
+149.                     withContext(Dispatchers.Main) {
+150.                         onComplete(false, message)
+151.                     }
+152.                 }
+153.             } catch (e: Exception) {
+154.                 withContext(Dispatchers.Main) {
+155.                     onComplete(false, e.message)
+156.                 }
+157.             }
+158.         }
+159.     }
+160. }
