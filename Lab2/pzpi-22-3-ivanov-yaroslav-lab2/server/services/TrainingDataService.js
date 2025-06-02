@@ -95,7 +95,7 @@ class TrainingDataService {
    * @param {string} trainingId - The training ID.
    * @returns {Promise<Array>} - The list of training data for the training.
    */
-  async getTrainingDatasByTrainingId(trainingId) {
+  async getTrainingDataByTrainingId(trainingId) {
     const training = await TrainingModel.findById(trainingId);
     if (!training) {
       throw new Error("Training not found");
