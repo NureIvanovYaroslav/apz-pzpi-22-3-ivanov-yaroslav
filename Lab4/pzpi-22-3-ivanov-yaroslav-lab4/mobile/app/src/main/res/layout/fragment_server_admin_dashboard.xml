@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvStatusTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/server_status_title"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnFetchStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_server_status" />
+
+        <TextView
+            android:id="@+id/tvStatusResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/tvConfigTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/system_config"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnFetchConfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/get_config" />
+
+        <EditText
+            android:id="@+id/etConfig"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="top"
+            android:hint="@string/json_hint"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/btnUpdateConfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/update_config" />
+
+        <TextView
+            android:id="@+id/tvLogsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/system_logs"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnFetchLogs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/get_logs" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerLogs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="700dp"
+            android:overScrollMode="ifContentScrolls" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPrevPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prev_page" />
+
+            <TextView
+                android:id="@+id/tvPageInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/page_info" />
+
+            <Button
+                android:id="@+id/btnNextPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next_page" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etDeleteLogsDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+                android:focusable="false"
+                android:hint="@string/date_for_delete_hint"
+                android:importantForAutofill="no"
+                android:inputType="none" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnDeleteLogsByDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/delete_logs_by_date" />
+
+        <Button
+            android:id="@+id/btnDeleteLogs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="50dp"
+            android:text="@string/delete_logs" />
+
+    </LinearLayout>
+</ScrollView>

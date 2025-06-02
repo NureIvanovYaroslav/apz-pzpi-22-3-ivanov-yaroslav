@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.devhub.apz.ui.auth.LoginFragment"
+        android:label="@string/login_title"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.devhub.apz.ui.auth.RegistrationFragment"
+        android:label="@string/register_title"
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/action_registrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.devhub.apz.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/trainingDetailsFragment"
+        android:name="com.devhub.apz.ui.home.TrainingDetailsFragment"
+        android:label="@string/training_details"
+        tools:layout="@layout/fragment_training_details" />
+    <action
+        android:id="@+id/action_home_to_trainingDetails"
+        app:destination="@id/trainingDetailsFragment" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.devhub.apz.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.devhub.apz.ui.profile.EditProfileFragment"
+        android:label="@string/edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/navigation_admin"
+        android:name="com.devhub.apz.ui.admin.AdminFragment"
+        android:label="@string/admin_panel_title"
+        tools:layout="@layout/fragment_admin" />
+
+    <action
+        android:id="@+id/action_navigation_admin_to_adminDashboardFragment"
+        app:destination="@id/adminDashboardFragment" />
+    <action
+        android:id="@+id/action_navigation_admin_to_serverAdminDashboardFragment"
+        app:destination="@id/serverAdminDashboardFragment" />
+
+    <action
+        android:id="@+id/action_navigation_admin_to_dbAdminDashboardFragment"
+        app:destination="@id/dbAdminDashboardFragment" />
+
+    <fragment
+        android:id="@+id/adminDashboardFragment"
+        android:name="com.devhub.apz.ui.admin.AdminDashboardFragment"
+        android:label="@string/platform_admin_panel"
+        tools:layout="@layout/fragment_admin_dashboard" />
+    <fragment
+        android:id="@+id/serverAdminDashboardFragment"
+        android:name="com.devhub.apz.ui.admin.ServerAdminDashboardFragment"
+        android:label="@string/server_admin_panel"
+        tools:layout="@layout/fragment_server_admin_dashboard" />
+    <fragment
+        android:id="@+id/dbAdminDashboardFragment"
+        android:name="com.devhub.apz.ui.admin.DbAdminDashboardFragment"
+        android:label="@string/database_admin_panel"
+        tools:layout="@layout/fragment_db_admin_dashboard" />
+</navigation>

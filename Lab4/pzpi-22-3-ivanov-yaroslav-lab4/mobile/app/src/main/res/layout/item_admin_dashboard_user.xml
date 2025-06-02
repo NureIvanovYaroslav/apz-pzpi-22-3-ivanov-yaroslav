@@ -1,0 +1,64 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data></data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/table_row_bg"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/default_email"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/default_username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+
+        <TextView
+            android:id="@+id/tvRoles"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/roles"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUsername" />
+
+        <Spinner
+            android:id="@+id/spinnerRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRoles" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAssign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/assign_role"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerRole" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remove_role"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerRole" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
