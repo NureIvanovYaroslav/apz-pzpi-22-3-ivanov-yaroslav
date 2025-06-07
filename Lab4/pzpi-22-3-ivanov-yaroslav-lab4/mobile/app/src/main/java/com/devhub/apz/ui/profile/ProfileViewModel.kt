@@ -5,7 +5,11 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.devhub.apz.R
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
@@ -25,7 +29,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
         uiScope.launch {
             withContext(Dispatchers.IO) {
                 try {
-                    val url = URL("http://10.0.2.2:5000/api/users/$userId")
+                    val url = URL("http://192.168.0.210:5000/api/users/$userId")
                     val conn = url.openConnection() as HttpURLConnection
                     conn.requestMethod = "GET"
                     conn.setRequestProperty("Authorization", "Bearer $token")

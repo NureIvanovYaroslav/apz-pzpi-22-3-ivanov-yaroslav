@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.devhub.apz.R
+import com.devhub.apz.api.getUserIdFromToken
 import com.devhub.apz.models.Training
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +16,6 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
-import com.devhub.apz.api.getUserIdFromToken
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val _trainings = MutableLiveData<List<Training>>()
@@ -51,7 +51,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                     }
                     return@launch
                 }
-                val userRes = makeRequest("http://10.0.2.2:5000/api/users/$userId", token)
+                val userRes = makeRequest("http://192.168.0.210:5000/api/users/$userId", token)
                 if (userRes.first != 200) {
                     withContext(Dispatchers.Main) {
                         _error.value =
@@ -71,7 +71,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                     return@launch
                 }
                 val trainingsRes =
-                    makeRequest("http://10.0.2.2:5000/api/trainings/device/$deviceId", token)
+                    makeRequest("http://192.168.0.210:5000/api/trainings/device/$deviceId", token)
 
                 if (trainingsRes.first != 200) {
                     try {

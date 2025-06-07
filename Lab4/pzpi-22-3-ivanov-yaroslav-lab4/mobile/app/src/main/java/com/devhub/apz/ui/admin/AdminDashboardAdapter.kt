@@ -31,7 +31,7 @@ class AdminDashboardAdapter(
         val ctx = holder.itemView.context
 
         val displayNames = ctx.resources.getStringArray(R.array.role_display_names).toList()
-        val roleCodes    = ctx.resources.getStringArray(R.array.role_values).toList()
+        val roleCodes = ctx.resources.getStringArray(R.array.role_values).toList()
 
         with(holder.binding) {
             tvEmail.text = user.email

@@ -66,7 +66,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
  *               $ref: '#/components/schemas/Notification'
  */
 
-router.post("/", authMiddleware, notificationController.createNotification);
+router.post("/", notificationController.createNotification);
 
 /**
  * @swagger

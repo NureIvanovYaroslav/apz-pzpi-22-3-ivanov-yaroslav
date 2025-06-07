@@ -66,7 +66,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
  *               $ref: '#/components/schemas/TrainingData'
  */
 
-router.post("/", authMiddleware, trainingDataController.createTrainingData);
+router.post("/", trainingDataController.createTrainingData);
 
 /**
  * @swagger

@@ -21,7 +21,7 @@ class RegistrationViewModel(application: Application) : AndroidViewModel(applica
     fun register(email: String, password: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val url = URL("http://10.0.2.2:5000/api/auth/registration")
+                val url = URL("http://192.168.0.210:5000/api/auth/registration")
                 val connection = url.openConnection() as HttpURLConnection
                 connection.requestMethod = "POST"
                 connection.doOutput = true

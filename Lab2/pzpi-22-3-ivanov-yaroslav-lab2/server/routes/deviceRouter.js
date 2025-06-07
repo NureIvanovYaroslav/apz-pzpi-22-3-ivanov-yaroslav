@@ -87,7 +87,7 @@ router.post("/", authMiddleware, deviceController.createDevice);
  *               $ref: '#/components/schemas/Device'
  */
 
-router.get("/:id", authMiddleware, deviceController.getDeviceById);
+router.get("/:id", deviceController.getDeviceById);
 
 /**
  * @swagger
@@ -168,6 +168,6 @@ router.delete("/:id", authMiddleware, deviceController.deleteDeviceById);
  *                 $ref: '#/components/schemas/Device'
  */
 
-router.get("/", authMiddleware, deviceController.getAllDevices);
+router.get("/", deviceController.getAllDevices);
 
 module.exports = router;

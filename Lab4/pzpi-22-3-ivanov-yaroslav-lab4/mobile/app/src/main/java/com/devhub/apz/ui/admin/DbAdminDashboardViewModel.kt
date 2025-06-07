@@ -24,7 +24,7 @@ class DbAdminDashboardViewModel(application: Application) : AndroidViewModel(app
         error.value = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/admin/backup")
+                val url = URL("http://192.168.0.210:5000/api/admin/backup")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "POST"
                 conn.doOutput = true
@@ -71,7 +71,7 @@ class DbAdminDashboardViewModel(application: Application) : AndroidViewModel(app
         error.value = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/admin/restore")
+                val url = URL("http://192.168.0.210:5000/api/admin/restore")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "POST"
                 conn.doOutput = true
@@ -119,7 +119,7 @@ class DbAdminDashboardViewModel(application: Application) : AndroidViewModel(app
         error.value = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/admin/database-status")
+                val url = URL("http://192.168.0.210:5000/api/admin/database-status")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "GET"
                 conn.setRequestProperty("Authorization", "Bearer $token")

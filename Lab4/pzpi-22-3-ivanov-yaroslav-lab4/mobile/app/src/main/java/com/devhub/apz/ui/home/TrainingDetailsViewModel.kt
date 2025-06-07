@@ -28,7 +28,7 @@ class TrainingDetailsViewModel(application: Application) : AndroidViewModel(appl
         error.value = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val urlTraining = URL("http://10.0.2.2:5000/api/trainings/$trainingId")
+                val urlTraining = URL("http://192.168.0.210:5000/api/trainings/$trainingId")
                 val connTraining = urlTraining.openConnection() as HttpURLConnection
                 connTraining.requestMethod = "GET"
                 connTraining.setRequestProperty("Authorization", "Bearer $token")
@@ -39,7 +39,8 @@ class TrainingDetailsViewModel(application: Application) : AndroidViewModel(appl
                     throw Exception(getApplication<Application>().getString(R.string.error_loading_training))
                 val trainingJson = JSONObject(bodyTraining)
 
-                val urlData = URL("http://10.0.2.2:5000/api/training-datas/training/$trainingId")
+                val urlData =
+                    URL("http://192.168.0.210:5000/api/training-datas/training/$trainingId")
                 val connData = urlData.openConnection() as HttpURLConnection
                 connData.requestMethod = "GET"
                 connData.setRequestProperty("Authorization", "Bearer $token")
@@ -78,9 +79,9 @@ class TrainingDetailsViewModel(application: Application) : AndroidViewModel(appl
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val endpoint = when (type) {
-                    "steps" -> "http://10.0.2.2:5000/api/analytics/recommendations/steps/$trainingId"
-                    "calories" -> "http://10.0.2.2:5000/api/analytics/recommendations/calories/$trainingId"
-                    "heart-rate" -> "http://10.0.2.2:5000/api/analytics/recommendations/heart-rate/$trainingId"
+                    "steps" -> "http://192.168.0.210:5000/api/analytics/recommendations/steps/$trainingId"
+                    "calories" -> "http://192.168.0.210:5000/api/analytics/recommendations/calories/$trainingId"
+                    "heart-rate" -> "http://192.168.0.210:5000/api/analytics/recommendations/heart-rate/$trainingId"
                     else -> throw Exception(getApplication<Application>().getString(R.string.unknown))
                 }
                 val url = URL(endpoint)

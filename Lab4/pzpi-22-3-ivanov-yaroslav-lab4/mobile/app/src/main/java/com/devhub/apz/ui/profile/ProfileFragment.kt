@@ -9,9 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.devhub.apz.R
-import com.devhub.apz.databinding.FragmentProfileBinding
 import com.devhub.apz.api.getUserIdFromToken
-import formatDateLocalized
+import com.devhub.apz.databinding.FragmentProfileBinding
 import formatHeightLocalized
 import formatWeightLocalized
 

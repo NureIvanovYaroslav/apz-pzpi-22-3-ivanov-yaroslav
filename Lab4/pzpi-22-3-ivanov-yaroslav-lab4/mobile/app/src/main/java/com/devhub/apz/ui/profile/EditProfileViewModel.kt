@@ -1,13 +1,12 @@
 package com.devhub.apz.ui.profile
 
 import android.app.Application
-import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.devhub.apz.R
-import com.devhub.apz.models.UserProfile
 import com.devhub.apz.api.getUserIdFromToken
+import com.devhub.apz.models.UserProfile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -25,7 +24,7 @@ class EditProfileViewModel(application: Application) : AndroidViewModel(applicat
             try {
                 val userId = getUserIdFromToken(token)
                     ?: throw Exception(getApplication<Application>().getString(R.string.no_token))
-                val url = URL("http://10.0.2.2:5000/api/users/$userId")
+                val url = URL("http://192.168.0.210:5000/api/users/$userId")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "GET"
                 conn.setRequestProperty("Authorization", "Bearer $token")
@@ -76,7 +75,7 @@ class EditProfileViewModel(application: Application) : AndroidViewModel(applicat
             try {
                 val userId = getUserIdFromToken(token)
                     ?: throw Exception(getApplication<Application>().getString(R.string.no_token))
-                val url = URL("http://10.0.2.2:5000/api/users/$userId")
+                val url = URL("http://192.168.0.210:5000/api/users/$userId")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "PUT"
                 conn.doOutput = true

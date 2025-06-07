@@ -32,7 +32,7 @@ class ServerAdminDashboardViewModel(application: Application) : AndroidViewModel
         error.value = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/admin/server-status")
+                val url = URL("http://192.168.0.210:5000/api/admin/server-status")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "GET"
                 conn.setRequestProperty("Authorization", "Bearer $token")
@@ -72,7 +72,7 @@ class ServerAdminDashboardViewModel(application: Application) : AndroidViewModel
         error.value = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/admin/server-config")
+                val url = URL("http://192.168.0.210:5000/api/admin/server-config")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "GET"
                 conn.setRequestProperty("Authorization", "Bearer $token")
@@ -112,7 +112,7 @@ class ServerAdminDashboardViewModel(application: Application) : AndroidViewModel
         error.value = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/admin/server-config")
+                val url = URL("http://192.168.0.210:5000/api/admin/server-config")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "POST"
                 conn.doOutput = true
@@ -150,7 +150,7 @@ class ServerAdminDashboardViewModel(application: Application) : AndroidViewModel
         error.value = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/admin/logs")
+                val url = URL("http://192.168.0.210:5000/api/admin/logs")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "GET"
                 conn.setRequestProperty("Authorization", "Bearer $token")
@@ -208,7 +208,7 @@ class ServerAdminDashboardViewModel(application: Application) : AndroidViewModel
         error.value = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/admin/logs")
+                val url = URL("http://192.168.0.210:5000/api/admin/logs")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "DELETE"
                 conn.setRequestProperty("Authorization", "Bearer $token")
@@ -248,7 +248,7 @@ class ServerAdminDashboardViewModel(application: Application) : AndroidViewModel
         error.value = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/admin/logs/by-date?date=$date")
+                val url = URL("http://192.168.0.210:5000/api/admin/logs/by-date?date=$date")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "DELETE"
                 conn.setRequestProperty("Authorization", "Bearer $token")

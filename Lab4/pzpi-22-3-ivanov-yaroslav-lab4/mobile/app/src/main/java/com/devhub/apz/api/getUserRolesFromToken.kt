@@ -1,7 +1,7 @@
 package com.devhub.apz.api
 
-import org.json.JSONObject
 import android.util.Base64
+import org.json.JSONObject
 
 fun getUserRolesFromToken(token: String): List<String> {
     return try {

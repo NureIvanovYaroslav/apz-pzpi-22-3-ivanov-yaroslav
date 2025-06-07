@@ -21,7 +21,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     fun login(email: String, password: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val url = URL("http://10.0.2.2:5000/api/auth/login")
+                val url = URL("http://192.168.0.210:5000/api/auth/login")
                 val connection = url.openConnection() as HttpURLConnection
                 connection.requestMethod = "POST"
                 connection.doOutput = true

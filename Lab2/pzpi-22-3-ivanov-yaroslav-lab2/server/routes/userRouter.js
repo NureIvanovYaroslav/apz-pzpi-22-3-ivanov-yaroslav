@@ -88,7 +88,7 @@ const roleMiddleware = require("../middlewares/roleMiddleware");
  *               $ref: '#/components/schemas/User'
  */
 
-router.get("/:id", authMiddleware, userController.getUserById);
+router.get("/:id", userController.getUserById);
 
 /**
  * @swagger
@@ -178,7 +178,7 @@ router.delete("/:id", authMiddleware, userController.deleteUserById);
  *                 $ref: '#/components/schemas/User'
  */
 
-router.get("/", authMiddleware, userController.getUsers);
+router.get("/", userController.getUsers);
 
 /**
  * @swagger

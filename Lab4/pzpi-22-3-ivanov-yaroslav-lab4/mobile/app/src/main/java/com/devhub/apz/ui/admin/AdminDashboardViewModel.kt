@@ -27,7 +27,7 @@ class AdminDashboardViewModel(application: Application) : AndroidViewModel(appli
         error.value = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/users")
+                val url = URL("http://192.168.0.210:5000/api/users")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "GET"
                 conn.setRequestProperty("Authorization", "Bearer $token")
@@ -78,7 +78,7 @@ class AdminDashboardViewModel(application: Application) : AndroidViewModel(appli
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/users/$userId/role")
+                val url = URL("http://192.168.0.210:5000/api/users/$userId/role")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "POST"
                 conn.doOutput = true
@@ -122,7 +122,7 @@ class AdminDashboardViewModel(application: Application) : AndroidViewModel(appli
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val url = URL("http://10.0.2.2:5000/api/users/$userId/role")
+                val url = URL("http://192.168.0.210:5000/api/users/$userId/role")
                 val conn = url.openConnection() as HttpURLConnection
                 conn.requestMethod = "DELETE"
                 conn.doOutput = true
