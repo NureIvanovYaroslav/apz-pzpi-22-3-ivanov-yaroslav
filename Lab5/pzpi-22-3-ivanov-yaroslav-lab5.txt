@@ -1,0 +1,866 @@
+﻿Харківський національний університет радіоелектроніки
+Факультет комп'ютерних наук
+Кафедра програмної інженерії
+     
+     
+     
+     
+ЗВІТ
+з лабораторної роботи №5
+з дисципліни  «Архітектура програмного забезпечення»
+на тему: «РОЗГОРТАННЯ ПРОГРАМНОЇ СИСТЕМИ»
+     
+     
+     
+     
+Виконав
+ст. гр. ПЗПІ-22-3
+Іванов Ярослав В’ячеславович
+     
+Перевірив
+ст. викладач кафедри ПІ
+Сокорчук Ігор Петрович
+     
+     
+     
+     
+Харків 2025
+
+1 ІСТОРІЯ ЗМІН
+     
+№	Дата	Версія звіту	Опис змін та виправлень
+1	06.06.2025	0.1	Створено розділ «Історія змін»
+2	06.06.2025	0.1	Створено розділ «Завдання», Опис виконаної роботи» та «Висновки»
+3	06.06.2025	0.1	Заповнено додаток Б з графічними матеріалами
+4	07.06.2025	0.1	Заповнено додаток В з програмним кодом
+5	07.06.2025	0.1	Наведено посилання на відеозапис. Заповнено додаток А.
+     
+2 ЗАВДАННЯ
+     
+     Метою даної лабораторної роботи є розгортання та демонстрація розробленої програмної системи.
+     
+3 ОПИС ВИКОНАНОЇ РОБОТИ
+
+     У ході виконання лабораторної роботи було реалізовано повне розгортання програмної системи для обліку користувачів у фітнес-студії, що включає серверну частину, вебклієнт, мобільний клієнт та IoT-компонент.
+     Було підготовлено відеозвіт, який демонструє результати реалізації. Посилання на відеозапис та хронологічний опис із таймкодами наведено у додатку А.
+     Для забезпечення зручного встановлення системи була створена окрема вебсторінка, реалізована за допомогою фреймворку React і збирача Vite. На цій сторінці користувач має змогу завантажити інсталяційний файл, який розроблено на мові Python з використанням бібліотеки Tkinter.
+     Розгортання системи починається з переходу на вебсторінку, де доступна кнопка завантаження інсталятора. Завантажений інсталятор можна зберегти у будь-яку директорію. Після запуску .exe-файлу відкривається вікно, де користувач має ввести пароль для доступу до бази даних. У разі правильного введення паролю інсталятор автоматично встановлює платформу Node.js і всі необхідні залежності. Після завершення встановлення користувач бачить повідомлення про успішну інсталяцію та кнопку, що дозволяє запустити серверну частину та вебклієнт. Натисканням цієї кнопки користувача автоматично перенаправляє на потрібні URL-адреси, зокрема на Swagger-документацію API та вебінтерфейс клієнта. Також інсталятор створює ярлик BAT-файлу на робочому столі, який забезпечує зручний запуск серверної частини та вебклієнта в майбутньому.
+     Після запуску серверної частини було здійснено перевірку її працездатності. Проведено авторизацію користувача та отримано токен доступу. За допомогою цього токена були протестовані функції бізнес-логіки: отримання рекомендацій щодо кількості пройдених кроків, спалених калорій та пульсового навантаження. Кожна з функцій повернула коректні дані, а також відповідні формули розрахунку та використовувані параметри. Це підтвердило коректність реалізації серверної логіки.
+     Подальше тестування охоплювало роботу вебклієнта. Було здійснено авторизацію та перевірено доступ до панелі адміністратора. В рамках тестування було отримано статус серверу, переглянуто поточну конфігурацію, змінено налаштування, переглянуто логи та видалено записи за конкретну дату. Додатково перевірено функціональність управління ролями користувачів: спочатку роль адміністратора серверу було видалено, після чого відповідна панель стала недоступною, а після відновлення ролі — знову доступною. Це підтвердило правильність роботи вебклієнту системи.
+     Було також перевірено IoT-компонент системи. Після запуску пристрою було підтверджено його підключення до інтернету та успішне отримання даних про користувача і пристрій. Після цього IoT-пристрій почав регулярно надсилати запити на сервер, що містять дані тренувань і повідомлення. Таким чином, працездатність IoT-модуля було підтверджено.
+     Далі було перевірено функціональність мобільного клієнта. Для цього було завантажено APK-файл із вебсторінки, встановлено його на мобільний пристрій і здійснено авторизацію. Після входу до системи перевірено панель адміністратора бази даних, зокрема — стан з’єднання, створення резервної копії та її використання для відновлення системи. Правильність роботи функціоналу підтверджує коректну роботу механізмів збереження та відновлення, а також працездатність мобільного клієнту програмної системи.
+     У додатку Б було представлено графічні матеріали.
+     Всі програмні реалізації, пов’язані з бізнес-логікою, математикою та адмініструванням, наведені у додатку В. 
+     
+ВИСНОВКИ
+
+     У результаті виконання роботи було реалізовано повне розгортання програмної системи обліку користувачів у фітнес-студії з використанням сучасних технологій та інструментів. Усі компоненти — серверна частина, вебклієнт, IoT-пристрій та мобільний застосунок — успішно пройшли перевірку працездатності та взаємодіють між собою у межах єдиної програмної екосистеми.
+     
+ДОДАТОК А
+Відеозапис
+     
+     Відеозапис презентації результатів лабораторної роботи: https://youtu.be/-Mcrpgp4BPA 
+     
+     Хронологічний опис відеозапису:
+     00:00 – Привітання
+     00:30 – Розгортання серверної, веб IoT та частин програмної системи
+     02:41 – Перевірка працездатності серверної частини
+     04:29 – Перевірка працездатності вебклієнта
+     05:48 – Перевірка працездатності IoT частини
+     06:38 – Розгортання мобільної частини програмної системи
+     07:10 – Перевірка працездатності мобільного клієнта
+     08:33 – Висновки
+     
+ДОДАТОК Б
+Графічні матеріали
+     
+
+Рисунок Б.1 – ER-діаграма даних
+
+Рисунок Б.2 – Структура бази даних
+
+Рисунок Б.3 – UML-діаграма прецедентів
+
+ДОДАТОК В
+Програмний код
+     	
+В.1 Математична обробка прикладних даних.
+          
+GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab2/pzpi-22-3-ivanov-yaroslav-lab2/server/services/AnalyticsService.js 
+     
+1. const TrainingModel = require("../models/Training");
+2. const DeviceModel = require("../models/Device");
+3. 
+4. class AnalyticsService {
+5.   /**
+6.    * Calculates the calories burned during a training session.
+7.    * @param {string} trainingId - The ID of the training session.
+8.    * @returns {Promise<Object|null>} - The calculated calories or null if training not found.
+9.    */
+10.   async calculateCalories(trainingId) {
+11.     const result = await this._getTrainingWithUser(trainingId);
+12.     if (!result) return null;
+13.     const { training, user } = result;
+14. 
+15.     let calories;
+16.     if (training.type === "walk" || training.type === "run") {
+17.       calories = this._calculateCaloriesBySteps(training, user);
+18.     } else {
+19.       calories = this._calculateCaloriesByHeartRate(training, user);
+20.     }
+21. 
+22.     await this._createRecommendations(user, training, calories);
+23.     return calories;
+24.   }
+25. 
+26.   /**
+27.    * Calculates calories burned based on heart rate data.
+28.    * @param {Object} training - The training session data.
+29.    * @param {Object} user - The user data.
+30.    * @returns {Object} - The calculated calories and related data.
+31.    */
+32.   _calculateCaloriesByHeartRate(training, user) {
+33.     const startTime = new Date(training.startTime).getTime();
+34.     const endTime = new Date(training.endTime).getTime();
+35.     const duration = Math.floor((endTime - startTime) / 60000);
+36. 
+37.     let totalHeartRate = 0;
+38.     for (const data of training.trainingDatas) {
+39.       totalHeartRate += data.heartRate;
+40.     }
+41.     const averageHeartRate = training.trainingDatas.length
+42.       ? totalHeartRate / training.trainingDatas.length
+43.       : 0;
+44. 
+45.     const { age, sex } = this._getUserAgeAndSex(user);
+46.     const weight = user.weight;
+47.     let formula = "";
+48.     let caloriesBurned = 0;
+49. 
+50.     if (sex === "male") {
+51.       formula = `CB = (T * (0.6309 * H + 0.1988 * W + 0.2017 * A - 55.0969)) / 4.184`;
+52.       caloriesBurned =
+53.         (duration *
+54.           (0.6309 * averageHeartRate +
+55.             0.1988 * weight +
+56.             0.2017 * age -
+57.             55.0969)) /
+58.         4.184;
+59.     } else if (sex === "female") {
+60.       formula = `CB = (T * (0.4472 * H - 0.1263 * W + 0.074 * A - 20.4022)) / 4.184`;
+61.       caloriesBurned =
+62.         (duration *
+63.           (0.4472 * averageHeartRate -
+64.             0.1263 * weight +
+65.             0.074 * age -
+66.             20.4022)) /
+67.         4.184;
+68.     }
+69. 
+70.     return {
+71.       CB: caloriesBurned,
+72.       T: duration,
+73.       H: averageHeartRate,
+74.       A: age,
+75.       W: weight,
+76.       sex,
+77.       formula,
+78.     };
+79.   }
+80. 
+81.   /**
+82.    * Calculates calories burned based on step data.
+83.    * @param {Object} training - The training session data.
+84.    * @param {Object} user - The user data.
+85.    * @returns {Object} - The calculated calories and related data.
+86.    */
+87.   _calculateCaloriesBySteps(training, user) {
+88.     let totalSteps = 0;
+89.     for (const data of training.trainingDatas) {
+90.       totalSteps += data.steps;
+91.     }
+92. 
+93.     const height = user.height / 100;
+94.     const stride = height * 0.414;
+95.     const distance = stride * totalSteps;
+96. 
+97.     let speed, MET;
+98.     if (training.type === "walk") {
+99.       speed = 0.9;
+100.       MET = 2.8;
+101.     } else if (training.type === "run") {
+102.       speed = 1.79;
+103.       MET = 5;
+104.     }
+105. 
+106.     const time = distance / speed;
+107.     const weight = user.weight;
+108.     const formula = `calories = (time * MET * 3.5 * weight) / (200 * 60)`;
+109.     const calories = (time * MET * 3.5 * weight) / (200 * 60);
+110. 
+111.     return {
+112.       calories,
+113.       totalSteps,
+114.       height,
+115.       time,
+116.       MET,
+117.       weight,
+118.       formula,
+119.     };
+120.   }
+121. 
+122.   /**
+123.    * Calculates step statistics for a user.
+124.    * @param {Object} user - The user data.
+125.    * @returns {Promise<Object|null>} - The calculated step statistics or null if no trainings found.
+126.    */
+127.   async _calculateStepStatistics(user) {
+128.     const trainings = await TrainingModel.find({
+129.       device: user.device,
+130.     }).populate("trainingDatas");
+131.     if (!trainings.length) return null;
+132. 
+133.     let totalSteps = 0;
+134.     const stepsArray = [];
+135.     for (const training of trainings) {
+136.       let trainingSteps = 0;
+137.       for (const data of training.trainingDatas) {
+138.         trainingSteps += data.steps;
+139.       }
+140.       totalSteps += trainingSteps;
+141.       stepsArray.push(trainingSteps);
+142.     }
+143.     const averageSteps = totalSteps / trainings.length;
+144.     const stepStandardDeviation = this._calculateStandardDeviation(
+145.       stepsArray,
+146.       averageSteps
+147.     );
+148.     const coefficientOfVariation = this._calculateCoefficientOfVariation(
+149.       stepStandardDeviation,
+150.       averageSteps
+151.     );
+152. 
+153.     return {
+154.       averageSteps,
+155.       stepStandardDeviation,
+156.       coefficientOfVariation,
+157.       totalSteps,
+158.       trainingsLength: trainings.length,
+159.     };
+160.   }
+161. 
+162.   /**
+163.    * Calculates calorie statistics for a user.
+164.    * @param {Object} user - The user data.
+165.    * @returns {Promise<Object|null>} - The calculated calorie statistics or null if no trainings found.
+166.    */
+167.   async _calculateCaloriesStatistics(user) {
+168.     const trainings = await TrainingModel.find({
+169.       device: user.device,
+170.     }).populate("trainingDatas");
+171.     if (!trainings.length) return null;
+172. 
+173.     let totalCalories = 0;
+174.     const caloriesArray = [];
+175.     for (const training of trainings) {
+176.       const calories = this._calculateCalories(training, user);
+177.       totalCalories += calories.CB || calories.calories;
+178.       caloriesArray.push(calories.CB || calories.calories);
+179.     }
+180. 
+181.     const averageCalories = totalCalories / trainings.length;
+182.     const calorieStandardDeviation = this._calculateStandardDeviation(
+183.       caloriesArray,
+184.       averageCalories
+185.     );
+186.     const coefficientOfVariation = this._calculateCoefficientOfVariation(
+187.       calorieStandardDeviation,
+188.       averageCalories
+189.     );
+190. 
+191.     return {
+192.       averageCalories,
+193.       calorieStandardDeviation,
+194.       coefficientOfVariation,
+195.       totalCalories,
+196.       trainingsAmount: trainings.length,
+197.     };
+198.   }
+199. 
+200.   /**
+201.    * Calculates calories burned during a training session.
+202.    * @param {Object} training - The training session data.
+203.    * @param {Object} user - The user data.
+204.    * @returns {Object} - The calculated calories and related data.
+205.    */
+206.   _calculateCalories(training, user) {
+207.     if (training.type === "walk" || training.type === "run") {
+208.       return this._calculateCaloriesBySteps(training, user);
+209.     }
+210.     return this._calculateCaloriesByHeartRate(training, user);
+211.   }
+212. 
+213.   /**
+214.    * Calculates the standard deviation of an array of values.
+215.    * @param {Array<number>} values - The array of values.
+216.    * @param {number} mean - The mean of the values.
+217.    * @returns {number} - The calculated standard deviation.
+218.    */
+219.   _calculateStandardDeviation(values, mean) {
+220.     let variance = 0;
+221.     for (const value of values) {
+222.       variance += Math.pow(value - mean, 2);
+223.     }
+224.     variance /= values.length;
+225.     return Math.sqrt(variance);
+226.   }
+227. 
+228.   /**
+229.    * Calculates the coefficient of variation.
+230.    * @param {number} standardDeviation - The standard deviation.
+231.    * @param {number} mean - The mean of the values.
+232.    * @returns {number} - The calculated coefficient of variation.
+233.    */
+234.   _calculateCoefficientOfVariation(standardDeviation, mean) {
+235.     return mean ? (standardDeviation / mean) * 100 : 0;
+236.   }
+237. 
+238.   /**
+239.    * Creates recommendations based on training and user data.
+240.    * @param {Object} user - The user data.
+241.    * @param {Object} training - The training session data.
+242.    * @param {Object} calories - The calculated calories data.
+243.    */
+244.   async _createRecommendations(user, training, calories) {
+245.     const stepStats = await this._calculateStepStatistics(user);
+246.     const calorieStats = await this._calculateCaloriesStatistics(user);
+247.     if (!stepStats || !calorieStats) return;
+248. 
+249.     let currentSteps = 0;
+250.     for (const data of training.trainingDatas) {
+251.       currentSteps += data.steps;
+252.     }
+253. 
+254.     let message = "";
+255.     if (currentSteps > stepStats.averageSteps) {
+256.       message = `Today you walked more than usual, good job`;
+257.     } else {
+258.       message = `Today you walked less than usual, don't lose your progression`;
+259.     }
+260. 
+261.     if (calories.CB || calories.calories > calorieStats.averageCalories) {
+262.       message += `\nYou burned more calories than usual in this workout, good job`;
+263.     } else {
+264.       message += `\nYou burned fewer calories than usual in this workout, try harder`;
+265.     }
+266. 
+267.     await this._checkLastTrainingDate(user);
+268.     await this._analyzeHeartRate(user, training);
+269.   }
+270. 
+271.   /**
+272.    * Checks the date of the last training session.
+273.    * @param {Object} user - The user data.
+274.    */
+275.   async _checkLastTrainingDate(user) {
+276.     const lastTraining = await TrainingModel.findOne({
+277.       device: user.device,
+278.     }).sort({ endTime: -1 });
+279.     if (!lastTraining) return;
+280. 
+281.     const lastTrainingDate = new Date(lastTraining.endTime).getTime();
+282.     const currentDate = new Date().getTime();
+283.     const diffTime = Math.abs(currentDate - lastTrainingDate);
+284.     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+285. 
+286.     if (diffDays > 7) {
+287.       const message = `You haven't done any sports for ${diffDays} days, come back - physical activity is very useful`;
+288.       console.log(message);
+289.     }
+290.   }
+291. 
+292.   /**
+293.    * Analyzes the heart rate data during a training session.
+294.    * @param {Object} user - The user data.
+295.    * @param {Object} training - The training session data.
+296.    */
+297.   async _analyzeHeartRate(user, training) {
+298.     const { age, sex } = this._getUserAgeAndSex(user);
+299.     let maxHeartRate;
+300.     let formula = "";
+301. 
+302.     if (sex === "male") {
+303.       maxHeartRate = 214 - 0.8 * age;
+304.       formula = `maxHeartRate = 214 - 0.8 * age`;
+305.     } else if (sex === "female") {
+306.       maxHeartRate = 209 - 0.9 * age;
+307.       formula = `maxHeartRate = 209 - 0.9 * age`;
+308.     }
+309. 
+310.     const heartRates = training.trainingDatas.map((data) => data.heartRate);
+311.     if (!heartRates.length) return;
+312. 
+313.     const maxHeartRateDuringTraining = Math.max(...heartRates);
+314.     const minHeartRateDuringTraining = Math.min(...heartRates);
+315. 
+316.     let message = "";
+317.     if (maxHeartRateDuringTraining > maxHeartRate) {
+318.       message = `During this training your heart rate was very high, you should take a break`;
+319.     } else if (maxHeartRateDuringTraining > 0.85 * maxHeartRate) {
+320.       message = `During this training your heart rate was high, try not to overexert yourself`;
+321.     } else if (minHeartRateDuringTraining < 0.5 * maxHeartRate) {
+322.       message = `During this training your heart rate was low, look out for your health`;
+323.     }  else {
+324.       message = `During this training your heart rate was normal, keep it up`;
+325.     }
+326. 
+327.     console.log(message);
+328.   }
+329. 
+330.   /**
+331.    * Provides step recommendations based on training data.
+332.    * @param {string} trainingId - The ID of the training session.
+333.    * @returns {Promise<Object>} - The step recommendations and related data.
+334.    */
+335.   async getStepRecommendations(trainingId) {
+336.     const result = await this._getTrainingWithUser(trainingId);
+337.     if (!result) return { message: "Training not found" };
+338.     const { training, user } = result;
+339. 
+340.     const stepStats = await this._calculateStepStatistics(user);
+341.     if (!stepStats)
+342.       return { message: "Not enough data to calculate statistics" };
+343. 
+344.     let currentSteps = 0;
+345.     for (const data of training.trainingDatas) {
+346.       currentSteps += data.steps;
+347.     }
+348. 
+349.     let message = "";
+350.     if (currentSteps > stepStats.averageSteps) {
+351.       message = `You walked more than in average, good job`;
+352.     } else {
+353.       message = `You walked less than in average, don't lose your progression`;
+354.     }
+355. 
+356.     return {
+357.       message,
+358.       indicators: {
+359.         currentSteps,
+360.         averageSteps: stepStats.averageSteps,
+361.       },
+362.     };
+363.   }
+364. 
+365.   /**
+366.    * Provides calorie recommendations based on training data.
+367.    * @param {string} trainingId - The ID of the training session.
+368.    * @returns {Promise<Object>} - The calorie recommendations and related data.
+369.    */
+370.   async getCaloriesRecommendations(trainingId) {
+371.     const result = await this._getTrainingWithUser(trainingId);
+372.     if (!result) return { message: "Training not found" };
+373.     const { training, user } = result;
+374. 
+375.     const calorieStats = await this._calculateCaloriesStatistics(user);
+376.     if (!calorieStats)
+377.       return { message: "Not enough data to calculate statistics" };
+378. 
+379.     const calories = await this.calculateCalories(trainingId);
+380.     if (!calories) return { message: "Unable to calculate calories" };
+381. 
+382.     let message = "";
+383.     if (calories.CB || calories.calories > calorieStats.averageCalories) {
+384.       message = `You burned more calories than usual in this workout, good job`;
+385.     } else {
+386.       message = `You burned fewer calories than usual in this workout, try harder`;
+387.     }
+388. 
+389.     return {
+390.       message,
+391.       indicators: {
+392.         calories: calories.CB || calories.calories,
+393.         averageCalories: calorieStats.averageCalories,
+394.       },
+395.       parameters: calories,
+396.     };
+397.   }
+398. 
+399.   /**
+400.    * Provides heart rate recommendations based on training data.
+401.    * @param {string} trainingId - The ID of the training session.
+402.    * @returns {Promise<Object>} - The heart rate recommendations and related data.
+403.    */
+404.   async getHeartRateRecommendations(trainingId) {
+405.     const result = await this._getTrainingWithUser(trainingId);
+406.     if (!result) return { message: "Training not found" };
+407.     const { training, user } = result;
+408. 
+409.     const { age, sex } = this._getUserAgeAndSex(user);
+410.     let maxHeartRate;
+411.     let formula = "";
+412. 
+413.     if (sex === "male") {
+414.       maxHeartRate = 214 - 0.8 * age;
+415.       formula = `maxHeartRate = 214 - 0.8 * age`;
+416.     } else if (sex === "female") {
+417.       maxHeartRate = 209 - 0.9 * age;
+418.       formula = `maxHeartRate = 209 - 0.9 * age`;
+419.     }
+420. 
+421.     const heartRates = training.trainingDatas.map((data) => data.heartRate);
+422.     if (!heartRates.length) return { message: "No heart rate data available" };
+423. 
+424.     const maxHeartRateDuringTraining = Math.max(...heartRates);
+425.     const minHeartRateDuringTraining = Math.min(...heartRates);
+426. 
+427.     let message = "";
+428.     if (maxHeartRateDuringTraining > maxHeartRate) {
+429.       message = `During this training your heart rate was very high, you should take a break`;
+430.     } else if (maxHeartRateDuringTraining > 0.85 * maxHeartRate) {
+431.       message = `During this training your heart rate was high, try not to overexert yourself`;
+432.     } else if (minHeartRateDuringTraining < 0.5 * maxHeartRate) {
+433.       message = `During this training your heart rate was low, look out for your health`;
+434.     }  else {
+435.       message = `During this training your heart rate was normal, keep it up`;
+436.     }
+437. 
+438.     return {
+439.       message,
+440.       formula,
+441.       indicators: {
+442.         age,
+443.         maxHeartRate,
+444.         maxHeartRateDuringTraining,
+445.         minHeartRateDuringTraining,
+446.         acceptableRange: {
+447.           lower: 0.5 * maxHeartRate,
+448.           upper: 0.85 * maxHeartRate,
+449.         },
+450.       },
+451.     };
+452.   }
+453. 
+454.   /**
+455.    * Retrieves training data along with user data.
+456.    * @param {string} trainingId - The ID of the training session.
+457.    * @returns {Promise<Object|null>} - The training and user data or null if not found.
+458.    */
+459.   async _getTrainingWithUser(trainingId) {
+460.     const training = await TrainingModel.findById(trainingId).populate(
+461.       "trainingDatas"
+462.     );
+463.     if (!training) return null;
+464. 
+465.     const device = await DeviceModel.findById(training.device).populate("user");
+466.     if (!device) return null;
+467. 
+468.     return { training, user: device.user, device };
+469.   }
+470. 
+471.   /**
+472.    * Retrieves the age and sex of a user.
+473.    * @param {Object} user - The user data.
+474.    * @returns {Object} - The age and sex of the user.
+475.    */
+476.   _getUserAgeAndSex(user) {
+477.     const birthDate = new Date(user.birthDate).getTime();
+478.     const ageDifMs = Date.now() - birthDate;
+479.     const age = new Date(ageDifMs).getUTCFullYear() - 1970;
+480.     const sex = user.sex.toLowerCase();
+481.     return { age, sex };
+482.   }
+483. }
+484. 
+485. module.exports = new AnalyticsService();
+     
+В.2 Адміністрування бізнес-логіки системи.
+     
+GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab5/pzpi-22-3-ivanov-yaroslav-lab5/installer/main_installer.py  
+      
+1. import tkinter as tk
+2. from tkinter import messagebox
+3. from tkinter import ttk
+4. import threading
+5. import os
+6. import sys
+7. import subprocess
+8. 
+9. scripts_path = os.path.join(os.path.dirname(__file__), 'scripts')
+10. if scripts_path not in sys.path:
+11.     sys.path.insert(0, scripts_path)
+12. 
+13. from scripts.nodejs_install import run_nodejs_setup
+14. from scripts.npm_install import install_npm_dependencies
+15. from scripts.npm_run import start_npm_dev_server, start_npm_client_dev
+16. 
+17. CORRECT_PASSWORD = 'alLxYV4BL6MvP00z'
+18. SERVER_DIR = r"C:\Users\Yaroslav\Documents\GitHub\apz-pzpi-22-3-ivanov-yaroslav\Lab2\pzpi-22-3-ivanov-yaroslav-lab2\server"
+19. CLIENT_APZ_DIR = r"C:\Users\Yaroslav\Documents\GitHub\apz-pzpi-22-3-ivanov-yaroslav\Lab3\pzpi-22-3-ivanov-yaroslav-lab3\client\apz"
+20. 
+21. class InstallerApp(tk.Tk):
+22.     def __init__(self):
+23.         super().__init__()
+24.         self.title("System Installer")
+25.         self.geometry("400x250")
+26.         self.resizable(False, False)
+27.         self.password = tk.StringVar()
+28.         self.current_frame = None
+29.         self.switch_frame(self.create_password_frame)
+30. 
+31.     def switch_frame(self, frame_function):
+32.         if self.current_frame:
+33.             self.current_frame.destroy()
+34.         self.current_frame = frame_function()
+35. 
+36.     def create_password_frame(self):
+37.         frame = tk.Frame(self)
+38.         frame.pack(expand=True, fill="both")
+39. 
+40.         tk.Label(frame, text="System Installer", font=("TkDefaultFont", 16, "bold")).pack(pady=(30, 8))
+41.         tk.Label(frame, text="Database password:").pack(pady=(0, 10))
+42.         entry = ttk.Entry(frame, show="*", textvariable=self.password, width=22)
+43.         entry.pack()
+44.         entry.focus()
+45. 
+46.         ttk.Button(frame, text="Next", command=self.check_password).pack(pady=28)
+47.         return frame
+48. 
+49.     def check_password(self):
+50.         if self.password.get() != CORRECT_PASSWORD:
+51.             messagebox.showerror("Error", "Incorrect password.")
+52.         else:
+53.             self.switch_frame(self.create_progress_frame)
+54.             threading.Thread(target=self.install_all, daemon=True).start()
+55. 
+56.     def create_progress_frame(self):
+57.         frame = tk.Frame(self)
+58.         frame.pack(expand=True, fill="both")
+59.         self.status_label = tk.Label(frame, text="Installing...")
+60.         self.status_label.pack(pady=(60, 10))
+61.         self.progress_bar = ttk.Progressbar(frame, mode='indeterminate', length=240)
+62.         self.progress_bar.pack(pady=20)
+63.         self.progress_bar.start()
+64.         return frame
+65. 
+66.     def update_status(self, message):
+67.         self.status_label.config(text=message)
+68.         self.update_idletasks()
+69. 
+70.     def install_all(self):
+71.         try:
+72.             self.update_status("Installing Node.js...")
+73.             run_nodejs_setup()
+74.             self.update_status("Installing npm dependencies...")
+75.             install_npm_dependencies(SERVER_DIR)
+76.             self.update_status("Done.")
+77.             self.progress_bar.stop()
+78.             self.switch_frame(self.create_success_frame)
+79.             self.create_desktop_shortcut()
+80.         except Exception as e:
+81.             messagebox.showerror("Installation Failed", str(e))
+82.             self.destroy()
+83. 
+84.     def create_success_frame(self):
+85.         frame = tk.Frame(self)
+86.         frame.pack(expand=True, fill="both")
+87.         tk.Label(frame, text="Installation Complete!", font=("TkDefaultFont", 14, "bold")).pack(pady=(50, 10))
+88.         ttk.Button(frame, text="Start Server and Frontend", command=self.launch_services).pack(pady=30)
+89.         return frame
+90. 
+91.     def launch_services(self):
+92.         self.start_in_new_console(lambda: start_npm_dev_server(SERVER_DIR))
+93.         self.start_in_new_console(lambda: start_npm_client_dev(CLIENT_APZ_DIR))
+94.         try:
+95.             subprocess.Popen(["cmd", "/c", "start", "http://localhost:5000/docs"])
+96.             subprocess.Popen(["cmd", "/c", "start", "http://localhost:5001"])
+97.         except Exception as e:
+98.             messagebox.showerror("Launch Failed", str(e))
+99.         self.destroy()
+100. 
+101.     def start_in_new_console(self, func):
+102.         threading.Thread(target=func, daemon=True).start()
+103. 
+104.     def create_desktop_shortcut(self):
+105.         # См. следующий пункт!
+106.         create_hardcoded_bat()
+107. 
+108. def create_hardcoded_bat():
+109.     # Захардкоженные пути для вашего устройства
+110.     desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+111.     bat_path = os.path.join(desktop, "StartServerAndFrontend.bat")
+112.     server_dir = r"C:\Users\Yaroslav\Documents\GitHub\apz-pzpi-22-3-ivanov-yaroslav\Lab2\pzpi-22-3-ivanov-yaroslav-lab2\server"
+113.     client_apz_dir = r"C:\Users\Yaroslav\Documents\GitHub\apz-pzpi-22-3-ivanov-yaroslav\Lab3\pzpi-22-3-ivanov-yaroslav-lab3\client\apz"
+114. 
+115.     bat_content = f"""@echo off
+116. cd /d "{server_dir}"
+117. start cmd /k "npm run dev"
+118. cd /d "{client_apz_dir}"
+119. start cmd /k "npm run dev"
+120. start http://localhost:5000/docs
+121. start http://localhost:5001
+122. """
+123. 
+124.     with open(bat_path, "w", encoding="utf-8") as file:
+125.         file.write(bat_content)
+126. 
+127. if __name__ == "__main__":
+128.     app = InstallerApp()
+129.     app.mainloop()
+     
+В.3 Резервне копіювання користувацьких даних
+          
+GitHub репозиторій: GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab4/pzpi-22-3-ivanov-yaroslav-lab4/mobile/app/src/main/java/com/devhub/apz/ui/admin/DbAdminDashboardViewModel.kt 
+     
+1. package com.devhub.apz.ui.admin
+2. 
+3. import android.app.Application
+4. import androidx.lifecycle.AndroidViewModel
+5. import androidx.lifecycle.MutableLiveData
+6. import androidx.lifecycle.viewModelScope
+7. import com.devhub.apz.R
+8. import kotlinx.coroutines.Dispatchers
+9. import kotlinx.coroutines.launch
+10. import kotlinx.coroutines.withContext
+11. import org.json.JSONObject
+12. import java.net.HttpURLConnection
+13. import java.net.URL
+14. 
+15. class DbAdminDashboardViewModel(application: Application) : AndroidViewModel(application) {
+16.     val backupResult = MutableLiveData<Pair<Boolean, String?>>()
+17.     val restoreResult = MutableLiveData<Pair<Boolean, String?>>()
+18.     val dbStatus = MutableLiveData<JSONObject?>()
+19.     val loading = MutableLiveData<Boolean>()
+20.     val error = MutableLiveData<String?>()
+21. 
+22.     fun createBackup(token: String) {
+23.         loading.value = true
+24.         error.value = null
+25.         viewModelScope.launch(Dispatchers.IO) {
+26.             try {
+27.                 val url = URL("http://10.0.2.2:5000/api/admin/backup")
+28.                 val conn = url.openConnection() as HttpURLConnection
+29.                 conn.requestMethod = "POST"
+30.                 conn.doOutput = true
+31.                 conn.setRequestProperty("Content-Type", "application/json")
+32.                 conn.setRequestProperty("Authorization", "Bearer $token")
+33.                 val responseCode = conn.responseCode
+34.                 val responseText = conn.inputStream.bufferedReader().readText()
+35.                 conn.disconnect()
+36.                 withContext(Dispatchers.Main) {
+37.                     if (responseCode == HttpURLConnection.HTTP_OK) {
+38.                         backupResult.value = Pair(
+39.                             true,
+40.                             getApplication<Application>().getString(R.string.backup_created_success)
+41.                         )
+42.                     } else {
+43.                         backupResult.value =
+44.                             Pair(
+45.                                 false,
+46.                                 getApplication<Application>().getString(
+47.                                     R.string.error_backup_db,
+48.                                     responseCode
+49.                                 )
+50.                             )
+51.                     }
+52.                     loading.value = false
+53.                 }
+54.             } catch (e: Exception) {
+55.                 withContext(Dispatchers.Main) {
+56.                     backupResult.value = Pair(
+57.                         false,
+58.                         getApplication<Application>().getString(
+59.                             R.string.error_backup_db,
+60.                             e.message ?: ""
+61.                         )
+62.                     )
+63.                     loading.value = false
+64.                 }
+65.             }
+66.         }
+67.     }
+68. 
+69.     fun restoreBackup(token: String, backupName: String) {
+70.         loading.value = true
+71.         error.value = null
+72.         viewModelScope.launch(Dispatchers.IO) {
+73.             try {
+74.                 val url = URL("http://10.0.2.2:5000/api/admin/restore")
+75.                 val conn = url.openConnection() as HttpURLConnection
+76.                 conn.requestMethod = "POST"
+77.                 conn.doOutput = true
+78.                 conn.setRequestProperty("Content-Type", "application/json")
+79.                 conn.setRequestProperty("Authorization", "Bearer $token")
+80.                 val jsonBody = JSONObject().put("backupName", backupName).toString()
+81.                 conn.outputStream.use { it.write(jsonBody.toByteArray()) }
+82.                 val responseCode = conn.responseCode
+83.                 val responseText = conn.inputStream.bufferedReader().readText()
+84.                 conn.disconnect()
+85.                 withContext(Dispatchers.Main) {
+86.                     if (responseCode == HttpURLConnection.HTTP_OK) {
+87.                         restoreResult.value = Pair(
+88.                             true,
+89.                             getApplication<Application>().getString(R.string.db_restored_success)
+90.                         )
+91.                     } else {
+92.                         restoreResult.value = Pair(
+93.                             false,
+94.                             getApplication<Application>().getString(
+95.                                 R.string.error_restore_db,
+96.                                 responseCode
+97.                             )
+98.                         )
+99.                     }
+100.                     loading.value = false
+101.                 }
+102.             } catch (e: Exception) {
+103.                 withContext(Dispatchers.Main) {
+104.                     restoreResult.value = Pair(
+105.                         false,
+106.                         getApplication<Application>().getString(
+107.                             R.string.error_restore_db,
+108.                             e.message ?: ""
+109.                         )
+110.                     )
+111.                     loading.value = false
+112.                 }
+113.             }
+114.         }
+115.     }
+116. 
+117.     fun checkDatabaseStatus(token: String) {
+118.         loading.value = true
+119.         error.value = null
+120.         viewModelScope.launch(Dispatchers.IO) {
+121.             try {
+122.                 val url = URL("http://10.0.2.2:5000/api/admin/database-status")
+123.                 val conn = url.openConnection() as HttpURLConnection
+124.                 conn.requestMethod = "GET"
+125.                 conn.setRequestProperty("Authorization", "Bearer $token")
+126.                 val responseCode = conn.responseCode
+127.                 val responseText = conn.inputStream.bufferedReader().readText()
+128.                 conn.disconnect()
+129.                 withContext(Dispatchers.Main) {
+130.                     if (responseCode == HttpURLConnection.HTTP_OK) {
+131.                         val json = JSONObject(responseText)
+132.                         dbStatus.value = json
+133.                     } else {
+134.                         error.value = getApplication<Application>().getString(
+135.                             R.string.error_status_db,
+136.                             responseCode
+137.                         )
+138.                     }
+139.                     loading.value = false
+140.                 }
+141.             } catch (e: Exception) {
+142.                 withContext(Dispatchers.Main) {
+143.                     error.value = getApplication<Application>().getString(
+144.                         R.string.error_status_db,
+145.                         e.message ?: ""
+146.                     )
+147.                     loading.value = false
+148.                 }
+149.             }
+150.         }
+151.     }
+152. }
