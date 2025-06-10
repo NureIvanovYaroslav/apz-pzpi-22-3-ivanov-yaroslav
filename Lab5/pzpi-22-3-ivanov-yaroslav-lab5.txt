@@ -710,7 +710,7 @@ GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22
      
 В.3 Резервне копіювання користувацьких даних
           
-GitHub репозиторій: GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab4/pzpi-22-3-ivanov-yaroslav-lab4/mobile/app/src/main/java/com/devhub/apz/ui/admin/DbAdminDashboardViewModel.kt 
+GitHub репозиторій: https://github.com/NureIvanovYaroslav/apz-pzpi-22-3-ivanov-yaroslav/blob/main/Lab4/pzpi-22-3-ivanov-yaroslav-lab4/mobile/app/src/main/java/com/devhub/apz/ui/admin/DbAdminDashboardViewModel.kt 
      
 1. package com.devhub.apz.ui.admin
 2. 
